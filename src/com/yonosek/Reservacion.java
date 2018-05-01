@@ -10,5 +10,5 @@ package com.yonosek;
  * @author Daniel Alcoleas <your.name at your.org>
  */
 public class Reservacion {
-    
+    /*RESERVACION*/
 }
