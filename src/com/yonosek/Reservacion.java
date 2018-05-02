@@ -15,6 +15,9 @@ public class Reservacion {
     private int totalDias;
     private double costoNoche;
     private double costoTotal;
+    
+    public Reservacion(){   
+    }
 
     public Reservacion(Date Fecha1, int codigo, Paquete paqueteAdquirido, double costoPaquete, int totalDias, double costoNoche, double costoTotal) {
         this.Fecha1 = Fecha1;

@@ -7,6 +7,10 @@ public class Paquete {
     private int codigoPaquete;
     private ArrayList <String> servicio = new ArrayList<>();
     private int costoPaquete;
+    
+    public Paquete(){
+        
+    }
 
     public Paquete(int codigoPaquete,  int costoPaquete) {
         this.codigoPaquete = codigoPaquete;
