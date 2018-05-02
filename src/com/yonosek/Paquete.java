@@ -33,6 +33,10 @@ public class Paquete {
         this.costoPaquete = costoPaquete;
     }
     
+    /**
+     * 
+     * @param servicio 
+     */
     public void addServicio(String servicio){
         this.servicio.add(servicio);
         System.out.println("Agregue el servicio: ");
