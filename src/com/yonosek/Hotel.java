@@ -8,6 +8,7 @@ import java.util.HashMap;
  * @author Alvaro García <alvarogarcia1010 at github.com>
  */
 public class Hotel {
+
     private int idHotel;
     private String nombreHotel;
     private float precioBase;
@@ -15,20 +16,23 @@ public class Hotel {
     private HashMap<String, Paquete> pisosHotel;
     private HashMap<Integer, Paquete> habitacionesHotel;
     private HashMap<Integer, Paquete> paquetesHotel;
-    
-    /**Constructor Vacio*/
-    public Hotel(){
+
+    /**
+     * Constructor Vacio
+     */
+    public Hotel() {
         this.clientesHotel = new ArrayList<>();
         this.pisosHotel = new HashMap<>();
         this.habitacionesHotel = new HashMap<>();
         this.paquetesHotel = new HashMap<>();
     }
-    
+
     /**
      * Constructor General
+     *
      * @param idHotel
      * @param nombreHotel
-     * @param precioBase 
+     * @param precioBase
      */
     public Hotel(int idHotel, String nombreHotel, float precioBase) {
         this.idHotel = idHotel;
@@ -62,6 +66,30 @@ public class Hotel {
 
     public void setPrecioBase(float precioBase) {
         this.precioBase = precioBase;
+    }
+    
+    /**
+     * 
+     * @param cliente 
+     */
+    public void agregarCliente(Paquete cliente) {
+
+    }
+    
+    /**
+     * 
+     * @param cliente 
+     */
+    public void removerCliente(Paquete cliente) {
+
+    }
+    
+    /**
+     * 
+     * @param cliente 
+     */
+    public void modificarCliente(Paquete cliente){
+        
     }
 
 }
