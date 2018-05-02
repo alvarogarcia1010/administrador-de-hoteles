@@ -24,32 +24,40 @@ public class Menu {
         System.out.println("----- Menu -----");
         System.out.println("1. Administrar clientes");
         System.out.println("2. Administrar reservaciones");
-        System.out.println("3. Administrar servicios");
+        System.out.println("3. Configuraciones");
         System.out.println("4. Salir");
     }
     
     public void opcionesMenuClientes(){
-        System.out.println("----- Menu -----");
+        System.out.println("----- Menu Clientes -----");
         System.out.println("1. Registrar cliente");
-        System.out.println("2. Mostrar clientes");
+        System.out.println("2. Modificar cliente");
+        System.out.println("3. Eliminar cliente");
+        System.out.println("4. Mostrar clientes");
+        System.out.println("5. Atras");
     }
     
     public void opcionesMenuReservaciones(){
-        System.out.println("----- Menu -----");
+        System.out.println("----- Menu Reservaciones-----");
         System.out.println("1. Agregar reservacion");
         System.out.println("2. Modificar reservacion");
         System.out.println("3. Eliminar reservacion");
-        System.out.println("4. Mostrar reservaciones por semana");   
+        System.out.println("4. Mostrar reservaciones por semana");  
+        System.out.println("5. Atras");
+
     }
     
     public void opcionesMenuServicios(){
-        System.out.println("----- Menu -----");
+        System.out.println("----- Configuraciones -----");
         System.out.println("1. Habilitar/Deshabilitar habitacion");
         System.out.println("2. Habilitar/Deshabilitar piso");
-        System.out.println("3. Modificar precio base de habitacion");
-        System.out.println("4. Agregar paquete");
-        System.out.println("5. Modificar paquete");
-        System.out.println("6. Eliminar paquete");
+        System.out.println("3. Modificar precio base de habitacion sencilla");
+        System.out.println("4. Modificar precio base de habitacion doble");
+        System.out.println("5. Agregar paquete");
+        System.out.println("6. Modificar paquete");
+        System.out.println("7. Eliminar paquete");
+        System.out.println("8. Mostrar paquetes");
+        System.out.println("9. Atras");
     }
 
     public void mostrar() {

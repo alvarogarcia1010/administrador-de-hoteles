@@ -14,14 +14,14 @@ public class Habitacion {
     private Piso piso;
     private String codigoHab;
     private String tipoHabitacion;
-    private int precioHabitacion;
+    private float precioHabitacion;
     
     /** Asigna el tipo de la habitacion.
      *
      * @param numHab El numero de la habitacion.
      */
-    public void asignarTipo(int numHab){
-        if(numHab % 2 == 0){
+    public void asignarTipo(){
+        if(this.numHab % 2 == 0){
             setTipoHabitacion("Doble");
         }
         else{
@@ -61,12 +61,19 @@ public class Habitacion {
         this.tipoHabitacion = tipoHabitacion;
     }
 
-    public int getPrecioHabitacion() {
+    public float getPrecioHabitacion() {
         return precioHabitacion;
     }
 
-    public void setPrecioHabitacion(int precioHabitacion) {
+    public void setPrecioHabitacion(float precioHabitacion) {
         this.precioHabitacion = precioHabitacion;
+    }
+    
+    /**
+     * 
+     */
+    public void generarCodigo(){
+        
     }
     
 }

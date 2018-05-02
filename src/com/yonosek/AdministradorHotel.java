@@ -35,21 +35,19 @@ public class AdministradorHotel {
     public Habitacion crearHabitacion(){
         
         Habitacion habitacion = new Habitacion();
-        
         Scanner leer = new Scanner(System.in);
-        
-        System.out.println("Ingrese los nombres del estudiante");
-        System.out.print(": ");
-//        estudiante.setNombres(leer.nextLine());
-        
-        System.out.println("Ingrese los apellids del estudiante");
-        System.out.print(": ");
-//        estudiante.setApellidos(leer.nextLine());
-        
-        System.out.println("Ingrese el carne del estudiante");
-        System.out.print(": ");
-//        estudiante.setCarnet(leer.next());
-        
+        try{
+            System.out.println("Ingrese número de habitación: ");
+            habitacion.setNumHab(leer.nextInt());
+        } catch(InputMismatchException e){
+            System.err.println("Por favor, ingrese un numero");
+            leer.nextInt();
+        }
+//            habitacion.setPrecioHabitacion();
+//            habitacion.setPiso();
+            habitacion.generarCodigo();
+            habitacion.asignarTipo();
+            
         return habitacion;
     }
     
