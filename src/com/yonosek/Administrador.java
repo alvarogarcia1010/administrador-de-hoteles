@@ -9,11 +9,12 @@ package com.yonosek;
  *
  * @author ryane
  */
-public class Administrador {
+public class Administrador extends Persona {
     private String username;
     private String password;
 
-    public Administrador(String username, String password) {
+    public Administrador(String username, String password, String DUI, String nombre, String apellido) {
+        super(DUI, nombre, apellido);
         this.username = username;
         this.password = password;
     }
@@ -32,5 +33,13 @@ public class Administrador {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public void changePassword(){
+        
+    }
+    
+    public void changeUsername(){
+        
     }
 }

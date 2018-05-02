@@ -43,4 +43,8 @@ public class Persona {
     public String getApellido() {
         return apellido;
     }
+    
+    public void modificarPersona(){
+        
+    }
 }

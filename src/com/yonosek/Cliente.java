@@ -9,13 +9,14 @@ package com.yonosek;
  *
  * @author ryane
  */
-public class Cliente {
+public class Cliente extends Persona {
     String formaPago;
     int numTarjeta;
     int codTarjeta;
     Fecha fechaVencTarjeta;
 
-    public Cliente(String formaPago, int numTarjeta, int codTarjeta, Fecha fechaVencTarjeta) {
+    public Cliente(String formaPago, int numTarjeta, int codTarjeta, Fecha fechaVencTarjeta, String DUI, String nombre, String apellido) {
+        super(DUI, nombre, apellido);
         this.formaPago = formaPago;
         this.numTarjeta = numTarjeta;
         this.codTarjeta = codTarjeta;
@@ -52,5 +53,13 @@ public class Cliente {
 
     public void setFechaVencTarjeta(Fecha fechaVencTarjeta) {
         this.fechaVencTarjeta = fechaVencTarjeta;
+    }
+    
+    public void mostrarCliente(){
+        
+    }
+    
+    public void modificarCliente(){
+        
     }
 }
