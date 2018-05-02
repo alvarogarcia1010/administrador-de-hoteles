@@ -1,14 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.yonosek;
 
-/**
- *
- * @author Daniel Alcoleas <your.name at your.org>
- */
+import java.util.ArrayList;
+
+
 public class Paquete {
-    /*PAQUETE*/
+    private int codigoPaquete;
+    private ArrayList <String> servicio = new ArrayList<>();
+    private int costoPaquete;
+
+    public Paquete(int codigoPaquete,  int costoPaquete) {
+        this.codigoPaquete = codigoPaquete;
+        this.costoPaquete = costoPaquete;
+    }
+  
+    public int getCodigoPaquete() {
+        return codigoPaquete;
+    }
+
+    public void setCodigoPaquete(int codigoPaquete) {
+        this.codigoPaquete = codigoPaquete;
+    }
+
+    public int getCostoPaquete() {
+        return costoPaquete;
+    }
+
+    public void setCostoPaquete(int costoPaquete) {
+        this.costoPaquete = costoPaquete;
+    }
+    
+    public void addServicio(String servicio){
+        this.servicio.add(servicio);
+        System.out.println("Agregue el servicio: ");
+    }
+    
+    
 }
+
