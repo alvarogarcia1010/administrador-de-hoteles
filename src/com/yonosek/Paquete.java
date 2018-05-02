@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Paquete {
     private int codigoPaquete;
-    private ArrayList <String> servicio = new ArrayList<>();
+    private ArrayList <String> servicio;
     private int costoPaquete;
     
     public Paquete(){
@@ -13,6 +13,7 @@ public class Paquete {
     }
 
     public Paquete(int codigoPaquete,  int costoPaquete) {
+        this.servicio=new ArrayList<>();
         this.codigoPaquete = codigoPaquete;
         this.costoPaquete = costoPaquete;
     }
