@@ -10,5 +10,5 @@ package com.yonosek;
  * @author ryane
  */
 public class Cliente {
-    
+    int DUI;
 }
