@@ -12,7 +12,7 @@ public class Hotel {
     private int idHotel;
     private String nombreHotel;
     private float precioBase;
-    private ArrayList<Paquete> clientesHotel;
+    private ArrayList<Cliente> clientesHotel;
     private ArrayList<Reservacion> reservacionesHotel;
     private HashMap<String, Piso> pisosHotel;
     private HashMap<String, Habitacion> habitacionesHotel;
@@ -31,9 +31,10 @@ public class Hotel {
 
     /**
      * Constructor
+     *
      * @param idHotel
      * @param nombreHotel
-     * @param precioBase 
+     * @param precioBase
      */
     public Hotel(int idHotel, String nombreHotel, float precioBase) {
         this.idHotel = idHotel;
@@ -69,177 +70,199 @@ public class Hotel {
     public void setPrecioBase(float precioBase) {
         this.precioBase = precioBase;
     }
-    
+
     //PARA MANEJAR CLIENTES
-    
     /**
-     * 
-     * @param cliente 
+     *
+     * @param cliente
+     * @throws java.lang.Exception
      */
-    public void agregarCliente(Paquete cliente) {
+    public void agregarCliente(Cliente cliente) throws Exception {
+        boolean flag = false;
+        if (cliente != null) {
+            if (this.clientesHotel.isEmpty()) {
+                this.clientesHotel.add(cliente);
+            } else {
+                for (Cliente c : this.clientesHotel) {
+                    if (cliente.equals(c)) {
+                        System.out.println("El Cliente ya se encuentra registrado");
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag) {
+                    this.clientesHotel.add(cliente);
+
+                } else {
+                    throw new Exception("El cliente ya se encuentra registrado");
+                }
+            }
+        } else {
+            throw new Exception("Operacion no completada: Cliente Nulo");
+        }
 
     }
-    
+
     /**
-     * 
-     * @param cliente 
+     *
+     * @param cliente
      */
-    public void removerCliente(Paquete cliente) {
+    public void removerCliente(Cliente cliente) {
 
     }
-    
+
     /**
-     * 
-     * @param cliente 
+     *
+     * @param cliente
      */
-    public void modificarCliente(Paquete cliente){
-        
+    public void modificarCliente(Cliente cliente) {
+
     }
-    
+
     /**
-     * 
+     *
      */
-    public void mostrarClientes(){
-        
+    public void mostrarClientes() {
+        for (Cliente cliente : this.clientesHotel) {
+            System.out.println( cliente.toString());
+            
+        }
+
     }
-    
+
     //PARA MANEJAR RESERVACIONES
-    
     /**
-     * 
+     *
      * @param reservacion
      */
     public void agregarReservacion(Reservacion reservacion) {
 
     }
-    
+
     /**
-     * 
+     *
      * @param reservacion
      */
     public void removerReservacion(Reservacion reservacion) {
 
     }
-    
+
     /**
-     * 
+     *
      * @param reservacion
      */
-    public void modificarReservacion(Reservacion reservacion){
-        
+    public void modificarReservacion(Reservacion reservacion) {
+
     }
-    
+
     /**
-     * 
+     *
      */
-    public void mostrarReservaciones(){
-        
+    public void mostrarReservaciones() {
+
     }
-    
+
     /**
-     * 
+     *
      */
-    public void mostrarReservacionesSemanales(){
-        
-    }   
-    
+    public void mostrarReservacionesSemanales() {
+
+    }
+
     //PARA MANEJAR PISOS
-    
     /**
-     * 
+     *
      * @param clavePiso
      */
     public void agregarPiso(String clavePiso) {
 
     }
-    
+
     /**
-     * 
+     *
      * @param clavePiso
      */
     public void removerPiso(String clavePiso) {
 
     }
-    
+
     /**
-     * 
+     *
      * @param clavePiso
      */
-    public void modificarPiso(String clavePiso){
-        
+    public void modificarPiso(String clavePiso) {
+
     }
-    
+
     /**
-     * 
+     *
      */
-    public void mostrarPisosYHabitaciones(){
-        
+    public void mostrarPisosYHabitaciones() {
+
     }
-    
+
     //PARA MANEJAR HABITACIONES
-    
     /**
-     * 
+     *
      * @param claveHabitacion
      */
     public void agregarHabitacion(String claveHabitacion) {
 
     }
-    
+
     /**
-     * 
+     *
      * @param claveHabitacion
      */
     public void removerHabitacion(String claveHabitacion) {
 
     }
-    
+
     /**
-     * 
+     *
      * @param claveHabitacion
      */
-    public void modificarHabitacion(String claveHabitacion){
-        
+    public void modificarHabitacion(String claveHabitacion) {
+
     }
-    
+
     /**
-     * 
+     *
      */
-    public void mostrarHabitacionesDisponibles(){
-        
-    }    
-    
+    public void mostrarHabitacionesDisponibles() {
+
+    }
+
     //PARA MANEJAR PAQUETES
-    
     /**
-     * 
+     *
      * @param clavePaquete
      */
     public void agregarPaquete(Integer clavePaquete) {
 
     }
-    
+
     /**
-     * 
+     *
      * @param clavePaquete
      */
     public void removerPaquete(Integer clavePaquete) {
 
     }
-    
+
     /**
-     * 
+     *
      * @param clavePaquete
      */
-    public void modificarPaquete(Integer clavePaquete){
-        
+    public void modificarPaquete(Integer clavePaquete) {
+
     }
-    
+
     /**
-     * 
+     *
      */
-    public void mostrarPaquetes(){
-        
+    public void mostrarPaquetes() {
+
     }
 
 }
