@@ -17,18 +17,36 @@ public class Habitacion {
     private String codigoHab;
     private String tipoHabitacion;
     private float precioHabitacion;
-    private char codigoPiso;
+    private boolean estaHabilitada;
+    private boolean estaDisponible;
     
     public Habitacion(){
         
     }
+
+    public boolean isEstaHabilitada() {
+        return estaHabilitada;
+    }
+
+    public void setEstaHabilitada(boolean estaHabilitada) {
+        this.estaHabilitada = estaHabilitada;
+    }
+
+    public boolean isEstaDisponible() {
+        return estaDisponible;
+    }
+
+    public void setEstaDisponible(boolean estaDisponible) {
+        this.estaDisponible = estaDisponible;
+    }
     
-    public Habitacion(int numHab, Piso piso, String tipoHabitacion, float precioHabitacion, char codigoPiso){
+    
+    public Habitacion(int numHab, Piso piso, String tipoHabitacion, float precioHabitacion){
         this.numHab = numHab;
         this.piso = piso;
         this.tipoHabitacion = tipoHabitacion;
         this.precioHabitacion = precioHabitacion;
-        this.codigoPiso = codigoPiso;
+        
     }
     
     /** Asigna el tipo de la habitacion.
@@ -85,11 +103,6 @@ public class Habitacion {
     }
 
     @Override
-    public String toString() {
-        return "Habitacion{" + "numHab=" + numHab + ", codigoPiso=" + codigoPiso + '}';
-    }
-
-    @Override
     public int hashCode() {
         int hash = 5;
         hash = 19 * hash + Objects.hashCode(this.codigoHab);
@@ -121,8 +134,10 @@ public class Habitacion {
     /**
      * 
      */
-    public void generarCodigo(){
-        
-    }
     
+    /*
+    public void generarCodigo(){
+        this.codigoHab = this.piso.getCodigo() + this.numHab;
+    }
+    */
 }

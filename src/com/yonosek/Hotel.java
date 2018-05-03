@@ -97,7 +97,6 @@ public class Hotel {
             } else {
                 for (Cliente c : this.clientesHotel) {
                     if (cliente.equals(c)) {
-                        System.out.println("El Cliente ya se encuentra registrado");
                         flag = true;
                         break;
                     }
@@ -185,9 +184,15 @@ public class Hotel {
     /**
      *
      * @param clavePiso
+     * @param piso
+     * @throws java.lang.Exception
      */
-    public void agregarPiso(String clavePiso) {
-
+    public void agregarPiso(String clavePiso, Piso piso) throws Exception {
+        if (!this.pisosHotel.containsKey(clavePiso)){
+            this.pisosHotel.put(clavePiso, piso);
+        }else{
+            throw new Exception("El piso ya se encuentra registrado");
+        }
     }
 
     /**
@@ -217,9 +222,15 @@ public class Hotel {
     /**
      *
      * @param claveHabitacion
+     * @param habitacion
+     * @throws java.lang.Exception
      */
-    public void agregarHabitacion(String claveHabitacion) {
-
+    public void agregarHabitacion(String claveHabitacion, Habitacion habitacion) throws Exception {
+        if (!this.habitacionesHotel.containsKey(claveHabitacion)){
+            this.habitacionesHotel.put(claveHabitacion, habitacion);
+        }else{
+            throw new Exception("La habitacion ya se encuentra registrado");
+        }
     }
 
     /**
@@ -249,9 +260,15 @@ public class Hotel {
     /**
      *
      * @param clavePaquete
+     * @param paquete
+     * @throws java.lang.Exception
      */
-    public void agregarPaquete(Integer clavePaquete) {
-
+    public void agregarPaquete(Integer clavePaquete, Paquete paquete)throws Exception {
+        if (!this.paquetesHotel.containsKey(clavePaquete)){
+            this.paquetesHotel.put(clavePaquete, paquete);
+        }else{
+            throw new Exception("El paquete ya se encuentra registrado");
+        }
     }
 
     /**
