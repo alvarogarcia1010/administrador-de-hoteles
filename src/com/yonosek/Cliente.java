@@ -5,22 +5,35 @@
  */
 package com.yonosek;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /**
  *
  * @author ryane
  */
-public class Cliente extends Persona {
-    String formaPago;
-    int numTarjeta;
-    int codTarjeta;
-    Fecha fechaVencTarjeta;
+public class Cliente{
+    private String DUI;
+    private String nombre;
+    private String apellido;
+    private String formaPago;
+    private int numTarjeta;
+    private int codTarjeta;
+    //private Fecha fechaVencTarjeta;
 
-    public Cliente(String formaPago, int numTarjeta, int codTarjeta, Fecha fechaVencTarjeta, String DUI, String nombre, String apellido) {
-        super(DUI, nombre, apellido);
-        this.formaPago = formaPago;
-        this.numTarjeta = numTarjeta;
-        this.codTarjeta = codTarjeta;
-        this.fechaVencTarjeta = fechaVencTarjeta;
+    public Cliente(){
+    }
+
+    public String getDUI() {
+        return DUI;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
     }
 
     public String getFormaPago() {
@@ -35,8 +48,19 @@ public class Cliente extends Persona {
         return codTarjeta;
     }
 
-    public Fecha getFechaVencTarjeta() {
-        return fechaVencTarjeta;
+    //public Fecha getFechaVencTarjeta() {
+        //return fechaVencTarjeta;}
+
+    public void setDUI(String DUI) {
+        this.DUI = DUI;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public void setFormaPago(String formaPago) {
@@ -51,15 +75,10 @@ public class Cliente extends Persona {
         this.codTarjeta = codTarjeta;
     }
 
-    public void setFechaVencTarjeta(Fecha fechaVencTarjeta) {
-        this.fechaVencTarjeta = fechaVencTarjeta;
-    }
+    //public void setFechaVencTarjeta(Fecha fechaVencTarjeta) {
+        //this.fechaVencTarjeta = fechaVencTarjeta;}
     
     public void mostrarCliente(){
-        
-    }
-    
-    public void modificarCliente(){
         
     }
 }

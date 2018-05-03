@@ -9,12 +9,15 @@ package com.yonosek;
  *
  * @author ryane
  */
-public class Administrador extends Persona {
+public class Administrador extends Cliente {
     private String username;
     private String password;
+    //private String DUI;
+    //private String nombre;
+    //private String apellido;
 
-    public Administrador(String username, String password, String DUI, String nombre, String apellido) {
-        super(DUI, nombre, apellido);
+    public Administrador(String username, String password, String DUI, String nombre, String apellido, String formaPago, int numTarjeta, int codTarjeta, Fecha fechaVencTarjeta) {
+        super(DUI, nombre, apellido, formaPago, numTarjeta, codTarjeta, fechaVencTarjeta);
         this.username = username;
         this.password = password;
     }
