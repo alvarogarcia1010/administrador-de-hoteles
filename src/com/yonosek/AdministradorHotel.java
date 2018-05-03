@@ -28,13 +28,19 @@ public class AdministradorHotel {
     
     public Hotel crearHotel(){
 
-    Hotel avergers = new Hotel(1,"avergers",100.00,150.00);
+    Hotel hotel = new Hotel(1,"hotel",100.00,150.00);
 
-    return avergers;
+    return hotel;
     }
     
     
     public Habitacion crearHabitacion(){
+        
+        for (int i = 1; i <= 6 ; i++){
+            for (int j = 1 ; j <=10 ; j++){
+                //Habitacion var = new Habitacion(j,piso [i]);
+            }
+        }
         
         Habitacion habitacion = new Habitacion();
         Scanner leer = new Scanner(System.in);
@@ -55,9 +61,9 @@ public class AdministradorHotel {
     
     public Piso crearPiso(){
         
-        Piso piso = new Piso();
+       Piso piso = new Piso();
         
-        return piso;
+       return piso;
     }
         
     public Paquete crearPaquete(){
