@@ -21,6 +21,7 @@ public class AdministradorHotel {
         Menu menu = Menu.getInstance();
        
         menu.mostrar();
+                
         
     }
     
