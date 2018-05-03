@@ -1,17 +1,16 @@
 package com.yonosek;
 
-import java.util.Date;
+import java.util.*;
 
 public class Reservacion {
-    Date Fecha1;
     /*RESERVACION*/
     private int codigo;
-    /*private Cliente cliente;*/
-    /*private Habitacion habitacion;*/
+    private Cliente cliente;
+    private Habitacion habitacion;
     private Paquete paqueteAdquirido;
     private double costoPaquete;
-    /*private Fecha fechaInicio;*/
-    /*private Fecha fechaFinal;*/
+    private Date fechaInicio;
+    private Date fechaFinal;
     private int totalDias;
     private double costoNoche;
     private double costoTotal;
@@ -19,22 +18,15 @@ public class Reservacion {
     public Reservacion(){   
     }
 
-    public Reservacion(Date Fecha1, int codigo, Paquete paqueteAdquirido, double costoPaquete, int totalDias, double costoNoche, double costoTotal) {
-        this.Fecha1 = Fecha1;
+    public Reservacion(int codigo, Cliente cliente, Habitacion habitacion, Paquete paqueteAdquirido, double costoPaquete, int totalDias, double costoNoche, double costoTotal) {
         this.codigo = codigo;
+        this.cliente = cliente;
+        this.habitacion = habitacion;
         this.paqueteAdquirido = paqueteAdquirido;
         this.costoPaquete = costoPaquete;
         this.totalDias = totalDias;
         this.costoNoche = costoNoche;
         this.costoTotal = costoTotal;
-    }
-    
-    public Date getFecha1() {
-        return Fecha1;
-    }
-
-    public void setFecha1(Date Fecha1) {
-        this.Fecha1 = Fecha1;
     }
 
     public int getCodigo() {
@@ -43,6 +35,22 @@ public class Reservacion {
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Habitacion getHabitacion() {
+        return habitacion;
+    }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
     }
 
     public Paquete getPaqueteAdquirido() {
@@ -85,19 +93,7 @@ public class Reservacion {
         this.costoTotal = costoTotal;
     }
     
-    public void agregarReservacion(){
-        
-    }
-    
-    public void modificarReservacion(){
-        
-    }
-    
-    public void cancelarReservacion(){
-        
-    }
-    
-    public void verReservacionSemmana(){
+    public void verReservacionSemana(){
         
     }
     

@@ -5,6 +5,8 @@
  */
 package com.yonosek;
 
+import java.util.Objects;
+
 /**
  *
  * @author franc
@@ -15,6 +17,19 @@ public class Habitacion {
     private String codigoHab;
     private String tipoHabitacion;
     private float precioHabitacion;
+    private char codigoPiso;
+    
+    public Habitacion(){
+        
+    }
+    
+    public Habitacion(int numHab, Piso piso, String tipoHabitacion, float precioHabitacion, char codigoPiso){
+        this.numHab = numHab;
+        this.piso = piso;
+        this.tipoHabitacion = tipoHabitacion;
+        this.precioHabitacion = precioHabitacion;
+        this.codigoPiso = codigoPiso;
+    }
     
     /** Asigna el tipo de la habitacion.
      *
@@ -68,6 +83,40 @@ public class Habitacion {
     public void setPrecioHabitacion(float precioHabitacion) {
         this.precioHabitacion = precioHabitacion;
     }
+
+    @Override
+    public String toString() {
+        return "Habitacion{" + "numHab=" + numHab + ", codigoPiso=" + codigoPiso + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 19 * hash + Objects.hashCode(this.codigoHab);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Habitacion other = (Habitacion) obj;
+        if (this.numHab != other.numHab) {
+            return false;
+        }
+        if (!Objects.equals(this.codigoHab, other.codigoHab)) {
+            return false;
+        }
+        return true;
+    }
+    
     
     /**
      * 

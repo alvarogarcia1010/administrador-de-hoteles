@@ -12,6 +12,7 @@ public class AdministradorHotel {
 
     //Formato Moneda   
     static DecimalFormat formatoMoneda = new DecimalFormat("$ #.00");
+    
 
 
 
@@ -21,14 +22,15 @@ public class AdministradorHotel {
         Menu menu = Menu.getInstance();
        
         menu.mostrar();
+                
         
     }
     
     public Hotel crearHotel(){
 
-    Hotel hotel = new Hotel();
+    Hotel avergers = new Hotel(1,"avergers",100.00,150.00);
 
-    return hotel;
+    return avergers;
     }
     
     
