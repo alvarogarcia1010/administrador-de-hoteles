@@ -71,5 +71,35 @@ public class AdministradorHotel {
 
     return reservacion;
     }
-   
+    
+    public Cliente crearCliente(){
+        Cliente cliente = new Cliente();
+        Scanner leer = new Scanner(System.in);
+        try{
+            System.out.println("Ingrese el DUI del cliente: ");
+            cliente.setDUI(leer.nextLine());
+            System.out.println("Ingrese el nombre del cliente: ");
+            cliente.setNombre(leer.nextLine());
+            System.out.println("Ingrese el apellido del cliente: ");
+            cliente.setApellido(leer.nextLine());
+            System.out.println("Ingrese la forma de pago(1.Tarjeta 2.Efectivo: )");
+            if(leer.nextInt()==1){
+                System.out.println("Ingrese el numero de Tarjeta: ");
+                cliente.setNumTarjeta(leer.nextLine());
+                System.out.println("Ingrese el codigo de la Tarjeta: ");
+                cliente.setCodTarjeta(leer.nextLine());
+            }else{
+                System.out.println("Ingrese el monto a pagar: ");
+                cliente.setPagoCash(leer.nextLine());
+            }
+            } catch(InputMismatchException e) {
+                System.err.println("Por favor, ingrese un numero");
+                leer.nextInt();
+            }
+        
+        //cliente.mostrarCliente();
+        
+        return cliente;
+     
+    }
 }
