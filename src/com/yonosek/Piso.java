@@ -5,6 +5,8 @@
  */
 package com.yonosek;
 
+import java.util.*;
+
 /**
  *
  * @author franc
@@ -12,7 +14,18 @@ package com.yonosek;
 public class Piso {
     private char codigo;
     private Hotel hotel;
-    private Habitacion[] habitaciones;
+    private ArrayList <Habitacion> habitaciones;
+    
+    
+    public Piso(){
+        
+    }
+    
+    public Piso(char codigo, Hotel hotel){
+        this.habitaciones = new ArrayList<>();
+        this.codigo = codigo;
+        this.hotel = hotel;
+    }
 
     public char getCodigo() {
         return codigo;
@@ -30,12 +43,4 @@ public class Piso {
         this.hotel = hotel;
     }
 
-    public Habitacion[] getHabitaciones() {
-        return habitaciones;
-    }
-
-    public void setHabitaciones(Habitacion[] habitaciones) {
-        this.habitaciones = habitaciones;
-    }
-    
 }
