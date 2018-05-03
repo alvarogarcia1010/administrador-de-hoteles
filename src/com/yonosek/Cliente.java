@@ -5,22 +5,36 @@
  */
 package com.yonosek;
 
+import java.util.InputMismatchException;
+import java.util.Objects;
+import java.util.Scanner;
+
 /**
  *
  * @author ryane
  */
-public class Cliente extends Persona {
-    String formaPago;
-    int numTarjeta;
-    int codTarjeta;
-    Fecha fechaVencTarjeta;
+public class Cliente{
+    private String DUI;
+    private String nombre;
+    private String apellido;
+    private String formaPago;
+    private int numTarjeta;
+    private int codTarjeta;
+    //private Fecha fechaVencTarjeta;
 
-    public Cliente(String formaPago, int numTarjeta, int codTarjeta, Fecha fechaVencTarjeta, String DUI, String nombre, String apellido) {
-        super(DUI, nombre, apellido);
-        this.formaPago = formaPago;
-        this.numTarjeta = numTarjeta;
-        this.codTarjeta = codTarjeta;
-        this.fechaVencTarjeta = fechaVencTarjeta;
+    public Cliente(){
+    }
+
+    public String getDUI() {
+        return DUI;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
     }
 
     public String getFormaPago() {
@@ -35,8 +49,19 @@ public class Cliente extends Persona {
         return codTarjeta;
     }
 
-    public Fecha getFechaVencTarjeta() {
-        return fechaVencTarjeta;
+    //public Fecha getFechaVencTarjeta() {
+        //return fechaVencTarjeta;}
+
+    public void setDUI(String DUI) {
+        this.DUI = DUI;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public void setFormaPago(String formaPago) {
@@ -51,15 +76,52 @@ public class Cliente extends Persona {
         this.codTarjeta = codTarjeta;
     }
 
-    public void setFechaVencTarjeta(Fecha fechaVencTarjeta) {
-        this.fechaVencTarjeta = fechaVencTarjeta;
+    //public void setFechaVencTarjeta(Fecha fechaVencTarjeta) {
+        //this.fechaVencTarjeta = fechaVencTarjeta;}
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.DUI);
+        hash = 59 * hash + Objects.hashCode(this.nombre);
+        hash = 59 * hash + Objects.hashCode(this.apellido);
+        hash = 59 * hash + this.numTarjeta;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (this.numTarjeta != other.numTarjeta) {
+            return false;
+        }
+        if (!Objects.equals(this.DUI, other.DUI)) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellido, other.apellido)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "DUI=" + DUI + ", nombre=" + nombre + ", apellido=" + apellido + ", formaPago=" + formaPago + ", numTarjeta=" + numTarjeta + ", codTarjeta=" + codTarjeta + '}';
     }
     
-    public void mostrarCliente(){
-        
-    }
     
-    public void modificarCliente(){
-        
-    }
+    
+
 }
