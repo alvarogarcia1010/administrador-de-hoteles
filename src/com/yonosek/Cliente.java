@@ -18,8 +18,9 @@ public class Cliente{
     private String nombre;
     private String apellido;
     private String formaPago;
-    private int numTarjeta;
-    private int codTarjeta;
+    private String numTarjeta;
+    private String codTarjeta;
+    private String PagoCash;
     //private Fecha fechaVencTarjeta;
 
     public Cliente(){
@@ -41,12 +42,16 @@ public class Cliente{
         return formaPago;
     }
 
-    public int getNumTarjeta() {
+    public String getNumTarjeta() {
         return numTarjeta;
     }
 
-    public int getCodTarjeta() {
+    public String getCodTarjeta() {
         return codTarjeta;
+    }
+    
+    public String getPagoCash() {
+        return PagoCash;
     }
 
     //public Fecha getFechaVencTarjeta() {
@@ -68,12 +73,16 @@ public class Cliente{
         this.formaPago = formaPago;
     }
 
-    public void setNumTarjeta(int numTarjeta) {
+    public void setNumTarjeta(String numTarjeta) {
         this.numTarjeta = numTarjeta;
     }
 
-    public void setCodTarjeta(int codTarjeta) {
+    public void setCodTarjeta(String codTarjeta) {
         this.codTarjeta = codTarjeta;
+    }
+    
+    public void setPagoCash(String PagoCash) {
+        this.PagoCash = PagoCash;
     }
 
     //public void setFechaVencTarjeta(Fecha fechaVencTarjeta) {

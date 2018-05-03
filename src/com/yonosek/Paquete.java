@@ -51,7 +51,9 @@ public class Paquete {
      */
     
     public void mostrarServicio(){
-        
+        this.servicios.forEach((servicio) -> {
+            System.out.println(servicio);
+        });
     }
     
     public void agregarServicio(String servicio) throws Exception {
@@ -84,7 +86,7 @@ public class Paquete {
         
     }
     
-    public void removerServicio(){
+    public void removerServicio(String servicio) throws Exception{
         
     }
     
