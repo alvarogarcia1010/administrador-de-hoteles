@@ -1,5 +1,6 @@
 package com.yonosek;
 
+import java.util.*;
 
 public class Reservacion {
     /*RESERVACION*/
@@ -8,8 +9,8 @@ public class Reservacion {
     private Habitacion habitacion;
     private Paquete paqueteAdquirido;
     private double costoPaquete;
-    /*private Fecha fechaInicio;*/
-    /*private Fecha fechaFinal;*/
+    private Date fechaInicio;
+    private Date fechaFinal;
     private int totalDias;
     private double costoNoche;
     private double costoTotal;
@@ -91,21 +92,8 @@ public class Reservacion {
     public void setCostoTotal(double costoTotal) {
         this.costoTotal = costoTotal;
     }
-   
-    public void agregarReservacion(){
-     
-        
-    }
     
-    public void modificarReservacion(){
-        
-    }
-    
-    public void cancelarReservacion(){
-        
-    }
-    
-    public void verReservacionSemmana(){
+    public void verReservacionSemana(){
         
     }
     
