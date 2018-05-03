@@ -10,15 +10,15 @@ package com.yonosek;
  * @author franc
  */
 public class Piso {
-    private int codigo;
+    private char codigo;
     private Hotel hotel;
     private Habitacion[] habitaciones;
 
-    public int getCodigo() {
+    public char getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(char codigo) {
         this.codigo = codigo;
     }
 
