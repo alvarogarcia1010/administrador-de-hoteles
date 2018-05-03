@@ -17,7 +17,19 @@ public class Habitacion {
     private String codigoHab;
     private String tipoHabitacion;
     private float precioHabitacion;
-    private char codigoPiso = this.piso.getCodigo();
+    private char codigoPiso;
+    
+    public Habitacion(){
+        
+    }
+    
+    public Habitacion(int numHab, Piso piso, String tipoHabitacion, float precioHabitacion, char codigoPiso){
+        this.numHab = numHab;
+        this.piso = piso;
+        this.tipoHabitacion = tipoHabitacion;
+        this.precioHabitacion = precioHabitacion;
+        this.codigoPiso = codigoPiso;
+    }
     
     /** Asigna el tipo de la habitacion.
      *
