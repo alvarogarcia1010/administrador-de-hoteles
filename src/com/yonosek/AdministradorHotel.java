@@ -56,6 +56,7 @@ public class AdministradorHotel {
                             case 4:
                                 /* Mostrar Clientes */
                                 System.out.println("/* Mostrar Clientes */");
+                                villaRafinha.mostrarClientes();
                                 break;
                             case 5:
                                 break;
@@ -165,7 +166,7 @@ public class AdministradorHotel {
             System.out.println("Ingrese número de habitación: ");
             habitacion.setNumHab(leer.nextInt());
         } catch (InputMismatchException e) {
-            System.err.println("Por favor, ingrese un numero");
+            //System.err.println("Por favor, ingrese un numero");
             leer.nextInt();
         }
 //            habitacion.setPrecioHabitacion();
@@ -200,28 +201,22 @@ public class AdministradorHotel {
     public static Cliente crearCliente() {
         Cliente cliente = new Cliente();
         Scanner leer = new Scanner(System.in);
-        try {
+ 
             System.out.println("Ingrese el DUI del cliente: ");
             cliente.setDUI(leer.nextLine());
             System.out.println("Ingrese el nombre del cliente: ");
             cliente.setNombre(leer.nextLine());
             System.out.println("Ingrese el apellido del cliente: ");
             cliente.setApellido(leer.nextLine());
-            System.out.println("Ingrese la forma de pago(1.Tarjeta 2.Efectivo: )");
-            if (leer.nextInt() == 1) {
-                System.out.println("Ingrese el numero de Tarjeta: ");
-                cliente.setNumTarjeta(leer.nextLine());
-                System.out.println("Ingrese el codigo de la Tarjeta: ");
-                cliente.setCodTarjeta(leer.nextLine());
-            } else {
-                System.out.println("Ingrese el monto a pagar: ");
-                cliente.setPagoCash(leer.nextLine());
-            }
-        } catch (InputMismatchException e) {
-            System.err.println("Por favor, ingrese un numero");
-            leer.nextInt();
-        }
-
+            System.out.println("Ingrese el numero de Tarjeta: ");
+            cliente.setNumTarjeta(leer.nextInt());
+            try{
+               System.out.println("Ingrese el codigo de la Tarjeta: ");
+               cliente.setCodTarjeta(leer.nextInt());
+            } catch (InputMismatchException e){
+                System.out.println("Operacion no completada.");
+                //cliente.remove();
+            }  
         return cliente;
     }
 }
