@@ -72,18 +72,20 @@ public class Piso {
      * @param claveHabitacion
      */
     public void removerHabitacion(String claveHabitacion) {
-
+        if (this.habitacionesPiso.containsKey(claveHabitacion)) {
+            this.habitacionesPiso.remove(claveHabitacion);
+        } 
+        else {
+            System.err.println("No hay registros de la habitacion");
+        }
     }
 
     /**
      *
      * @param claveHabitacion
      */
-    public void modificarHabitacion(String claveHabitacion) {
 
-    }
-    
-            /**
+    /**
      *
      */
     public void mostrarHabitacion() {

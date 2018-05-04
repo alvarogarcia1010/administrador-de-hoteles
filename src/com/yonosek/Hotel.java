@@ -88,7 +88,7 @@ public class Hotel {
      * @param cliente
      * @throws java.lang.Exception
      */
-    public void agregarCliente(Cliente cliente){
+    public void agregarCliente(Cliente cliente) {
         boolean flag = false;
         if (cliente != null) {
             if (this.clientesHotel.isEmpty()) {
@@ -118,22 +118,60 @@ public class Hotel {
      * @param cliente
      * @throws java.lang.Exception
      */
-    public void removerCliente(Cliente cliente){
+    public void removerCliente(Cliente cliente) {
         if (clientesHotel.contains(cliente)) {
             clientesHotel.remove(cliente);
-        } 
-        else {
+        } else {
             System.err.println("El cliente no se encuentra registrado");
         }
     }
 
-
-/**
- *
- * @param cliente
- */
-public void modificarCliente(Cliente cliente) {
-
+    /**
+     *
+     * @param cliente
+     * @param opc
+     */
+    public void modificarCliente(Cliente cliente, int opc) {
+        switch(opc){
+            case 1:
+                /*Modificar nombre */
+                System.out.println("Ingrese el nuevo nombre: ");
+                Scanner leer = new Scanner(System.in);
+                String nombre = leer.nextLine();
+                
+                int i = clientesHotel.indexOf(cliente);
+                clientesHotel.get(i).setNombre(nombre);
+                break;
+            case 2:
+                /*Modificar apellido */
+                System.out.println("Ingrese el nuevo apellido: ");
+                leer = new Scanner(System.in);
+                String apellido = leer.nextLine();
+                
+                i = clientesHotel.indexOf(cliente);
+                clientesHotel.get(i).setApellido(apellido);
+                break;
+            case 3:
+                /*Modificar numero de tarjeta */
+                System.out.println("Ingrese el nuevo numero de tarjeta: ");
+                leer = new Scanner(System.in);
+                int numeroTarjeta = leer.nextInt();
+                
+                i = clientesHotel.indexOf(cliente);
+                clientesHotel.get(i).setNumTarjeta(numeroTarjeta);
+                break;
+            case 4:
+                /*Modificar codigo de tarjeta */
+                System.out.println("Ingrese el nuevo codigo de tarjeta: ");
+                leer = new Scanner(System.in);
+                int codigoTarjeta = leer.nextInt();
+                
+                i = clientesHotel.indexOf(cliente);
+                clientesHotel.get(i).setCodTarjeta(codigoTarjeta);
+                break;
+            default:
+                System.out.println("Ingrese una opcion valida");
+        }
     }
 
     /**
@@ -144,22 +182,19 @@ public void modificarCliente(Cliente cliente) {
             System.out.println(cliente.toString());
         }
     }
-    
-    public Cliente buscarCliente(){ 
+
+    public Cliente buscarCliente() {
         Scanner leer = new Scanner(System.in);
         System.out.println("Ingrese el DUI del cliente que desea buscar: ");
         String DUI = leer.nextLine();
-        for (Cliente c : this.clientesHotel ){
-            if(DUI.equals(c.getDUI())){
+        for (Cliente c : this.clientesHotel) {
+            if (DUI.equals(c.getDUI())) {
                 System.out.println("Cliente encontrado.");
                 return c;
-            }       
-        }     
+            }
+        }
         return null;
     }
-        
-        
-    
 
     //PARA MANEJAR RESERVACIONES
     /**
@@ -173,24 +208,49 @@ public void modificarCliente(Cliente cliente) {
     /**
      *
      * @param reservacion
-     * @throws java.lang.Exception
      */
-    public void removerReservacion(Reservacion reservacion){
+    public void removerReservacion(Reservacion reservacion) {
         if (reservacionesHotel.contains(reservacion)) {
             reservacionesHotel.remove(reservacion);
-        } 
-        else {
+        } else {
             System.err.println("La reservacion no se encuentra registrada");
         }
     }
-
 
     /**
      *
      * @param reservacion
      */
-    public void modificarReservacion(Reservacion reservacion) {
-
+    public void modificarReservacion(Reservacion reservacion, int opc) {
+        switch(opc){
+            case 1:
+                //Modificar paquete adquirido
+                break;
+            case 2:
+                //Modificar total de dias
+                System.out.println("Ingrese el nuevo total de dias: ");
+                Scanner leer = new Scanner(System.in);
+                int totalDias = leer.nextInt();
+                
+                int i = reservacionesHotel.indexOf(reservacion);
+                reservacionesHotel.get(i).setTotalDias(totalDias);
+                break;
+            default:
+                System.out.println("Ingrese una opcion valida");
+        }
+    }
+    
+    public Reservacion buscarReservacion() {
+        Scanner leer = new Scanner(System.in);
+        System.out.println("Ingrese el codigo de la reservacion que desea buscar: ");
+        int codigo = leer.nextInt();
+        for (Reservacion r : this.reservacionesHotel) {
+            if (codigo == r.getCodigo()) {
+                System.out.println("Reservacion encontrada");
+                return r;
+            }
+        }
+        return null;
     }
 
     /**
@@ -214,7 +274,7 @@ public void modificarCliente(Cliente cliente) {
      * @param piso
      * @throws java.lang.Exception
      */
-    public void agregarPiso(String clavePiso, Piso piso){
+    public void agregarPiso(String clavePiso, Piso piso) {
         if (!this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.put(clavePiso, piso);
         } else {
@@ -227,7 +287,7 @@ public void modificarCliente(Cliente cliente) {
      * @param clavePiso
      * @throws java.lang.Exception
      */
-    public void removerPiso(String clavePiso){
+    public void removerPiso(String clavePiso) {
         if (this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.remove(clavePiso);
         } else {
@@ -237,18 +297,10 @@ public void modificarCliente(Cliente cliente) {
     }
 
     /**
-     *
-     * @param clavePiso
-     */
-    public void modificarPiso(String clavePiso) {
-
-    }
-
-    /**
-     *3
+     * 3
      */
     public void mostrarPisoYHabitaciones() {
-        
+
     }
 
     /**
@@ -265,7 +317,7 @@ public void modificarCliente(Cliente cliente) {
      * @param paquete
      * @throws java.lang.Exception
      */
-    public void agregarPaquete(Integer clavePaquete, Paquete paquete){
+    public void agregarPaquete(Integer clavePaquete, Paquete paquete) {
         if (!this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.put(clavePaquete, paquete);
         } else {
@@ -278,7 +330,7 @@ public void modificarCliente(Cliente cliente) {
      * @param clavePaquete
      * @throws java.lang.Exception
      */
-    public void removerPaquete(Integer clavePaquete){
+    public void removerPaquete(Integer clavePaquete) {
         if (this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.remove(clavePaquete);
         } else {
@@ -291,69 +343,63 @@ public void modificarCliente(Cliente cliente) {
      *
      * @param clavePaquete
      */
-    public void modificarPaquete(Integer clavePaquete) {
+    public void modificarPaquete() {
 
     }
 
-    
-    public void eliminarPaquete() {
-        
-    }   
-    
-    public void habilitarHabitacion(String hab){
-        String P = hab.substring(0,1).toUpperCase();
-        
-        if(this.pisosHotel.get(P).habitacionesPiso.get(hab).isEstaHabilitada()==true){
+    public void habilitarHabitacion(String hab) {
+        String P = hab.substring(0, 1).toUpperCase();
+
+        if (this.pisosHotel.get(P).habitacionesPiso.get(hab).isEstaHabilitada() == true) {
             System.out.println("La habitacion ya esta hablitada");
-        }else{
-          this.pisosHotel.get(P).habitacionesPiso.get(hab).setEstaHabilitada(true);
-          System.out.println("La habitacion ha sido habilitada");  
+        } else {
+            this.pisosHotel.get(P).habitacionesPiso.get(hab).setEstaHabilitada(true);
+            System.out.println("La habitacion ha sido habilitada");
         }
     }
-    
-    public void DeshabilitarHabitacion(String hab){
-        String P = hab.substring(0,1).toUpperCase();
-        
-        if(this.pisosHotel.get(P).habitacionesPiso.get(hab).isEstaHabilitada()==false){
+
+    public void DeshabilitarHabitacion(String hab) {
+        String P = hab.substring(0, 1).toUpperCase();
+
+        if (this.pisosHotel.get(P).habitacionesPiso.get(hab).isEstaHabilitada() == false) {
             System.out.println("La habitacion ya esta deshabilitada");
-        }else{
+        } else {
             this.pisosHotel.get(P).habitacionesPiso.get(hab).setEstaHabilitada(false);
             System.out.println("La habitacion ha sido deshabilitada");
         }
     }
-    
-    public void habilitarPiso(String piso){
+
+    public void habilitarPiso(String piso) {
         String p = piso.toUpperCase();
-        
-        if(this.pisosHotel.get(p).isEstaHabilitada()==true){
+
+        if (this.pisosHotel.get(p).isEstaHabilitada() == true) {
             System.out.println("El piso ya esta habilitado");
-        }else{
-        this.pisosHotel.get(p).setEstaHabilitada(true);
-        System.out.println("El piso ha sido habilitado");
+        } else {
+            this.pisosHotel.get(p).setEstaHabilitada(true);
+            System.out.println("El piso ha sido habilitado");
         }
     }
-    
-    public void DeshabilitarPiso(String piso){
+
+    public void DeshabilitarPiso(String piso) {
         String p = piso.toUpperCase();
-        
-        if(this.pisosHotel.get(p).isEstaHabilitada()==false){
+
+        if (this.pisosHotel.get(p).isEstaHabilitada() == false) {
             System.out.println("El piso ya esta deshabilitado");
-        }else{
-        this.pisosHotel.get(p).setEstaHabilitada(false);
-        System.out.println("El piso ha sido deshabilitado");
+        } else {
+            this.pisosHotel.get(p).setEstaHabilitada(false);
+            System.out.println("El piso ha sido deshabilitado");
         }
     }
-    
-        /**
+
+    /**
      *
      */
     public void mostrarPaquetes() {
-        for (Map.Entry <Integer, Paquete> paquete : this.paquetesHotel.entrySet()) {
+        for (Map.Entry<Integer, Paquete> paquete : this.paquetesHotel.entrySet()) {
             Integer clave = paquete.getKey();
             Paquete valor = paquete.getValue();
             System.out.println(Integer.toString(clave) + "  ->  " + valor.toString());
         }
     }
-   
 
 }
