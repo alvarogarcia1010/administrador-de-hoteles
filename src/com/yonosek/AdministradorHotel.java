@@ -18,6 +18,10 @@ public class AdministradorHotel {
         System.out.println("Administrador Hotel");
 
         Hotel villaRafinha = new Hotel(1, "VillaRafinha", 100, 150);
+        
+        for(int piso=1; piso<=6; piso++){
+//            villaRafinha.agregarPiso(clavePiso, piso);
+        }
 
         Menu menu = Menu.getInstance();
 
