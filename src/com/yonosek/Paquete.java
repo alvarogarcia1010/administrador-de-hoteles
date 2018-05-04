@@ -94,7 +94,7 @@ public class Paquete {
         
     }
     
-        @Override
+    @Override
     public String toString() {
         return "Paquete{" + "nombre=" + nombre + ", codigoPaquete=" + codigoPaquete + ", servicios=" + servicios + ", costoPaquete=" + costoPaquete + '}';
     }
