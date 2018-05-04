@@ -52,6 +52,8 @@ public class AdministradorHotel {
                             case 3:
                                 /* Eliminar Cliente */
                                 System.out.println("/* Eliminar Cliente */");
+                                villaRafinha.buscarCliente();
+                                //villaRafinha.removerCliente();
                                 break;
                             case 4:
                                 /* Mostrar Clientes */
@@ -219,4 +221,6 @@ public class AdministradorHotel {
             }  
         return cliente;
     }
+    
+    
 }

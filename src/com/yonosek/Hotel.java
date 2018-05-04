@@ -2,6 +2,7 @@ package com.yonosek;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  *
@@ -141,6 +142,22 @@ public void modificarCliente(Cliente cliente) {
             System.out.println(cliente.toString());
         }
     }
+    
+    public Cliente buscarCliente(){ 
+        Scanner leer = new Scanner(System.in);
+        System.out.println("Ingrese el DUI del cliente que desea buscar: ");
+        String DUI = leer.nextLine();
+        for (Cliente c : this.clientesHotel ){
+            if(DUI.equals(c.getDUI())){
+                System.out.println("Cliente encontrado.");
+                return c;
+            }       
+        }     
+        return null;
+    }
+        
+        
+    
 
     //PARA MANEJAR RESERVACIONES
     /**
