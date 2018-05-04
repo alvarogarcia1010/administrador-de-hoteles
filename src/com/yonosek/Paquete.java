@@ -7,13 +7,13 @@ public class Paquete {
     private String nombre;
     private int codigoPaquete;
     private ArrayList <String> servicios;
-    private int costoPaquete;
+    private float costoPaquete;
     
     public Paquete(){
-        
+        this.servicios=new ArrayList<>();
     }
 
-    public Paquete(int codigoPaquete,  int costoPaquete, String nombre) {
+    public Paquete(int codigoPaquete,  float costoPaquete, String nombre) {
         this.servicios=new ArrayList<>();
         this.nombre= nombre;
         this.codigoPaquete = codigoPaquete;
@@ -37,11 +37,11 @@ public class Paquete {
     }
     
 
-    public int getCostoPaquete() {
+    public float getCostoPaquete() {
         return costoPaquete;
     }
 
-    public void setCostoPaquete(int costoPaquete) {
+    public void setCostoPaquete(float costoPaquete) {
         this.costoPaquete = costoPaquete;
     }
     
@@ -50,13 +50,13 @@ public class Paquete {
      * @param servicio 
      */
     
-    public void mostrarServicio(){
-        this.servicios.forEach((servicio) -> {
-            System.out.println(servicio);
-        });
-    }
+//    public void mostrarServicio(){
+//        this.servicios.forEach((servicio) -> {
+//            System.out.println(servicio);
+//        });
+//    }
     
-    public void agregarServicio(String servicio) throws Exception {
+    public void agregarServicio(String servicio) {
         boolean flag = false;
         if (servicio != null) {
             if (this.servicios.isEmpty()) {

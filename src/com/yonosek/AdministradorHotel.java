@@ -60,7 +60,6 @@ public class AdministradorHotel {
                                 System.out.print("Elija opcion deseada: ");
                                 opcionMod = leer.nextInt();
                                 System.out.print("\n");
-                                
                                 Cliente cliente = villaRafinha.buscarCliente();
                                 villaRafinha.modificarCliente(cliente, opcionMod);
                                 break;
@@ -132,8 +131,9 @@ public class AdministradorHotel {
                         switch(opcionSec){
                             case 1:
                                 /* Agregar paquete */
-                                System.out.println("Ingrese el codigo del paquete: ");
-                                /*ARREGLAR*/ villaRafinha.agregarPaquete(leer.nextInt(), crearPaquete());
+                                //System.out.println("Ingrese el codigo del paquete: ");
+                                Paquete p = crearPaquete();
+                                /*ARREGLAR*/ villaRafinha.agregarPaquete(p.getCodigoPaquete(),p);
                                 break;
                             case 2:
                                 /* Modificar paquete */
@@ -142,6 +142,7 @@ public class AdministradorHotel {
                             case 3:
                                 /* Eliminar paquete */
                                 System.out.println("/* Eliminar paquete */");
+                                System.out.println("Ingrese el codigo del paquete: ");
                                 /*ARREGLAR */ villaRafinha.removerPaquete(leer.nextInt());
                                 break;
                             case 4:
@@ -294,12 +295,14 @@ public class AdministradorHotel {
         System.out.println("Ingrese el codigo del paquete: ");
         paquete.setCodigoPaquete(leer.nextInt());
         System.out.println("Ingrese el costo del paquete: ");
-        paquete.setCostoPaquete(leer.nextInt());
+        paquete.setCostoPaquete(leer.nextFloat());
+        System.out.println("Cuantos servicios desea ingrsear: ");
+        int x = leer.nextInt();
+        leer.nextLine();
+        for(int i=1;i<=x;i++){
         System.out.println("Ingrese los servicios del paquete: ");
-        try {
-            paquete.agregarServicio(leer.nextLine());
-        } catch (Exception ex) {
-            Logger.getLogger(AdministradorHotel.class.getName()).log(Level.SEVERE, null, ex);
+        String m = leer.nextLine();
+        paquete.agregarServicio(m);
         }
         
         return paquete;

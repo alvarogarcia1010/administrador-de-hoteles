@@ -59,7 +59,7 @@ public class Piso {
      * @param habitacion
      * @throws java.lang.Exception
      */
-    public void agregarHabitacion(String claveHabitacion, Habitacion habitacion) throws Exception {
+    public void agregarHabitacion(String claveHabitacion, Habitacion habitacion) {
         if (!this.habitacionesPiso.containsKey(claveHabitacion)){
             this.habitacionesPiso.put(claveHabitacion, habitacion);
         }else{
