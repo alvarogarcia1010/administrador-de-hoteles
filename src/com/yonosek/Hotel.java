@@ -11,8 +11,8 @@ public class Hotel {
 
     private int idHotel;
     private String nombreHotel;
-    private double precioSencillo;
-    private double precioDoble;
+    private float precioSencillo;
+    private float precioDoble;
     private ArrayList<Cliente> clientesHotel;
     private ArrayList<Reservacion> reservacionesHotel;
     private HashMap<String, Piso> pisosHotel;
@@ -35,7 +35,7 @@ public class Hotel {
      * @param nombreHotel
      * @param precioBase
      */
-    public Hotel(int idHotel, String nombreHotel, double precioSencillo, double precioDoble) {
+    public Hotel(int idHotel, String nombreHotel, float precioSencillo, float precioDoble) {
         this.idHotel = idHotel;
         this.nombreHotel = nombreHotel;
         this.precioSencillo = precioSencillo;
@@ -67,8 +67,8 @@ public class Hotel {
         return precioSencillo;
     }
 
-    public void setPrecioBase(float precioBase) {
-        this.precioSencillo = precioBase;
+    public void setPrecioBase(float precioSencillo) {
+        this.precioSencillo = precioSencillo;
     }
     
     public double getPrecioDoble() {
