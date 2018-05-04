@@ -16,7 +16,6 @@ public class Hotel {
     private ArrayList<Cliente> clientesHotel;
     private ArrayList<Reservacion> reservacionesHotel;
     private HashMap<String, Piso> pisosHotel;
-    private HashMap<String, Habitacion> habitacionesHotel;
     private HashMap<Integer, Paquete> paquetesHotel;
 
     /**
@@ -26,7 +25,6 @@ public class Hotel {
         this.clientesHotel = new ArrayList<>();
         this.reservacionesHotel = new ArrayList<>();
         this.pisosHotel = new HashMap<>();
-        this.habitacionesHotel = new HashMap<>();
         this.paquetesHotel = new HashMap<>();
     }
 
@@ -45,7 +43,6 @@ public class Hotel {
         this.clientesHotel = new ArrayList<>();
         this.reservacionesHotel = new ArrayList<>();
         this.pisosHotel = new HashMap<>();
-        this.habitacionesHotel = new HashMap<>();
         this.paquetesHotel = new HashMap<>();
     }
 
@@ -199,8 +196,13 @@ public class Hotel {
      *
      * @param clavePiso
      */
-    public void removerPiso(String clavePiso) {
+    public void removerPiso(String clavePiso) throws Exception {
+        if(this.pisosHotel.containsKey(clavePiso)){
+            this.pisosHotel.remove(clavePiso);
+        }else{
+            throw new Exception("No hay registros del piso "+ clavePiso);
 
+        }
     }
 
     /**
@@ -208,44 +210,13 @@ public class Hotel {
      * @param clavePiso
      */
     public void modificarPiso(String clavePiso) {
-
+        
     }
 
     /**
      *
      */
     public void mostrarPisosYHabitaciones() {
-
-    }
-
-    //PARA MANEJAR HABITACIONES
-    /**
-     *
-     * @param claveHabitacion
-     * @param habitacion
-     * @throws java.lang.Exception
-     */
-    public void agregarHabitacion(String claveHabitacion, Habitacion habitacion) throws Exception {
-        if (!this.habitacionesHotel.containsKey(claveHabitacion)){
-            this.habitacionesHotel.put(claveHabitacion, habitacion);
-        }else{
-            throw new Exception("La habitacion ya se encuentra registrado");
-        }
-    }
-
-    /**
-     *
-     * @param claveHabitacion
-     */
-    public void removerHabitacion(String claveHabitacion) {
-
-    }
-
-    /**
-     *
-     * @param claveHabitacion
-     */
-    public void modificarHabitacion(String claveHabitacion) {
 
     }
 
@@ -274,9 +245,15 @@ public class Hotel {
     /**
      *
      * @param clavePaquete
+     * @throws java.lang.Exception
      */
-    public void removerPaquete(Integer clavePaquete) {
+    public void removerPaquete(Integer clavePaquete)throws Exception {
+        if(this.paquetesHotel.containsKey(clavePaquete)){
+            this.paquetesHotel.remove(clavePaquete);
+        }else{
+            throw new Exception("No hay registros del paquete");
 
+        }
     }
 
     /**

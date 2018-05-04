@@ -14,15 +14,16 @@ import java.util.*;
 public class Piso {
     private char codigo;
     private Hotel hotel;
-    private ArrayList <Habitacion> habitaciones;
+    private HashMap<String, Habitacion> habitacionesPiso;
+
     
     
     public Piso(){
-        
+        this.habitacionesPiso = new HashMap<>();
     }
     
     public Piso(char codigo, Hotel hotel){
-        this.habitaciones = new ArrayList<>();
+        this.habitacionesPiso = new HashMap<>();
         this.codigo = codigo;
         this.hotel = hotel;
     }
@@ -43,4 +44,34 @@ public class Piso {
         this.hotel = hotel;
     }
 
+        //PARA MANEJAR HABITACIONES
+    /**
+     *
+     * @param claveHabitacion
+     * @param habitacion
+     * @throws java.lang.Exception
+     */
+    public void agregarHabitacion(String claveHabitacion, Habitacion habitacion) throws Exception {
+        if (!this.habitacionesPiso.containsKey(claveHabitacion)){
+            this.habitacionesPiso.put(claveHabitacion, habitacion);
+        }else{
+            throw new Exception("La habitacion ya se encuentra registrado");
+        }
+    }
+
+    /**
+     *
+     * @param claveHabitacion
+     */
+    public void removerHabitacion(String claveHabitacion) {
+
+    }
+
+    /**
+     *
+     * @param claveHabitacion
+     */
+    public void modificarHabitacion(String claveHabitacion) {
+
+    }
 }

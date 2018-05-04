@@ -12,23 +12,16 @@ public class AdministradorHotel {
 
     //Formato Moneda   
     static DecimalFormat formatoMoneda = new DecimalFormat("$ #.00");
-    
 
+    public static void main(String[] args) throws Exception {
 
-
-    public static void main(String[] args) {
-        
         System.out.println("Administrador Hotel");
-        
-        Hotel VillaRafinha = new Hotel(1,"VillaRafinha",100.00,150.00);
-        
+
+        Hotel villaRafinha = new Hotel(1, "VillaRafinha", 100.00, 150.00);
+
         Menu menu = Menu.getInstance();
-        
-        ejecutarMenu(menu);
-        
-        }
-    
-        public static void ejecutarMenu(Menu menu){   
+
+        //MENU
         int opcion = 5;
         int opcionSec = 5;
         Scanner leer = new Scanner(System.in);
@@ -50,7 +43,7 @@ public class AdministradorHotel {
                             case 1:
                                 /* Registrar Cliente */
                                 System.out.println("/* Registrar Cliente */");
-                                crearCliente();
+                                villaRafinha.agregarCliente(crearCliente());
                                 break;
                             case 2:
                                 /* Modificar Cliente */
@@ -77,7 +70,7 @@ public class AdministradorHotel {
                         System.out.print("Elija opcion deseada: ");
                         opcionSec = leer.nextInt();
                         System.out.print("\n");
-                        switch(opcionSec){
+                        switch (opcionSec) {
                             case 1:
                                 /* Agregar Reservacion */
                                 System.out.println("/* Agregar Reservacion */");
@@ -107,7 +100,7 @@ public class AdministradorHotel {
                         System.out.print("Elija opcion deseada: ");
                         opcionSec = leer.nextInt();
                         System.out.print("\n");
-                        switch(opcionSec){
+                        switch (opcionSec) {
                             case 1:
                                 /* Habilitar/Deshabilitar habitacion */
                                 System.out.println("/* Habilitar/Deshabilitar habitacion */");
@@ -141,7 +134,7 @@ public class AdministradorHotel {
                                 System.out.println("/* Mostrar paquetes */");
                                 break;
                             case 9:
-                                break;                                    
+                                break;
                             default:
                                 System.out.println("Por favor ingrese una opcion valida");
                                 System.out.print("\n");
@@ -160,65 +153,54 @@ public class AdministradorHotel {
                 leer.nextLine();
             }
         }
-        
-    }
-    
-    //public Hotel crearHotel(){
 
-    //return hotel;
-    //}
-    
-    
-    public Habitacion crearHabitacion(){
-        
-        for (int i = 1; i <= 6 ; i++){
-            for (int j = 1 ; j <=10 ; j++){
-                //Habitacion var = new Habitacion(j,piso [i]);
-            }
-        }
-        
+    }
+
+
+    public Habitacion crearHabitacion() {
+
         Habitacion habitacion = new Habitacion();
         Scanner leer = new Scanner(System.in);
-        try{
+        try {
             System.out.println("Ingrese número de habitación: ");
             habitacion.setNumHab(leer.nextInt());
-        } catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.err.println("Por favor, ingrese un numero");
             leer.nextInt();
         }
 //            habitacion.setPrecioHabitacion();
 //            habitacion.setPiso();
-            habitacion.generarCodigo();
-            habitacion.asignarTipo();
-            
+        habitacion.generarCodigo();
+        habitacion.asignarTipo();
+
         return habitacion;
     }
-    
-    public Piso crearPiso(){
-        
-       Piso piso = new Piso();
-        
-       return piso;
+
+    public Piso crearPiso() {
+
+        Piso piso = new Piso();
+
+        return piso;
     }
-        
-    public Paquete crearPaquete(){
-        
+
+    public Paquete crearPaquete() {
+
         Paquete paquete = new Paquete();
-        
+
         return paquete;
     }
-        
-    public Reservacion crearReservacion(){
 
-    Reservacion reservacion = new Reservacion();
+    public Reservacion crearReservacion() {
 
-    return reservacion;
+        Reservacion reservacion = new Reservacion();
+
+        return reservacion;
     }
-    
-    public static Cliente crearCliente(){
+
+    public static Cliente crearCliente() {
         Cliente cliente = new Cliente();
         Scanner leer = new Scanner(System.in);
-        try{
+        try {
             System.out.println("Ingrese el DUI del cliente: ");
             cliente.setDUI(leer.nextLine());
             System.out.println("Ingrese el nombre del cliente: ");
@@ -226,23 +208,20 @@ public class AdministradorHotel {
             System.out.println("Ingrese el apellido del cliente: ");
             cliente.setApellido(leer.nextLine());
             System.out.println("Ingrese la forma de pago(1.Tarjeta 2.Efectivo: )");
-            if(leer.nextInt()==1){
+            if (leer.nextInt() == 1) {
                 System.out.println("Ingrese el numero de Tarjeta: ");
                 cliente.setNumTarjeta(leer.nextLine());
                 System.out.println("Ingrese el codigo de la Tarjeta: ");
                 cliente.setCodTarjeta(leer.nextLine());
-            }else{
+            } else {
                 System.out.println("Ingrese el monto a pagar: ");
                 cliente.setPagoCash(leer.nextLine());
             }
-            } catch(InputMismatchException e) {
-                System.err.println("Por favor, ingrese un numero");
-                leer.nextInt();
-            }
-        
-        //cliente.mostrarCliente();
-        
+        } catch (InputMismatchException e) {
+            System.err.println("Por favor, ingrese un numero");
+            leer.nextInt();
+        }
+
         return cliente;
-     
     }
 }

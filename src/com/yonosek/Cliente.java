@@ -5,9 +5,7 @@
  */
 package com.yonosek;
 
-import java.util.InputMismatchException;
 import java.util.Objects;
-import java.util.Scanner;
 
 /**
  *
@@ -91,10 +89,11 @@ public class Cliente{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.DUI);
-        hash = 59 * hash + Objects.hashCode(this.nombre);
-        hash = 59 * hash + Objects.hashCode(this.apellido);
-        hash = 59 * hash + this.numTarjeta;
+        hash = 79 * hash + Objects.hashCode(this.DUI);
+        hash = 79 * hash + Objects.hashCode(this.nombre);
+        hash = 79 * hash + Objects.hashCode(this.apellido);
+        hash = 79 * hash + Objects.hashCode(this.numTarjeta);
+        hash = 79 * hash + Objects.hashCode(this.codTarjeta);
         return hash;
     }
 
@@ -110,9 +109,6 @@ public class Cliente{
             return false;
         }
         final Cliente other = (Cliente) obj;
-        if (this.numTarjeta != other.numTarjeta) {
-            return false;
-        }
         if (!Objects.equals(this.DUI, other.DUI)) {
             return false;
         }
@@ -122,8 +118,16 @@ public class Cliente{
         if (!Objects.equals(this.apellido, other.apellido)) {
             return false;
         }
+        if (!Objects.equals(this.numTarjeta, other.numTarjeta)) {
+            return false;
+        }
+        if (!Objects.equals(this.codTarjeta, other.codTarjeta)) {
+            return false;
+        }
         return true;
     }
+
+
 
     @Override
     public String toString() {

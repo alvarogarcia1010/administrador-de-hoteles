@@ -129,15 +129,9 @@ public class Habitacion {
         }
         return true;
     }
-    
-    
-    /**
-     * 
-     */
-    
-    /*
+      
     public void generarCodigo(){
-        this.codigoHab = this.piso.getCodigo() + this.numHab;
+        this.codigoHab = Character.toString(this.piso.getCodigo()) + Integer.toString(this.numHab);
     }
-    */
+    
 }
