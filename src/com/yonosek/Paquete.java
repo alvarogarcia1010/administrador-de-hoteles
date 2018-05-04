@@ -82,19 +82,23 @@ public class Paquete {
 
     }
     
-    public void modifyServicio(){
+    public void modificarServicio(){
         
     }
     
     public void removerServicio(String servicio) throws Exception{
-        
+        if (servicios.contains(servicio)) {
+            servicios.remove(servicio);
+        } else {
+            System.err.println("La reservacion no se encuentra registrada");
+        }
     }
     
     public void modificarPrecio(){
         
     }
     
-        @Override
+    @Override
     public String toString() {
         return "Paquete{" + "nombre=" + nombre + ", codigoPaquete=" + codigoPaquete + ", servicios=" + servicios + ", costoPaquete=" + costoPaquete + '}';
     }
