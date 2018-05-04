@@ -55,7 +55,7 @@ public class Piso {
         if (!this.habitacionesPiso.containsKey(claveHabitacion)){
             this.habitacionesPiso.put(claveHabitacion, habitacion);
         }else{
-            throw new Exception("La habitacion ya se encuentra registrado");
+            System.err.println("La habitacion ya se encuentra registrado");
         }
     }
 

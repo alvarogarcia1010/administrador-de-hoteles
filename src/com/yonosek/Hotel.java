@@ -11,8 +11,8 @@ public class Hotel {
 
     private int idHotel;
     private String nombreHotel;
-    private double precioSencillo;
-    private double precioDoble;
+    private float precioSencillo;
+    private float precioDoble;
     private ArrayList<Cliente> clientesHotel;
     private ArrayList<Reservacion> reservacionesHotel;
     private HashMap<String, Piso> pisosHotel;
@@ -33,9 +33,10 @@ public class Hotel {
      *
      * @param idHotel
      * @param nombreHotel
-     * @param precioBase
+     * @param precioSencillo
+     * @param precioDoble
      */
-    public Hotel(int idHotel, String nombreHotel, double precioSencillo, double precioDoble) {
+    public Hotel(int idHotel, String nombreHotel, float precioSencillo, float precioDoble) {
         this.idHotel = idHotel;
         this.nombreHotel = nombreHotel;
         this.precioSencillo = precioSencillo;
@@ -58,7 +59,6 @@ public class Hotel {
         return nombreHotel;
     }
 
- 
     public void setNombreHotel(String nombreHotel) {
         this.nombreHotel = nombreHotel;
     }
@@ -67,10 +67,10 @@ public class Hotel {
         return precioSencillo;
     }
 
-    public void setPrecioBase(float precioBase) {
-        this.precioSencillo = precioBase;
+    public void setPrecioBase(float precioSencillo) {
+        this.precioSencillo = precioSencillo;
     }
-    
+
     public double getPrecioDoble() {
         return precioDoble;
     }
@@ -78,7 +78,6 @@ public class Hotel {
     public void setPrecioDoble(float precioDoble) {
         this.precioDoble = precioDoble;
     }
-    
 
     //PARA MANEJAR CLIENTES
     /**
@@ -102,11 +101,11 @@ public class Hotel {
                     this.clientesHotel.add(cliente);
 
                 } else {
-                    throw new Exception("El cliente ya se encuentra registrado");
+                    System.err.println("El cliente ya se encuentra registrado");
                 }
             }
         } else {
-            throw new Exception("Operacion no completada: Cliente Nulo");
+            System.err.println("Operacion no completada: Cliente Nulo");
         }
 
     }
@@ -114,16 +113,23 @@ public class Hotel {
     /**
      *
      * @param cliente
+     * @throws java.lang.Exception
      */
-    public void removerCliente(Cliente cliente) {
-
+    public void removerCliente(Cliente cliente) throws Exception {
+        if (clientesHotel.contains(cliente)) {
+            clientesHotel.remove(cliente);
+        } 
+        else {
+            System.err.println("El cliente no se encuentra registrado");
+        }
     }
 
-    /**
-     *
-     * @param cliente
-     */
-    public void modificarCliente(Cliente cliente) {
+
+/**
+ *
+ * @param cliente
+ */
+public void modificarCliente(Cliente cliente) {
 
     }
 
@@ -132,10 +138,8 @@ public class Hotel {
      */
     public void mostrarClientes() {
         for (Cliente cliente : this.clientesHotel) {
-            System.out.println( cliente.toString());
-            
+            System.out.println(cliente.toString());
         }
-
     }
 
     //PARA MANEJAR RESERVACIONES
@@ -150,10 +154,17 @@ public class Hotel {
     /**
      *
      * @param reservacion
+     * @throws java.lang.Exception
      */
-    public void removerReservacion(Reservacion reservacion) {
-
+    public void removerReservacion(Reservacion reservacion) throws Exception{
+        if (reservacionesHotel.contains(reservacion)) {
+            reservacionesHotel.remove(reservacion);
+        } 
+        else {
+            System.err.println("La reservacion no se encuentra registrada");
+        }
     }
+
 
     /**
      *
@@ -185,22 +196,23 @@ public class Hotel {
      * @throws java.lang.Exception
      */
     public void agregarPiso(String clavePiso, Piso piso) throws Exception {
-        if (!this.pisosHotel.containsKey(clavePiso)){
+        if (!this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.put(clavePiso, piso);
-        }else{
-            throw new Exception("El piso ya se encuentra registrado");
+        } else {
+            System.err.println("El piso ya se encuentra registrado");
         }
     }
 
     /**
      *
      * @param clavePiso
+     * @throws java.lang.Exception
      */
     public void removerPiso(String clavePiso) throws Exception {
-        if(this.pisosHotel.containsKey(clavePiso)){
+        if (this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.remove(clavePiso);
-        }else{
-            throw new Exception("No hay registros del piso "+ clavePiso);
+        } else {
+            System.err.println("No hay registros del piso " + clavePiso);
 
         }
     }
@@ -210,7 +222,7 @@ public class Hotel {
      * @param clavePiso
      */
     public void modificarPiso(String clavePiso) {
-        
+
     }
 
     /**
@@ -234,11 +246,11 @@ public class Hotel {
      * @param paquete
      * @throws java.lang.Exception
      */
-    public void agregarPaquete(Integer clavePaquete, Paquete paquete)throws Exception {
-        if (!this.paquetesHotel.containsKey(clavePaquete)){
+    public void agregarPaquete(Integer clavePaquete, Paquete paquete) throws Exception {
+        if (!this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.put(clavePaquete, paquete);
-        }else{
-            throw new Exception("El paquete ya se encuentra registrado");
+        } else {
+            System.err.println("El paquete ya se encuentra registrado");
         }
     }
 
@@ -247,11 +259,11 @@ public class Hotel {
      * @param clavePaquete
      * @throws java.lang.Exception
      */
-    public void removerPaquete(Integer clavePaquete)throws Exception {
-        if(this.paquetesHotel.containsKey(clavePaquete)){
+    public void removerPaquete(Integer clavePaquete) throws Exception {
+        if (this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.remove(clavePaquete);
-        }else{
-            throw new Exception("No hay registros del paquete");
+        } else {
+            System.err.println("No hay registros del paquete");
 
         }
     }

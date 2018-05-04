@@ -17,7 +17,7 @@ public class AdministradorHotel {
 
         System.out.println("Administrador Hotel");
 
-        Hotel villaRafinha = new Hotel(1, "VillaRafinha", 100.00, 150.00);
+        Hotel villaRafinha = new Hotel(1, "VillaRafinha", 100, 150);
 
         Menu menu = Menu.getInstance();
 
@@ -111,11 +111,15 @@ public class AdministradorHotel {
                                 break;
                             case 3:
                                 /* Modificar precio base de habitacion sencilla*/
-                                System.out.println("/* Modificar precio base de habitacion sencilla */");
+                                //System.out.println("/* Modificar precio base de habitacion sencilla */");
+                                System.out.println("Ingrese el precio sencillo: ");
+                                villaRafinha.setPrecioBase(leer.nextFloat());
                                 break;
                             case 4:
                                 /* Modificar precio de habitacion doble */
-                                System.out.println("/* Modificar precio base de habitacion doble */");
+                                //System.out.println("/* Modificar precio base de habitacion doble */");
+                                System.out.println("Ingrese el precio de la habitacion doble: ");
+                                villaRafinha.setPrecioDoble(leer.nextFloat());
                                 break;
                             case 5:
                                 /* Agregar paquete */
