@@ -14,12 +14,20 @@ import java.util.*;
 public class Piso {
     private char codigo;
     private Hotel hotel;
-    private HashMap<String, Habitacion> habitacionesPiso;
+    protected HashMap<String, Habitacion> habitacionesPiso;
+    private boolean estaHabilitada;
 
-    
     
     public Piso(){
         this.habitacionesPiso = new HashMap<>();
+    }
+    
+    public boolean isEstaHabilitada() {
+        return estaHabilitada;
+    }
+
+    public void setEstaHabilitada(boolean estaHabilitada) {
+        this.estaHabilitada = estaHabilitada;
     }
     
     public Piso(char codigo, Hotel hotel){
