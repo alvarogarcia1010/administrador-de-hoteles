@@ -133,7 +133,7 @@ public class AdministradorHotel {
                             case 1:
                                 /* Agregar paquete */
                                 System.out.println("Ingrese el codigo del paquete: ");
-                                villaRafinha.agregarPaquete(leer.nextInt(), crearPaquete());
+                                /*ARREGLAR*/ villaRafinha.agregarPaquete(leer.nextInt(), crearPaquete());
                                 break;
                             case 2:
                                 /* Modificar paquete */
@@ -142,6 +142,7 @@ public class AdministradorHotel {
                             case 3:
                                 /* Eliminar paquete */
                                 System.out.println("/* Eliminar paquete */");
+                                /*ARREGLAR */ villaRafinha.removerPaquete(leer.nextInt());
                                 break;
                             case 4:
                                 /* Mostrar paquetes */
