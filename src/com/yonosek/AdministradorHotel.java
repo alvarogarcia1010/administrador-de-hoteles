@@ -28,12 +28,12 @@ public class AdministradorHotel {
         Menu menu = Menu.getInstance();
 
         //MENU
-        int opcion = 5;
+        int opcion = 7;
         int opcionSec = 5;
         int opcionMod = 0;
         Scanner leer = new Scanner(System.in);
 
-        while (opcion != 4) {
+        while (opcion != 6) {
             menu.opcionesMenu(); //menu.opcionesMenu
             try {
                 System.out.print("Elija opcion deseada: ");
@@ -122,14 +122,50 @@ public class AdministradorHotel {
                                 System.out.print("\n");
                         }
                         break;
+                        
                     case 3:
                         System.out.print("\n");
-                        menu.opcionesMenuServicios();
+                        menu.opcionesMenuPaquetes();
                         System.out.print("Elija opcion deseada: ");
                         opcionSec = leer.nextInt();
                         System.out.print("\n");
-                        switch (opcionSec) {
+                        switch(opcionSec){
                             case 1:
+                                /* Agregar paquete */
+                                System.out.println("Ingrese el codigo del paquete: ");
+                                /*ARREGLAR*/ villaRafinha.agregarPaquete(leer.nextInt(), crearPaquete());
+                                break;
+                            case 2:
+                                /* Modificar paquete */
+                                System.out.println("/* Modificar paquete */");
+                                break;
+                            case 3:
+                                /* Eliminar paquete */
+                                System.out.println("/* Eliminar paquete */");
+                                /*ARREGLAR */ villaRafinha.removerPaquete(leer.nextInt());
+                                break;
+                            case 4:
+                                /* Mostrar paquetes */
+                                System.out.println("/* Mostrar paquetes */");
+                                villaRafinha.mostrarPaquetes();
+                                break;
+                            case 5:
+                                break;
+                            default:
+                                System.out.println("Por favor ingrese una opcion valida");
+                                System.out.print("\n");
+                        }
+                        
+                        break;
+                        
+                    case 4:
+                        System.out.print("\n");
+                        menu.opcionesMantenimiento();
+                        System.out.print("Elija opcion deseada: ");
+                        opcionSec = leer.nextInt();
+                        System.out.print("\n");
+                        switch(opcionSec){
+                             case 1:
                                 /* Habilitar habitacion */
                                 System.out.println("Ingrese el numero de la habitacion: ");
                                 villaRafinha.habilitarHabitacion(leer.nextLine());
@@ -150,6 +186,44 @@ public class AdministradorHotel {
                                 villaRafinha.DeshabilitarPiso(leer.nextLine());
                                 break;
                             case 5:
+                                break;
+                            default:
+                                System.out.println("Por favor ingrese una opcion valida");
+                                System.out.print("\n");
+                        } 
+                        break;
+                        
+                    case 5:
+                        System.out.print("\n");
+                        menu.opcionesMenuServicios();
+                        System.out.print("Elija opcion deseada: ");
+                        opcionSec = leer.nextInt();
+                        System.out.print("\n");
+                        switch (opcionSec) {
+                            case 1:
+                                /* Agregar Habitacion */
+                                System.out.println("Agregar Habitacion");
+                                //villaRafinha.setHab;
+                                break;
+                                
+                            case 2:
+                                /* Eliminar Habitacion*/
+                                System.out.println("Eliminar Habitacion");
+                                //villaRafihna.eliminarHab;
+                                break;
+                                
+                            case 3:
+                                /* Agregar Piso */
+                                System.out.println("Agregar Piso");
+                                //villaRafihna.agregarPiso;
+                                break;
+                            case 4:
+                                /* Eliminar Piso */
+                                System.out.println("Eliminar Piso");
+                                //villaRafinha.elimanarPiso;
+                                break;
+
+                            case 5:
                                 /* Modificar precio base de habitacion sencilla*/
                                 //System.out.println("/* Modificar precio base de habitacion sencilla */");
                                 System.out.println("Ingrese el precio sencillo: ");
@@ -162,30 +236,13 @@ public class AdministradorHotel {
                                 villaRafinha.setPrecioDoble(leer.nextFloat());
                                 break;
                             case 7:
-                                /* Agregar paquete */
-                                System.out.println("Ingrese le codigo del paquete: ");
-                                villaRafinha.agregarPaquete(leer.nextInt(), crearPaquete());
-                                break;
-                            case 8:
-                                /* Modificar paquete */
-                                System.out.println("/* Modificar paquete */");
-                                break;
-                            case 9:
-                                /* Eliminar paquete */
-                                System.out.println("/* Eliminar paquete */");
-                                break;
-                            case 10:
-                                /* Mostrar paquetes */
-                                System.out.println("/* Mostrar paquetes */");
-                                break;
-                            case 11:
                                 break;
                             default:
                                 System.out.println("Por favor ingrese una opcion valida");
                                 System.out.print("\n");
                         }
                         break;
-                    case 4:
+                    case 6:
                         System.out.print("\n");
                         System.out.println("Saliendo...");
                         break;
@@ -254,6 +311,8 @@ public class AdministradorHotel {
 
         return reservacion;
     }
+    
+    
 
     public static Cliente crearCliente() {
         Cliente cliente = new Cliente();

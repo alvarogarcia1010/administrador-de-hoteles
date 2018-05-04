@@ -202,7 +202,45 @@ public class Hotel {
      * @param reservacion
      */
     public void agregarReservacion(Reservacion reservacion) {
-
+            Scanner leer = new Scanner(System.in);
+            System.out.println("Ingrese el codigo de reservacion: ");
+            reservacion.setCodigo(leer.nextInt());
+            System.out.println("Clientes disponibles: ");
+            mostrarClientes();
+            System.out.println("Seleccione uno de ellos: ");
+            //reservacion.setCliente(leer.algo);
+            System.out.println("Habitaciones disponibles: ");
+            //habilitarHabitacion();
+            //mostrarHabitaciones();
+            //reservacion.setHabitacion(leer.algo);
+            System.out.println("Desea adquirir un paquete? (s/n)");
+            String op = leer.nextLine();
+            if(op == "s"){
+                mostrarPaquetes();
+                System.out.println("Seleccione el paquete que desea: ");
+                //reservacion.setPaquete(leer.algo);
+            }else{
+                System.out.println("No seleccionó ningun paquete.");
+            }
+            System.out.println("Ingrese el dia que hará la reservacion formato (dd): ");
+            //reservacion.setDia(leer.algo);
+            System.out.println("Ingrese el mes que hará la reservacion (formato mm): ");
+            //reservacion.setMes(leer.algo);
+            System.out.println("Ingrese el año que hará la reservacion (formato aaaa): ");
+            //reservacion.setAnio(leer.algo);
+            System.out.println("Cuantos dias se quedará? (Lo mas son 7 dias)");
+            int op1 = leer.nextInt();
+            if(op1 <= 7){
+                System.out.println("Usted sequedará: " + op1 + "dias");
+            }else{
+                System.out.println("Le dije que eran 7 dias o menos. Hoy la cagó.");
+            }
+            //validarReservacion
+            //costo x noche = habitacion.getPrecioHabitacion(float);
+            //costo paquete = paqueteAdquirido.getCostoPaquete(float);
+            //costo total = (costo paquete  mas costo noche ) * int total dias;
+            
+        
     }
 
     /**

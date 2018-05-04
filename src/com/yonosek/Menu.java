@@ -24,8 +24,29 @@ public class Menu {
         System.out.println("----- Menu -----");
         System.out.println("1. Administrar clientes");
         System.out.println("2. Administrar reservaciones");
-        System.out.println("3. Configuraciones");
-        System.out.println("4. Salir");
+        System.out.println("3. Administrar paquetes");
+        System.out.println("4. Mantenimiento");
+        System.out.println("5. Configuraciones");
+        System.out.println("6. Salir");
+    }
+    
+    public void opcionesMenuPaquetes(){
+        System.out.println("----- Menu Paquetes -----");
+        System.out.println("1. Agregar paquete");
+        System.out.println("2. Modificar paquete");
+        System.out.println("3. Eliminar paquete");
+        System.out.println("4. Mostrar paquetes");
+        System.out.println("5. Atras");
+    }
+    
+    public void opcionesMantenimiento(){
+        System.out.println("----- Mantenimiento -----");
+        System.out.println("1. Habilitar habitacion");
+        System.out.println("2. Deshabilitar habitacion");
+        System.out.println("3. Habilitar piso");
+        System.out.println("4. Deshabilitar piso ");
+        System.out.println("5. Atras");
+        
     }
     
     public void opcionesMenuClientes(){
@@ -63,20 +84,12 @@ public class Menu {
     
     public void opcionesMenuServicios(){
         System.out.println("----- Configuraciones -----");
-        System.out.println("1. Habilitar habitacion");
-        System.out.println("2. Deshabilitar habitacion");
-        System.out.println("3. Agregar Habitacion");
-        System.out.println("4. Elminar Habitacion");
-        System.out.println("5. Agregar Piso");
-        System.out.println("6. Elminar Piso");
-        System.out.println("7. Habilitar piso");
-        System.out.println("8. Deshabilitar piso ");
-        System.out.println("9. Modificar precio base de habitacion sencilla");
-        System.out.println("10. Modificar precio base de habitacion doble");
-        System.out.println("11. Agregar paquete");
-        System.out.println("12. Modificar paquete");
-        System.out.println("13. Eliminar paquete");
-        System.out.println("14. Mostrar paquetes");
-        System.out.println("15. Atras");
+        System.out.println("1. Agregar Habitacion");
+        System.out.println("2. Eliminar Habitacion");
+        System.out.println("3. Agregar Piso");
+        System.out.println("4. Eliminar Piso");
+        System.out.println("5. Modificar precio base de habitacion sencilla");
+        System.out.println("6. Modificar precio base de habitacion doble");
+        System.out.println("7. Atras");
     }
 }
