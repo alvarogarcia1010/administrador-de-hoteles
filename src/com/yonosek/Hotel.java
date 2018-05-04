@@ -101,11 +101,11 @@ public class Hotel {
                     this.clientesHotel.add(cliente);
 
                 } else {
-                    throw new Exception("El cliente ya se encuentra registrado");
+                    System.err.println("El cliente ya se encuentra registrado");
                 }
             }
         } else {
-            throw new Exception("Operacion no completada: Cliente Nulo");
+            System.err.println("Operacion no completada: Cliente Nulo");
         }
 
     }
@@ -120,7 +120,7 @@ public class Hotel {
             clientesHotel.remove(cliente);
         } 
         else {
-            throw new Exception("El cliente no se encuentra registrado");
+            System.err.println("El cliente no se encuentra registrado");
         }
     }
 
@@ -161,7 +161,7 @@ public void modificarCliente(Cliente cliente) {
             reservacionesHotel.remove(reservacion);
         } 
         else {
-            throw new Exception("La reservacion no se encuentra registrada");
+            System.err.println("La reservacion no se encuentra registrada");
         }
     }
 
@@ -199,7 +199,7 @@ public void modificarCliente(Cliente cliente) {
         if (!this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.put(clavePiso, piso);
         } else {
-            throw new Exception("El piso ya se encuentra registrado");
+            System.err.println("El piso ya se encuentra registrado");
         }
     }
 
@@ -212,7 +212,7 @@ public void modificarCliente(Cliente cliente) {
         if (this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.remove(clavePiso);
         } else {
-            throw new Exception("No hay registros del piso " + clavePiso);
+            System.err.println("No hay registros del piso " + clavePiso);
 
         }
     }
@@ -250,7 +250,7 @@ public void modificarCliente(Cliente cliente) {
         if (!this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.put(clavePaquete, paquete);
         } else {
-            throw new Exception("El paquete ya se encuentra registrado");
+            System.err.println("El paquete ya se encuentra registrado");
         }
     }
 
@@ -263,7 +263,7 @@ public void modificarCliente(Cliente cliente) {
         if (this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.remove(clavePaquete);
         } else {
-            throw new Exception("No hay registros del paquete");
+            System.err.println("No hay registros del paquete");
 
         }
     }

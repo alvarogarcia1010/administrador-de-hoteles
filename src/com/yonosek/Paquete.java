@@ -73,11 +73,11 @@ public class Paquete {
                     this.servicios.add(servicio);
 
                 } else {
-                    throw new Exception("El servicio ya está registrado.");
+                    System.err.println("El servicio ya está registrado.");
                 }
             }
         } else {
-            throw new Exception("Operacion no completada: Servicio Nulo");
+            System.err.println("Operacion no completada: Servicio Nulo");
         }
 
     }
