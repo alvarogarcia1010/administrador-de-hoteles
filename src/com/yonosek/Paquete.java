@@ -4,7 +4,7 @@ import java.util.*;
 
 
 public class Paquete {
-    private String servicioInicial;
+    private String nombre;
     private int codigoPaquete;
     private ArrayList <String> servicios;
     private int costoPaquete;
@@ -13,9 +13,9 @@ public class Paquete {
         
     }
 
-    public Paquete(int codigoPaquete,  int costoPaquete, String servicioInicial) {
+    public Paquete(int codigoPaquete,  int costoPaquete, String nombre) {
         this.servicios=new ArrayList<>();
-        this.servicioInicial= servicioInicial;
+        this.nombre= nombre;
         this.codigoPaquete = codigoPaquete;
         this.costoPaquete = costoPaquete;
     }
@@ -28,12 +28,12 @@ public class Paquete {
         this.codigoPaquete = codigoPaquete;
         
     }
-    public String getServicioInicial(){
-        return servicioInicial;
+    public String getNombre(){
+        return nombre;
     }
     
-    public void setServicioInicial(String servicioInicial){
-        this.servicioInicial = servicioInicial;
+    public void setNombre(String nombre){
+        this.nombre= nombre;
     }
     
 
@@ -92,6 +92,11 @@ public class Paquete {
     
     public void modificarPrecio(){
         
+    }
+    
+        @Override
+    public String toString() {
+        return "Paquete{" + "nombre=" + nombre + ", codigoPaquete=" + codigoPaquete + ", servicios=" + servicios + ", costoPaquete=" + costoPaquete + '}';
     }
     
     

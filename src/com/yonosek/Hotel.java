@@ -2,7 +2,9 @@ package com.yonosek;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 /**
  *
@@ -16,8 +18,8 @@ public class Hotel {
     private float precioDoble;
     private ArrayList<Cliente> clientesHotel;
     private ArrayList<Reservacion> reservacionesHotel;
-    private HashMap<String, Piso> pisosHotel;
-    private HashMap<Integer, Paquete> paquetesHotel;
+    private TreeMap<String, Piso> pisosHotel;
+    private TreeMap<Integer, Paquete> paquetesHotel;
 
     /**
      * Constructor Vacio
@@ -25,8 +27,8 @@ public class Hotel {
     public Hotel() {
         this.clientesHotel = new ArrayList<>();
         this.reservacionesHotel = new ArrayList<>();
-        this.pisosHotel = new HashMap<>();
-        this.paquetesHotel = new HashMap<>();
+        this.pisosHotel = new TreeMap<>();
+        this.paquetesHotel = new TreeMap<>();
     }
 
     /**
@@ -44,8 +46,8 @@ public class Hotel {
         this.precioDoble = precioDoble;
         this.clientesHotel = new ArrayList<>();
         this.reservacionesHotel = new ArrayList<>();
-        this.pisosHotel = new HashMap<>();
-        this.paquetesHotel = new HashMap<>();
+        this.pisosHotel = new TreeMap<>();
+        this.paquetesHotel = new TreeMap<>();
     }
 
     public int getIdHotel() {
@@ -86,7 +88,7 @@ public class Hotel {
      * @param cliente
      * @throws java.lang.Exception
      */
-    public void agregarCliente(Cliente cliente) throws Exception {
+    public void agregarCliente(Cliente cliente){
         boolean flag = false;
         if (cliente != null) {
             if (this.clientesHotel.isEmpty()) {
@@ -116,7 +118,7 @@ public class Hotel {
      * @param cliente
      * @throws java.lang.Exception
      */
-    public void removerCliente(Cliente cliente) throws Exception {
+    public void removerCliente(Cliente cliente){
         if (clientesHotel.contains(cliente)) {
             clientesHotel.remove(cliente);
         } 
@@ -173,7 +175,7 @@ public void modificarCliente(Cliente cliente) {
      * @param reservacion
      * @throws java.lang.Exception
      */
-    public void removerReservacion(Reservacion reservacion) throws Exception{
+    public void removerReservacion(Reservacion reservacion){
         if (reservacionesHotel.contains(reservacion)) {
             reservacionesHotel.remove(reservacion);
         } 
@@ -212,7 +214,7 @@ public void modificarCliente(Cliente cliente) {
      * @param piso
      * @throws java.lang.Exception
      */
-    public void agregarPiso(String clavePiso, Piso piso) throws Exception {
+    public void agregarPiso(String clavePiso, Piso piso){
         if (!this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.put(clavePiso, piso);
         } else {
@@ -225,7 +227,7 @@ public void modificarCliente(Cliente cliente) {
      * @param clavePiso
      * @throws java.lang.Exception
      */
-    public void removerPiso(String clavePiso) throws Exception {
+    public void removerPiso(String clavePiso){
         if (this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.remove(clavePiso);
         } else {
@@ -243,10 +245,10 @@ public void modificarCliente(Cliente cliente) {
     }
 
     /**
-     *
+     *3
      */
-    public void mostrarPisosYHabitaciones() {
-
+    public void mostrarPisoYHabitaciones() {
+        
     }
 
     /**
@@ -263,7 +265,7 @@ public void modificarCliente(Cliente cliente) {
      * @param paquete
      * @throws java.lang.Exception
      */
-    public void agregarPaquete(Integer clavePaquete, Paquete paquete) throws Exception {
+    public void agregarPaquete(Integer clavePaquete, Paquete paquete){
         if (!this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.put(clavePaquete, paquete);
         } else {
@@ -276,7 +278,7 @@ public void modificarCliente(Cliente cliente) {
      * @param clavePaquete
      * @throws java.lang.Exception
      */
-    public void removerPaquete(Integer clavePaquete) throws Exception {
+    public void removerPaquete(Integer clavePaquete){
         if (this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.remove(clavePaquete);
         } else {
@@ -293,12 +295,6 @@ public void modificarCliente(Cliente cliente) {
 
     }
 
-    /**
-     *
-     */
-    public void mostrarPaquetes() {
-
-    }
     
     public void eliminarPaquete() {
         
@@ -348,6 +344,16 @@ public void modificarCliente(Cliente cliente) {
         }
     }
     
+        /**
+     *
+     */
+    public void mostrarPaquetes() {
+        for (Map.Entry <Integer, Paquete> paquete : this.paquetesHotel.entrySet()) {
+            Integer clave = paquete.getKey();
+            Paquete valor = paquete.getValue();
+            System.out.println(Integer.toString(clave) + "  ->  " + valor.toString());
+        }
+    }
    
 
 }

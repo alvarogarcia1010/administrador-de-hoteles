@@ -14,12 +14,12 @@ import java.util.*;
 public class Piso {
     private char codigo;
     private Hotel hotel;
-    protected HashMap<String, Habitacion> habitacionesPiso;
+    protected TreeMap<String, Habitacion> habitacionesPiso;
     private boolean estaHabilitada;
 
     
     public Piso(){
-        this.habitacionesPiso = new HashMap<>();
+        this.habitacionesPiso = new TreeMap<>();
     }
     
     public boolean isEstaHabilitada() {
@@ -31,7 +31,7 @@ public class Piso {
     }
     
     public Piso(char codigo, Hotel hotel){
-        this.habitacionesPiso = new HashMap<>();
+        this.habitacionesPiso = new TreeMap<>();
         this.codigo = codigo;
         this.hotel = hotel;
     }
@@ -81,5 +81,16 @@ public class Piso {
      */
     public void modificarHabitacion(String claveHabitacion) {
 
+    }
+    
+            /**
+     *
+     */
+    public void mostrarHabitacion() {
+        for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
+            String clave = habitacion.getKey();
+            Habitacion valor = habitacion.getValue();
+            System.out.println(clave + "  ->  " + valor.toString());
+        }
     }
 }

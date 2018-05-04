@@ -13,7 +13,7 @@ public class AdministradorHotel {
     //Formato Moneda   
     static DecimalFormat formatoMoneda = new DecimalFormat("$ #.00");
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception{
 
         System.out.println("Administrador Hotel");
 
