@@ -15,9 +15,8 @@ public class Cliente{
     private String DUI;
     private String nombre;
     private String apellido;
-    private String formaPago;
-    private String numTarjeta;
-    private String codTarjeta;
+    private int numTarjeta;
+    private int codTarjeta;
     private String PagoCash;
     //private Fecha fechaVencTarjeta;
 
@@ -36,15 +35,11 @@ public class Cliente{
         return apellido;
     }
 
-    public String getFormaPago() {
-        return formaPago;
-    }
-
-    public String getNumTarjeta() {
+    public int getNumTarjeta() {
         return numTarjeta;
     }
 
-    public String getCodTarjeta() {
+    public int getCodTarjeta() {
         return codTarjeta;
     }
     
@@ -67,15 +62,11 @@ public class Cliente{
         this.apellido = apellido;
     }
 
-    public void setFormaPago(String formaPago) {
-        this.formaPago = formaPago;
-    }
-
-    public void setNumTarjeta(String numTarjeta) {
+    public void setNumTarjeta(int numTarjeta) {
         this.numTarjeta = numTarjeta;
     }
 
-    public void setCodTarjeta(String codTarjeta) {
+    public void setCodTarjeta(int codTarjeta) {
         this.codTarjeta = codTarjeta;
     }
     
@@ -86,14 +77,16 @@ public class Cliente{
     //public void setFechaVencTarjeta(Fecha fechaVencTarjeta) {
         //this.fechaVencTarjeta = fechaVencTarjeta;}
 
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "DUI=" + DUI + ", nombre=" + nombre + ", apellido=" + apellido + ", numTarjeta=" + numTarjeta + ", codTarjeta=" + codTarjeta + '}';
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.DUI);
-        hash = 79 * hash + Objects.hashCode(this.nombre);
-        hash = 79 * hash + Objects.hashCode(this.apellido);
-        hash = 79 * hash + Objects.hashCode(this.numTarjeta);
-        hash = 79 * hash + Objects.hashCode(this.codTarjeta);
+        hash = 97 * hash + Objects.hashCode(this.DUI);
         return hash;
     }
 
@@ -112,26 +105,7 @@ public class Cliente{
         if (!Objects.equals(this.DUI, other.DUI)) {
             return false;
         }
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (!Objects.equals(this.apellido, other.apellido)) {
-            return false;
-        }
-        if (!Objects.equals(this.numTarjeta, other.numTarjeta)) {
-            return false;
-        }
-        if (!Objects.equals(this.codTarjeta, other.codTarjeta)) {
-            return false;
-        }
         return true;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "DUI=" + DUI + ", nombre=" + nombre + ", apellido=" + apellido + ", formaPago=" + formaPago + ", numTarjeta=" + numTarjeta + ", codTarjeta=" + codTarjeta + '}';
     }
     
     

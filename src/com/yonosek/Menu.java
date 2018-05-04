@@ -49,15 +49,17 @@ public class Menu {
     
     public void opcionesMenuServicios(){
         System.out.println("----- Configuraciones -----");
-        System.out.println("1. Habilitar/Deshabilitar habitacion");
-        System.out.println("2. Habilitar/Deshabilitar piso");
-        System.out.println("3. Modificar precio base de habitacion sencilla");
-        System.out.println("4. Modificar precio base de habitacion doble");
-        System.out.println("5. Agregar paquete");
-        System.out.println("6. Modificar paquete");
-        System.out.println("7. Eliminar paquete");
-        System.out.println("8. Mostrar paquetes");
-        System.out.println("9. Atras");
+        System.out.println("1. Habilitar habitacion");
+        System.out.println("2. Deshabilitar habitacion");
+        System.out.println("2. Habilitar piso");
+        System.out.println("4. Deshabilitar piso ");
+        System.out.println("5. Modificar precio base de habitacion sencilla");
+        System.out.println("6. Modificar precio base de habitacion doble");
+        System.out.println("7. Agregar paquete");
+        System.out.println("8. Modificar paquete");
+        System.out.println("9. Eliminar paquete");
+        System.out.println("10. Mostrar paquetes");
+        System.out.println("11. Atras");
     }
 
 }
