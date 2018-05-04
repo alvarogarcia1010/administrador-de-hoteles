@@ -39,11 +39,10 @@ public class Menu {
     
     public void opcionesModificarCliente(){
         System.out.println("----- Menu Modificar Clientes -----");
-        System.out.println("1. Modificar DUI");
-        System.out.println("2. Modificar nombre");
-        System.out.println("3. Modificar apellido");
-        System.out.println("4. Modificar numero de tarjeta");
-        System.out.println("5. Modificar codigo de tarjeta");        
+        System.out.println("1. Modificar nombre");
+        System.out.println("2. Modificar apellido");
+        System.out.println("3. Modificar numero de tarjeta");
+        System.out.println("4. Modificar codigo de tarjeta");        
     }
     
     public void opcionesMenuReservaciones(){
@@ -54,6 +53,12 @@ public class Menu {
         System.out.println("4. Mostrar reservaciones por semana");  
         System.out.println("5. Atras");
 
+    }
+    
+    public void opcionesModificarReservacion(){
+        System.out.println("----- Menu Modificar Reservacion -----");
+        System.out.println("1. Modificar paquete adquirido");
+        System.out.println("2. Modificar total de dias");
     }
     
     public void opcionesMenuServicios(){

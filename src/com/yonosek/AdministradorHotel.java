@@ -30,7 +30,7 @@ public class AdministradorHotel {
         //MENU
         int opcion = 5;
         int opcionSec = 5;
-        int opcionTer = 5;
+        int opcionMod = 0;
         Scanner leer = new Scanner(System.in);
 
         while (opcion != 4) {
@@ -58,17 +58,16 @@ public class AdministradorHotel {
                                 System.out.print("\n");
                                 menu.opcionesModificarCliente(); //menu.menuClientes;
                                 System.out.print("Elija opcion deseada: ");
-                                opcionTer = leer.nextInt();
+                                opcionMod = leer.nextInt();
                                 System.out.print("\n");
-                                switch (opcionTer) {
-                                    case 1:
-                                        Cliente cliente;
-                                }
+                                
+                                Cliente cliente = villaRafinha.buscarCliente();
+                                villaRafinha.modificarCliente(cliente, opcionMod);
                                 break;
                             case 3:
                                 /* Eliminar Cliente */
                                 System.out.println("/* Eliminar Cliente */");
-                                Cliente cliente = villaRafinha.buscarCliente();
+                                cliente = villaRafinha.buscarCliente();
                                 villaRafinha.removerCliente(cliente);
                                 break;
                             case 4:
@@ -97,10 +96,20 @@ public class AdministradorHotel {
                             case 2:
                                 /* Modificar Reservacion */
                                 System.out.println("/* Modificar Reservacion */");
+                                System.out.print("\n");
+                                menu.opcionesModificarReservacion();
+                                System.out.print("Elija opcion deseada: ");
+                                opcionMod = leer.nextInt();
+                                System.out.print("\n");
+                                
+                                Reservacion reservacion = villaRafinha.buscarReservacion();
+                                villaRafinha.modificarReservacion(reservacion, opcionMod);
                                 break;
                             case 3:
                                 /* Eliminar Reservacion */
                                 System.out.println("/* Eliminar Reservacion */");
+                                reservacion = villaRafinha.buscarReservacion();
+                                villaRafinha.removerReservacion(reservacion);
                                 break;
                             case 4:
                                 /* Mostrar reservaciones por semana */
