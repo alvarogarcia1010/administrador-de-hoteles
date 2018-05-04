@@ -24,6 +24,7 @@ public class AdministradorHotel {
         //MENU
         int opcion = 5;
         int opcionSec = 5;
+        int opcionTer = 5;
         Scanner leer = new Scanner(System.in);
 
         while (opcion != 4) {
@@ -48,12 +49,21 @@ public class AdministradorHotel {
                             case 2:
                                 /* Modificar Cliente */
                                 System.out.println("/* Modificar Cliente */");
+                                System.out.print("\n");
+                                menu.opcionesModificarCliente(); //menu.menuClientes;
+                                System.out.print("Elija opcion deseada: ");
+                                opcionTer = leer.nextInt();
+                                System.out.print("\n");
+                                switch (opcionTer) {
+                                    case 1:
+                                        Cliente cliente;
+                                }
                                 break;
                             case 3:
                                 /* Eliminar Cliente */
                                 System.out.println("/* Eliminar Cliente */");
-                                villaRafinha.buscarCliente();
-                                //villaRafinha.removerCliente();
+                                Cliente cliente = villaRafinha.buscarCliente();
+                                villaRafinha.removerCliente(cliente);
                                 break;
                             case 4:
                                 /* Mostrar Clientes */
