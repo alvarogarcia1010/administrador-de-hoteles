@@ -3,6 +3,8 @@ package com.yonosek;
 import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,6 +20,10 @@ public class AdministradorHotel {
         System.out.println("Administrador Hotel");
 
         Hotel villaRafinha = new Hotel(1, "VillaRafinha", 100, 150);
+        
+        for(int piso=1; piso<=6; piso++){
+//            villaRafinha.agregarPiso(clavePiso, piso);
+        }
 
         Menu menu = Menu.getInstance();
 
@@ -126,19 +132,22 @@ public class AdministradorHotel {
                             case 1:
                                 /* Habilitar habitacion */
                                 System.out.println("Ingrese el numero de la habitacion: ");
-                                //hablitarHabitacion(leer.nextLine());
+                                villaRafinha.habilitarHabitacion(leer.nextLine());
                                 break;
                             case 2:
                                 /* Deshabilitar habitacion */
-                                System.out.println("/* Deshabilitar habitacion */");
+                                System.out.println("Ingrese el numero de la habitacion: ");
+                                villaRafinha.DeshabilitarHabitacion(leer.nextLine());
                                 break;
                             case 3:
                                 /* Habilitar piso */
-                                System.out.println("/* Habilitar piso */");
+                                System.out.println("Ingrese el codigo del piso: ");
+                                villaRafinha.habilitarPiso(leer.nextLine());
                                 break;
                             case 4:
                                 /* Deshabilitar piso */
-                                System.out.println("/* Deshabilitar piso */");
+                                System.out.println("Ingrese el codigo del piso: ");
+                                villaRafinha.DeshabilitarPiso(leer.nextLine());
                                 break;
                             case 5:
                                 /* Modificar precio base de habitacion sencilla*/
@@ -154,7 +163,8 @@ public class AdministradorHotel {
                                 break;
                             case 7:
                                 /* Agregar paquete */
-                                System.out.println("/* Agregar paquete */");
+                                System.out.println("Ingrese le codigo del paquete: ");
+                                villaRafinha.agregarPaquete(leer.nextInt(), crearPaquete());
                                 break;
                             case 8:
                                 /* Modificar paquete */
@@ -218,10 +228,23 @@ public class AdministradorHotel {
         return piso;
     }
 
-    public Paquete crearPaquete() {
-
+    public static Paquete crearPaquete() {
         Paquete paquete = new Paquete();
-
+        Scanner leer = new Scanner(System.in);
+        
+        System.out.println("Ingrese el nombre del paquete: ");
+        paquete.setNombre(leer.nextLine());
+        System.out.println("Ingrese el codigo del paquete: ");
+        paquete.setCodigoPaquete(leer.nextInt());
+        System.out.println("Ingrese el costo del paquete: ");
+        paquete.setCostoPaquete(leer.nextInt());
+        System.out.println("Ingrese los servicios del paquete: ");
+        try {
+            paquete.agregarServicio(leer.nextLine());
+        } catch (Exception ex) {
+            Logger.getLogger(AdministradorHotel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         return paquete;
     }
 
