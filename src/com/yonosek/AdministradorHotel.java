@@ -222,6 +222,8 @@ public class AdministradorHotel {
 
         return reservacion;
     }
+    
+    
 
     public static Cliente crearCliente() {
         Cliente cliente = new Cliente();
