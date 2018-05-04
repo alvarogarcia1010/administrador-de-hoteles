@@ -60,15 +60,19 @@ public class Menu {
         System.out.println("----- Configuraciones -----");
         System.out.println("1. Habilitar habitacion");
         System.out.println("2. Deshabilitar habitacion");
-        System.out.println("2. Habilitar piso");
-        System.out.println("4. Deshabilitar piso ");
-        System.out.println("5. Modificar precio base de habitacion sencilla");
-        System.out.println("6. Modificar precio base de habitacion doble");
-        System.out.println("7. Agregar paquete");
-        System.out.println("8. Modificar paquete");
-        System.out.println("9. Eliminar paquete");
-        System.out.println("10. Mostrar paquetes");
-        System.out.println("11. Atras");
+        System.out.println("3. Agregar Habitacion");
+        System.out.println("4. Elminar Habitacion");
+        System.out.println("5. Agregar Piso");
+        System.out.println("6. Elminar Piso");
+        System.out.println("7. Habilitar piso");
+        System.out.println("8. Deshabilitar piso ");
+        System.out.println("9. Modificar precio base de habitacion sencilla");
+        System.out.println("10. Modificar precio base de habitacion doble");
+        System.out.println("11. Agregar paquete");
+        System.out.println("12. Modificar paquete");
+        System.out.println("13. Eliminar paquete");
+        System.out.println("14. Mostrar paquetes");
+        System.out.println("15. Atras");
     }
 
 }
