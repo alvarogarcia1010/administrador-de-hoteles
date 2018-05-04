@@ -214,10 +214,10 @@ public class Hotel {
     }
 
     /**
-     *
+     *3
      */
-    public void mostrarPisosYHabitaciones() {
-
+    public void mostrarPisoYHabitaciones() {
+        
     }
 
     /**
