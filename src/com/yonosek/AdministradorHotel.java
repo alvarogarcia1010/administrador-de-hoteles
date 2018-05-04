@@ -17,7 +17,7 @@ public class AdministradorHotel {
 
         System.out.println("Administrador Hotel");
 
-        Hotel villaRafinha = new Hotel(1, "VillaRafinha", 100.00, 150.00);
+        Hotel villaRafinha = new Hotel(1, "VillaRafinha", 100, 150);
 
         Menu menu = Menu.getInstance();
 
@@ -105,38 +105,51 @@ public class AdministradorHotel {
                         System.out.print("\n");
                         switch (opcionSec) {
                             case 1:
-                                /* Habilitar/Deshabilitar habitacion */
-                                System.out.println("/* Habilitar/Deshabilitar habitacion */");
+                                /* Habilitar habitacion */
+                                System.out.println("Ingrese el numero de la habitacion: ");
+                                //hablitarHabitacion(leer.nextLine());
                                 break;
                             case 2:
-                                /* Habilitar/Deshabilitar piso */
-                                System.out.println("/* Habilitar/Deshabilitar piso */");
+                                /* Deshabilitar habitacion */
+                                System.out.println("/* Deshabilitar habitacion */");
                                 break;
                             case 3:
-                                /* Modificar precio base de habitacion sencilla*/
-                                System.out.println("/* Modificar precio base de habitacion sencilla */");
+                                /* Habilitar piso */
+                                System.out.println("/* Habilitar piso */");
                                 break;
                             case 4:
-                                /* Modificar precio de habitacion doble */
-                                System.out.println("/* Modificar precio base de habitacion doble */");
+                                /* Deshabilitar piso */
+                                System.out.println("/* Deshabilitar piso */");
                                 break;
                             case 5:
+                                /* Modificar precio base de habitacion sencilla*/
+                                //System.out.println("/* Modificar precio base de habitacion sencilla */");
+                                System.out.println("Ingrese el precio sencillo: ");
+                                villaRafinha.setPrecioBase(leer.nextFloat());
+                                break;
+                            case 6:
+                                /* Modificar precio de habitacion doble */
+                                //System.out.println("/* Modificar precio base de habitacion doble */");
+                                System.out.println("Ingrese el precio de la habitacion doble: ");
+                                villaRafinha.setPrecioDoble(leer.nextFloat());
+                                break;
+                            case 7:
                                 /* Agregar paquete */
                                 System.out.println("/* Agregar paquete */");
                                 break;
-                            case 6:
+                            case 8:
                                 /* Modificar paquete */
                                 System.out.println("/* Modificar paquete */");
                                 break;
-                            case 7:
+                            case 9:
                                 /* Eliminar paquete */
                                 System.out.println("/* Eliminar paquete */");
                                 break;
-                            case 8:
+                            case 10:
                                 /* Mostrar paquetes */
                                 System.out.println("/* Mostrar paquetes */");
                                 break;
-                            case 9:
+                            case 11:
                                 break;
                             default:
                                 System.out.println("Por favor ingrese una opcion valida");

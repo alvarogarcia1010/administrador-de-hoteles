@@ -12,8 +12,8 @@ public class Hotel {
 
     private int idHotel;
     private String nombreHotel;
-    private double precioSencillo;
-    private double precioDoble;
+    private float precioSencillo;
+    private float precioDoble;
     private ArrayList<Cliente> clientesHotel;
     private ArrayList<Reservacion> reservacionesHotel;
     private HashMap<String, Piso> pisosHotel;
@@ -37,7 +37,7 @@ public class Hotel {
      * @param precioSencillo
      * @param precioDoble
      */
-    public Hotel(int idHotel, String nombreHotel, double precioSencillo, double precioDoble) {
+    public Hotel(int idHotel, String nombreHotel, float precioSencillo, float precioDoble) {
         this.idHotel = idHotel;
         this.nombreHotel = nombreHotel;
         this.precioSencillo = precioSencillo;
@@ -68,8 +68,8 @@ public class Hotel {
         return precioSencillo;
     }
 
-    public void setPrecioBase(float precioBase) {
-        this.precioSencillo = precioBase;
+    public void setPrecioBase(float precioSencillo) {
+        this.precioSencillo = precioSencillo;
     }
 
     public double getPrecioDoble() {
@@ -102,11 +102,11 @@ public class Hotel {
                     this.clientesHotel.add(cliente);
 
                 } else {
-                    throw new Exception("El cliente ya se encuentra registrado");
+                    System.err.println("El cliente ya se encuentra registrado");
                 }
             }
         } else {
-            throw new Exception("Operacion no completada: Cliente Nulo");
+            System.err.println("Operacion no completada: Cliente Nulo");
         }
 
     }
@@ -121,7 +121,7 @@ public class Hotel {
             clientesHotel.remove(cliente);
         } 
         else {
-            throw new Exception("El cliente no se encuentra registrado");
+            System.err.println("El cliente no se encuentra registrado");
         }
     }
 
@@ -178,7 +178,7 @@ public void modificarCliente(Cliente cliente) {
             reservacionesHotel.remove(reservacion);
         } 
         else {
-            throw new Exception("La reservacion no se encuentra registrada");
+            System.err.println("La reservacion no se encuentra registrada");
         }
     }
 
@@ -216,7 +216,7 @@ public void modificarCliente(Cliente cliente) {
         if (!this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.put(clavePiso, piso);
         } else {
-            throw new Exception("El piso ya se encuentra registrado");
+            System.err.println("El piso ya se encuentra registrado");
         }
     }
 
@@ -229,7 +229,7 @@ public void modificarCliente(Cliente cliente) {
         if (this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.remove(clavePiso);
         } else {
-            throw new Exception("No hay registros del piso " + clavePiso);
+            System.err.println("No hay registros del piso " + clavePiso);
 
         }
     }
@@ -267,7 +267,7 @@ public void modificarCliente(Cliente cliente) {
         if (!this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.put(clavePaquete, paquete);
         } else {
-            throw new Exception("El paquete ya se encuentra registrado");
+            System.err.println("El paquete ya se encuentra registrado");
         }
     }
 
@@ -280,7 +280,7 @@ public void modificarCliente(Cliente cliente) {
         if (this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.remove(clavePaquete);
         } else {
-            throw new Exception("No hay registros del paquete");
+            System.err.println("No hay registros del paquete");
 
         }
     }
@@ -299,5 +299,55 @@ public void modificarCliente(Cliente cliente) {
     public void mostrarPaquetes() {
 
     }
+    
+    public void eliminarPaquete() {
+        
+    }   
+    
+    public void habilitarHabitacion(String hab){
+        String P = hab.substring(0,1).toUpperCase();
+        
+        if(this.pisosHotel.get(P).habitacionesPiso.get(hab).isEstaHabilitada()==true){
+            System.out.println("La habitacion ya esta hablitada");
+        }else{
+          this.pisosHotel.get(P).habitacionesPiso.get(hab).setEstaHabilitada(true);
+          System.out.println("La habitacion ha sido habilitada");  
+        }
+    }
+    
+    public void DeshabilitarHabitacion(String hab){
+        String P = hab.substring(0,1).toUpperCase();
+        
+        if(this.pisosHotel.get(P).habitacionesPiso.get(hab).isEstaHabilitada()==false){
+            System.out.println("La habitacion ya esta deshabilitada");
+        }else{
+            this.pisosHotel.get(P).habitacionesPiso.get(hab).setEstaHabilitada(false);
+            System.out.println("La habitacion ha sido deshabilitada");
+        }
+    }
+    
+    public void habilitarPiso(String piso){
+        String p = piso.toUpperCase();
+        
+        if(this.pisosHotel.get(p).isEstaHabilitada()==true){
+            System.out.println("El piso ya esta habilitado");
+        }else{
+        this.pisosHotel.get(p).setEstaHabilitada(true);
+        System.out.println("El piso ha sido habilitado");
+        }
+    }
+    
+    public void DeshabilitarPiso(String piso){
+        String p = piso.toUpperCase();
+        
+        if(this.pisosHotel.get(p).isEstaHabilitada()==false){
+            System.out.println("El piso ya esta deshabilitado");
+        }else{
+        this.pisosHotel.get(p).setEstaHabilitada(false);
+        System.out.println("El piso ha sido deshabilitado");
+        }
+    }
+    
+   
 
 }
