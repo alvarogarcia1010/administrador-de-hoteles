@@ -135,7 +135,7 @@ public class Hotel {
         switch(opc){
             case 1:
                 /*Modificar nombre */
-                System.out.println("Ingrese el nuevo nombre: ");
+                System.out.print("Ingrese el nuevo nombre: ");
                 Scanner leer = new Scanner(System.in);
                 String nombre = leer.nextLine();
                 
@@ -144,7 +144,7 @@ public class Hotel {
                 break;
             case 2:
                 /*Modificar apellido */
-                System.out.println("Ingrese el nuevo apellido: ");
+                System.out.print("Ingrese el nuevo apellido: ");
                 leer = new Scanner(System.in);
                 String apellido = leer.nextLine();
                 
@@ -153,7 +153,7 @@ public class Hotel {
                 break;
             case 3:
                 /*Modificar numero de tarjeta */
-                System.out.println("Ingrese el nuevo numero de tarjeta: ");
+                System.out.print("Ingrese el nuevo numero de tarjeta: ");
                 leer = new Scanner(System.in);
                 int numeroTarjeta = leer.nextInt();
                 
@@ -162,7 +162,7 @@ public class Hotel {
                 break;
             case 4:
                 /*Modificar codigo de tarjeta */
-                System.out.println("Ingrese el nuevo codigo de tarjeta: ");
+                System.out.print("Ingrese el nuevo codigo de tarjeta: ");
                 leer = new Scanner(System.in);
                 int codigoTarjeta = leer.nextInt();
                 
@@ -185,7 +185,7 @@ public class Hotel {
 
     public Cliente buscarCliente() {
         Scanner leer = new Scanner(System.in);
-        System.out.println("Ingrese el DUI del cliente que desea buscar: ");
+        System.out.print("Ingrese el DUI del cliente que desea buscar: ");
         String DUI = leer.nextLine();
         for (Cliente c : this.clientesHotel) {
             if (DUI.equals(c.getDUI())) {
@@ -203,7 +203,7 @@ public class Hotel {
      */
     public void agregarReservacion(Reservacion reservacion) {
             Scanner leer = new Scanner(System.in);
-            System.out.println("Ingrese el codigo de reservacion: ");
+            System.out.print("Ingrese el codigo de reservacion: ");
             reservacion.setCodigo(leer.nextInt());
             System.out.println("Clientes disponibles: ");
             mostrarClientes();

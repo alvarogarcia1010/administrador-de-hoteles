@@ -49,7 +49,7 @@ public class AdministradorHotel {
                         switch (opcionSec) {
                             case 1:
                                 /* Registrar Cliente */
-                                System.out.println("/* Registrar Cliente */");
+                                System.out.println("/* Registro de Clientes */");
                                 villaRafinha.agregarCliente(crearCliente());
                                 break;
                             case 2:
@@ -265,10 +265,10 @@ public class AdministradorHotel {
         Habitacion habitacion = new Habitacion();
         Scanner leer = new Scanner(System.in);
         try {
-            System.out.println("Ingrese número de habitación: ");
+            System.out.print("Ingrese número de habitación: ");
             habitacion.setNumHab(leer.nextInt());
         } catch (InputMismatchException e) {
-            //System.err.println("Por favor, ingrese un numero");
+            System.err.print("Por favor, ingrese un numero");
             leer.nextInt();
         }
 //            habitacion.setPrecioHabitacion();
@@ -290,17 +290,17 @@ public class AdministradorHotel {
         Paquete paquete = new Paquete();
         Scanner leer = new Scanner(System.in);
         
-        System.out.println("Ingrese el nombre del paquete: ");
+        System.out.print("Ingrese el nombre del paquete: ");
         paquete.setNombre(leer.nextLine());
-        System.out.println("Ingrese el codigo del paquete: ");
+        System.out.print("Ingrese el codigo del paquete: ");
         paquete.setCodigoPaquete(leer.nextInt());
-        System.out.println("Ingrese el costo del paquete: ");
+        System.out.print("Ingrese el costo del paquete: ");
         paquete.setCostoPaquete(leer.nextFloat());
-        System.out.println("Cuantos servicios desea ingrsear: ");
+        System.out.print("Cuantos servicios desea ingrsear: ");
         int x = leer.nextInt();
         leer.nextLine();
         for(int i=1;i<=x;i++){
-        System.out.println("Ingrese los servicios del paquete: ");
+        System.out.print("Ingrese los servicios del paquete: ");
         String m = leer.nextLine();
         paquete.agregarServicio(m);
         }
@@ -321,19 +321,19 @@ public class AdministradorHotel {
         Cliente cliente = new Cliente();
         Scanner leer = new Scanner(System.in);
  
-            System.out.println("Ingrese el DUI del cliente: ");
+            System.out.print("Ingrese el DUI del cliente (00000000-0): ");
             cliente.setDUI(leer.nextLine());
-            System.out.println("Ingrese el nombre del cliente: ");
+            System.out.print("Ingrese el nombre del cliente: ");
             cliente.setNombre(leer.nextLine());
-            System.out.println("Ingrese el apellido del cliente: ");
+            System.out.print("Ingrese el apellido del cliente: ");
             cliente.setApellido(leer.nextLine());
-            System.out.println("Ingrese el numero de Tarjeta: ");
+            System.out.print("Ingrese el numero de Tarjeta: ");
             cliente.setNumTarjeta(leer.nextInt());
             try{
-               System.out.println("Ingrese el codigo de la Tarjeta: ");
+               System.out.print("Ingrese el codigo de la Tarjeta: ");
                cliente.setCodTarjeta(leer.nextInt());
             } catch (InputMismatchException e){
-                System.out.println("Operacion no completada.");
+                System.out.print("Operacion no completada.");
                 //cliente.remove();
             }  
         return cliente;
