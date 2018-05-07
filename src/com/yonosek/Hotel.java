@@ -423,7 +423,8 @@ public class Hotel {
 
         }
     }
-
+    public void agregarHabitacion(){
+    }
     /**
      *
      * @param clavePaquete
