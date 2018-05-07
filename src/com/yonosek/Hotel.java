@@ -391,7 +391,9 @@ public class Hotel {
      *
      */
     public void mostrarHabitacionesDisponibles() {
-
+       for (Map.Entry <String, Piso> piso : this.pisosHotel.entrySet()) {
+           piso.getValue().mostrarHabitacionDiponibles();
+       }
     }
 
     //PARA MANEJAR PAQUETES

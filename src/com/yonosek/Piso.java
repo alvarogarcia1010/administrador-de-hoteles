@@ -95,4 +95,14 @@ public class Piso {
             System.out.println(clave + "  ->  " + valor.toString());
         }
     }
+    
+    public void mostrarHabitacionDiponibles(){
+        for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
+            if(habitacion.getValue().isEstaDisponible() && habitacion.getValue().isEstaHabilitada() ){
+                String clave = habitacion.getKey();
+                Habitacion valor = habitacion.getValue();
+                System.out.println(clave + "  ->  " + valor.toString());
+                }
+        }
+    }
 }
