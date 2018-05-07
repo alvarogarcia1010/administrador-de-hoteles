@@ -39,6 +39,13 @@ public class Menu {
         System.out.println("5. Atras");
     }
     
+    public void opcionesModificarPaquete(){
+        System.out.println("----- Menu Modificar Paquete -----");
+        System.out.println("1. Modificar precio base");
+        System.out.println("2. Agregar Servicio");
+        System.out.println("3. Eliminar Servicio");
+    }
+    
     public void opcionesMantenimiento(){
         System.out.println("----- Mantenimiento -----");
         System.out.println("1. Habilitar habitacion");
@@ -78,7 +85,7 @@ public class Menu {
     
     public void opcionesModificarReservacion(){
         System.out.println("----- Menu Modificar Reservacion -----");
-        System.out.println("1. Modificar paquete adquirido");
+        System.out.println("1. Cambiar paquete adquirido");
         System.out.println("2. Modificar total de dias");
     }
     
