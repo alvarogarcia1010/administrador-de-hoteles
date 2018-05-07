@@ -71,21 +71,55 @@ public class Hotel {
         this.nombreHotel = nombreHotel;
     }
 
-    public double getPrecioSencillo() {
+    public float getPrecioSencillo() {
         return precioSencillo;
     }
 
-    public void setPrecioBase(float precioSencillo) {
+    public void setPrecioSencillo(float precioSencillo) {
         this.precioSencillo = precioSencillo;
     }
 
-    public double getPrecioDoble() {
+    public float getPrecioDoble() {
         return precioDoble;
     }
 
     public void setPrecioDoble(float precioDoble) {
         this.precioDoble = precioDoble;
     }
+
+    public ArrayList<Cliente> getClientesHotel() {
+        return clientesHotel;
+    }
+
+    public void setClientesHotel(ArrayList<Cliente> clientesHotel) {
+        this.clientesHotel = clientesHotel;
+    }
+
+    public ArrayList<Reservacion> getReservacionesHotel() {
+        return reservacionesHotel;
+    }
+
+    public void setReservacionesHotel(ArrayList<Reservacion> reservacionesHotel) {
+        this.reservacionesHotel = reservacionesHotel;
+    }
+
+    public TreeMap<String, Piso> getPisosHotel() {
+        return pisosHotel;
+    }
+
+    public void setPisosHotel(TreeMap<String, Piso> pisosHotel) {
+        this.pisosHotel = pisosHotel;
+    }
+
+    public TreeMap<Integer, Paquete> getPaquetesHotel() {
+        return paquetesHotel;
+    }
+
+    public void setPaquetesHotel(TreeMap<Integer, Paquete> paquetesHotel) {
+        this.paquetesHotel = paquetesHotel;
+    }
+
+
 
     //PARA MANEJAR CLIENTES
     /**
@@ -411,7 +445,11 @@ public class Hotel {
      * 3
      */
     public void mostrarPisoYHabitaciones() {
-
+        for (Map.Entry<String, Piso> piso : this.pisosHotel.entrySet()) {
+            String clave = piso.getKey();
+            Piso valor = piso.getValue();
+            System.out.println(clave + "  ->  " + valor.toString());
+        }
     }
 
     /**

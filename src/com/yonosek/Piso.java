@@ -12,7 +12,7 @@ import java.util.*;
  * @author franc
  */
 public class Piso {
-    private char codigo;
+    private String codigo;
     private Hotel hotel;
     protected TreeMap<String, Habitacion> habitacionesPiso;
     private boolean estaHabilitada;
@@ -22,6 +22,13 @@ public class Piso {
         this.habitacionesPiso = new TreeMap<>();
     }
     
+    public Piso(String codigo, Hotel hotel, boolean estaHabilitado){
+        this.habitacionesPiso = new TreeMap<>();
+        this.codigo = codigo;
+        this.hotel = hotel;
+        this.estaHabilitada = estaHabilitado;
+    }
+    
     public boolean isEstaHabilitada() {
         return estaHabilitada;
     }
@@ -29,18 +36,12 @@ public class Piso {
     public void setEstaHabilitada(boolean estaHabilitada) {
         this.estaHabilitada = estaHabilitada;
     }
-    
-    public Piso(char codigo, Hotel hotel){
-        this.habitacionesPiso = new TreeMap<>();
-        this.codigo = codigo;
-        this.hotel = hotel;
-    }
 
-    public char getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(char codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -51,6 +52,13 @@ public class Piso {
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
     }
+
+    @Override
+    public String toString() {
+        return "Piso{" + "hotel=" + hotel + ", habitacionesPiso=" + habitacionesPiso + ", estaHabilitada=" + estaHabilitada + '}';
+    }
+    
+    
 
         //PARA MANEJAR HABITACIONES
     /**
@@ -101,8 +109,9 @@ public class Piso {
             if(habitacion.getValue().isEstaDisponible() && habitacion.getValue().isEstaHabilitada() ){
                 String clave = habitacion.getKey();
                 Habitacion valor = habitacion.getValue();
-                System.out.println(clave + "  ->  " + valor.toString());
+                System.out.print(clave + "\t");
                 }
         }
+        System.out.println("\n");
     }
 }
