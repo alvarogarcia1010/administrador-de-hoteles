@@ -263,7 +263,7 @@ public class Hotel {
             //reservacion.setHabitacion(leer.algo);
             System.out.println("Desea adquirir un paquete? (s/n)");
             String op = leer.nextLine();
-            if(op == "s"){
+            if("s".equals(op)){
                 mostrarPaquetes();
                 System.out.println("Seleccione el paquete que desea: ");
                 //reservacion.setPaquete(leer.algo);

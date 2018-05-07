@@ -92,6 +92,7 @@ public class AdministradorHotel {
                             case 1:
                                 /* Agregar Reservacion */
                                 System.out.println("/* Agregar Reservacion */");
+                                villaRafinha.agregarReservacion();
                                 break;
                             case 2:
                                 /* Modificar Reservacion */
