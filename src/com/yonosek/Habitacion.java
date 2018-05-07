@@ -24,34 +24,16 @@ public class Habitacion {
         
     }
 
-    public boolean isEstaHabilitada() {
-        return estaHabilitada;
-    }
-
-    public void setEstaHabilitada(boolean estaHabilitada) {
-        this.estaHabilitada = estaHabilitada;
-    }
-
-    public boolean isEstaDisponible() {
-        return estaDisponible;
-    }
-
-    public void setEstaDisponible(boolean estaDisponible) {
-        this.estaDisponible = estaDisponible;
-    }
-    
-    
-    public Habitacion(int numHab, Piso piso, String tipoHabitacion, float precioHabitacion){
+    public Habitacion(int numHab, Piso piso, boolean estaDisponible, boolean estaHabilitada){
         this.numHab = numHab;
         this.piso = piso;
-        this.tipoHabitacion = tipoHabitacion;
-        this.precioHabitacion = precioHabitacion;
+        this.estaDisponible = estaDisponible;
+        this.estaHabilitada = estaHabilitada;
         
     }
     
     /** Asigna el tipo de la habitacion.
      *
-     * @param numHab El numero de la habitacion.
      */
     public void asignarTipo(){
         if(this.numHab % 2 == 0){
@@ -101,6 +83,22 @@ public class Habitacion {
     public void setPrecioHabitacion(float precioHabitacion) {
         this.precioHabitacion = precioHabitacion;
     }
+    
+        public boolean isEstaHabilitada() {
+        return estaHabilitada;
+    }
+
+    public void setEstaHabilitada(boolean estaHabilitada) {
+        this.estaHabilitada = estaHabilitada;
+    }
+
+    public boolean isEstaDisponible() {
+        return estaDisponible;
+    }
+
+    public void setEstaDisponible(boolean estaDisponible) {
+        this.estaDisponible = estaDisponible;
+    }
 
     @Override
     public int hashCode() {
@@ -131,7 +129,7 @@ public class Habitacion {
     }
       
     public void generarCodigo(){
-        this.codigoHab = Character.toString(this.piso.getCodigo()) + Integer.toString(this.numHab);
+        this.codigoHab = this.piso.getCodigo() + Integer.toString(this.numHab);
     }
     
 }

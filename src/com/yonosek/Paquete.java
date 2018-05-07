@@ -24,6 +24,14 @@ public class Paquete {
         return codigoPaquete;
     }
 
+    public ArrayList<String> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(ArrayList<String> servicios) {
+        this.servicios = servicios;
+    }
+
     public void setCodigoPaquete(int codigoPaquete) {
         this.codigoPaquete = codigoPaquete;
         
@@ -100,7 +108,7 @@ public class Paquete {
     
     @Override
     public String toString() {
-        return "Paquete{" + "nombre=" + nombre + ", codigoPaquete=" + codigoPaquete + ", servicios=" + servicios + ", costoPaquete=" + costoPaquete + '}';
+        return "    " + nombre + "       " + servicios + "       " + "$" + costoPaquete;
     }
     
     
