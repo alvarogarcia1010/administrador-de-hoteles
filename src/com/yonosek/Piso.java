@@ -28,6 +28,16 @@ public class Piso {
         this.hotel = hotel;
         this.estaHabilitada = estaHabilitado;
     }
+
+    public TreeMap<String, Habitacion> getHabitacionesPiso() {
+        return habitacionesPiso;
+    }
+
+    public void setHabitacionesPiso(TreeMap<String, Habitacion> habitacionesPiso) {
+        this.habitacionesPiso = habitacionesPiso;
+    }
+    
+
     
     public boolean isEstaHabilitada() {
         return estaHabilitada;

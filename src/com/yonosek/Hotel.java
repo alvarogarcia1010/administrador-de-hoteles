@@ -195,7 +195,7 @@ public class Hotel {
                 /*Modificar numero de tarjeta */
                 System.out.print("Ingrese el nuevo numero de tarjeta: ");
                 leer = new Scanner(System.in);
-                int numeroTarjeta = leer.nextInt();
+                String numeroTarjeta = leer.nextLine();
                 
                 i = clientesHotel.indexOf(cliente);
                 clientesHotel.get(i).setNumTarjeta(numeroTarjeta);
@@ -222,7 +222,8 @@ public class Hotel {
      */
     public void mostrarClientes() {
         for (Cliente cliente : this.clientesHotel) {
-            System.out.println((cliente.getDUI()) + "  ->  " +cliente.toString());
+            String[] parts = cliente.toString().split("-");
+            System.out.printf("%-5s   ->  %-20s%-10s%-20s%-20s \n",(cliente.getDUI()),parts[0],parts[1],parts[2],parts[3] );
         }
     }
 
@@ -499,12 +500,13 @@ public class Hotel {
     }
 
     public void habilitarHabitacion(String hab) {
-        String P = hab.substring(0, 1).toUpperCase();
-
-        if (this.pisosHotel.get(P).habitacionesPiso.get(hab).isEstaHabilitada() == true) {
+          String P = hab.substring(0,1).toUpperCase();
+            //System.out.println(P + hab); 
+            //System.out.println(this.pisosHotel.get(P).getHabitacionesPiso().get(hab).isEstaHabilitada());
+        if (this.pisosHotel.get(P).getHabitacionesPiso().get(hab).isEstaHabilitada() == true) {
             System.out.println("La habitacion ya esta hablitada");
         } else {
-            this.pisosHotel.get(P).habitacionesPiso.get(hab).setEstaHabilitada(true);
+            this.pisosHotel.get(P).getHabitacionesPiso().get(hab).setEstaHabilitada(true);
             System.out.println("La habitacion ha sido habilitada");
         }
     }
@@ -512,10 +514,10 @@ public class Hotel {
     public void DeshabilitarHabitacion(String hab) {
         String P = hab.substring(0, 1).toUpperCase();
 
-        if (this.pisosHotel.get(P).habitacionesPiso.get(hab).isEstaHabilitada() == false) {
+        if (this.pisosHotel.get(P).getHabitacionesPiso().get(hab).isEstaHabilitada() == false) {
             System.out.println("La habitacion ya esta deshabilitada");
         } else {
-            this.pisosHotel.get(P).habitacionesPiso.get(hab).setEstaHabilitada(false);
+            this.pisosHotel.get(P).getHabitacionesPiso().get(hab).setEstaHabilitada(false);
             System.out.println("La habitacion ha sido deshabilitada");
         }
     }
