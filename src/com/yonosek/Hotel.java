@@ -2,6 +2,7 @@ package com.yonosek;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
@@ -121,6 +122,7 @@ public class Hotel {
     public void removerCliente(Cliente cliente) {
         if (clientesHotel.contains(cliente)) {
             clientesHotel.remove(cliente);
+            System.out.println("Cliente removido con exito! :)");
         } else {
             System.err.println("El cliente no se encuentra registrado");
         }
@@ -132,7 +134,8 @@ public class Hotel {
      * @param opc
      */
     public void modificarCliente(Cliente cliente, int opc) {
-        switch(opc){
+        if (clientesHotel.contains(cliente)){
+            switch(opc){
             case 1:
                 /*Modificar nombre */
                 System.out.print("Ingrese el nuevo nombre: ");
@@ -172,6 +175,9 @@ public class Hotel {
             default:
                 System.out.println("Ingrese una opcion valida");
         }
+    } else {
+            System.err.println("El cliente no se encuentra registrado");
+        } 
     }
 
     /**
@@ -179,7 +185,7 @@ public class Hotel {
      */
     public void mostrarClientes() {
         for (Cliente cliente : this.clientesHotel) {
-            System.out.println(cliente.toString());
+            System.out.println((cliente.getDUI()) + "  ->  " +cliente.toString());
         }
     }
 
@@ -195,20 +201,56 @@ public class Hotel {
         }
         return null;
     }
+    
+    public boolean validarCliente(int cont){
+        return cont <= 1;
+    }
 
     //PARA MANEJAR RESERVACIONES
     /**
      *
      * @param reservacion
      */
-    public void agregarReservacion(Reservacion reservacion) {
-            Scanner leer = new Scanner(System.in);
-            System.out.print("Ingrese el codigo de reservacion: ");
-            reservacion.setCodigo(leer.nextInt());
+    public void validacionGlobalClientes(Reservacion reservacion){
+            boolean flag = true;
+            int cont = 0;
             System.out.println("Clientes disponibles: ");
-            mostrarClientes();
-            System.out.println("Seleccione uno de ellos: ");
-            //reservacion.setCliente(leer.algo);
+            this.mostrarClientes();
+            reservacion.setCliente(this.buscarCliente());
+            while(flag){
+                if (reservacion.getCliente() != null){
+                    cont = 0;
+                    for (Reservacion r : this.reservacionesHotel){
+                        
+                        if(reservacion.getCliente().equals(r.getCliente())){
+                            cont++;
+                        }
+                    }
+                    if(this.validarCliente(cont)){
+                        flag = false;
+                    }
+                } else{
+                    System.err.println("El cliente no se encuentra registrado o ya tiene un maximo de reservaciones.");
+                    System.out.println("Clientes disponibles: ");
+                    this.mostrarClientes();
+                    reservacion.setCliente(this.buscarCliente());
+                }
+            }
+    }
+    
+    public void agregarReservacion() {
+            Reservacion reservacion = new Reservacion();
+            Scanner leer = new Scanner(System.in);
+            try{
+                System.out.print("Ingrese el codigo de reservacion: ");
+                reservacion.setCodigo(leer.nextInt());
+            }catch (InputMismatchException e) {
+                System.err.print("Por favor, ingrese un numero");
+                reservacion.setCodigo(leer.nextInt());
+            }
+            
+            this.validacionGlobalClientes(reservacion);
+            
             System.out.println("Habitaciones disponibles: ");
             //habilitarHabitacion();
             //mostrarHabitaciones();
@@ -231,7 +273,7 @@ public class Hotel {
             System.out.println("Cuantos dias se quedará? (Lo mas son 7 dias)");
             int op1 = leer.nextInt();
             if(op1 <= 7){
-                System.out.println("Usted sequedará: " + op1 + "dias");
+                System.out.println("Usted se quedará: " + op1 + "dias");
             }else{
                 System.out.println("Le dije que eran 7 dias o menos. Hoy la cagó.");
             }
@@ -250,6 +292,7 @@ public class Hotel {
     public void removerReservacion(Reservacion reservacion) {
         if (reservacionesHotel.contains(reservacion)) {
             reservacionesHotel.remove(reservacion);
+            System.out.println("Reservación eliminada con éxito! :)");
         } else {
             System.err.println("La reservacion no se encuentra registrada");
         }
@@ -294,6 +337,8 @@ public class Hotel {
     /**
      *
      */
+    
+    
     public void mostrarReservaciones() {
 
     }
@@ -328,6 +373,7 @@ public class Hotel {
     public void removerPiso(String clavePiso) {
         if (this.pisosHotel.containsKey(clavePiso)) {
             this.pisosHotel.remove(clavePiso);
+            System.out.println("El cliente ha sido eliminado con éxito! :)");
         } else {
             System.err.println("No hay registros del piso " + clavePiso);
 
@@ -371,6 +417,7 @@ public class Hotel {
     public void removerPaquete(Integer clavePaquete) {
         if (this.paquetesHotel.containsKey(clavePaquete)) {
             this.paquetesHotel.remove(clavePaquete);
+            System.out.println("El paquete ha sido eliminado con éxito! :)");
         } else {
             System.err.println("No hay registros del paquete");
 
