@@ -2,6 +2,7 @@ package com.yonosek;
 
 import java.text.DecimalFormat;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,14 +18,51 @@ public class AdministradorHotel {
 
     public static void main(String[] args) throws Exception{
 
-        System.out.println("Administrador Hotel");
+        System.out.println("Hotel Villa Rafinha");
 
         Hotel villaRafinha = new Hotel(1, "VillaRafinha", 100, 150);
+              
+        //PARA PISOS
         
-        for(int piso=1; piso<=6; piso++){
-//            villaRafinha.agregarPiso(clavePiso, piso);
+        //Creando objetos pisos
+        Piso [] pisos = new Piso[6];
+        for(int i=0 ; i<6; i++){
+            pisos[i] = new Piso(Character.toString((char)(65+i)),villaRafinha,true);
         }
-
+        //Agregando los pisos a Hotel
+        for(int i=0 ; i<6; i++){
+            villaRafinha.agregarPiso(pisos[i].getCodigo(), pisos[i]);
+        }
+        System.out.println("Pisos Ingresados");
+        villaRafinha.mostrarPisoYHabitaciones();
+        
+        //PARA HABITACIONES
+        
+        //Creando objetos habitaciones
+        Habitacion [][] habitaciones = new Habitacion [6][10];
+        for(int i=0; i<6; i++){
+            for(int j=0; j<10; j++){
+                habitaciones[i][j] = new Habitacion(j,pisos[i],true, true);
+                habitaciones[i][j].generarCodigo();
+                habitaciones[i][j].asignarTipo();
+                if ("Simple".equals(habitaciones[i][j].getTipoHabitacion())){
+                    habitaciones[i][j].setPrecioHabitacion(villaRafinha.getPrecioSencillo());
+                }else{
+                    habitaciones[i][j].setPrecioHabitacion(villaRafinha.getPrecioDoble());
+                }
+            }
+        }
+        
+        //Asignar habitaciones a Pisos
+        for(int i=0; i<6; i++){
+            for(int j=0; j<10; j++){
+                pisos[i].agregarHabitacion(habitaciones[i][j].getCodigoHab(), habitaciones[i][j]);
+            }
+        }
+      
+        villaRafinha.mostrarHabitacionesDisponibles();
+        
+        
         Menu menu = Menu.getInstance();
 
         //MENU
@@ -170,7 +208,8 @@ public class AdministradorHotel {
                              case 1:
                                 /* Habilitar habitacion */
                                 System.out.println("Ingrese el numero de la habitacion: ");
-                                villaRafinha.habilitarHabitacion(leer.nextLine());
+                                String k = leer.nextLine();
+                                villaRafinha.habilitarHabitacion(k);
                                 break;
                             case 2:
                                 /* Deshabilitar habitacion */
@@ -217,7 +256,7 @@ public class AdministradorHotel {
                             case 3:
                                 /* Agregar Piso */
                                 System.out.println("Agregar Piso");
-                                //villaRafihna.agregarPiso;
+                                //villaRafinha.agregarPiso(clavePiso, piso);
                                 break;
                             case 4:
                                 /* Eliminar Piso */
@@ -229,7 +268,7 @@ public class AdministradorHotel {
                                 /* Modificar precio base de habitacion sencilla*/
                                 //System.out.println("/* Modificar precio base de habitacion sencilla */");
                                 System.out.println("Ingrese el precio sencillo: ");
-                                villaRafinha.setPrecioBase(leer.nextFloat());
+                                villaRafinha.setPrecioSencillo(leer.nextFloat());
                                 break;
                             case 6:
                                 /* Modificar precio de habitacion doble */
@@ -256,10 +295,8 @@ public class AdministradorHotel {
                 System.err.println("Por favor, ingrese un numero");
                 leer.nextLine();
             }
-        }
-
+        }       
     }
-
 
     public Habitacion crearHabitacion() {
 
