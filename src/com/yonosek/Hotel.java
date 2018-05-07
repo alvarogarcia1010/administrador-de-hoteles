@@ -9,6 +9,7 @@ import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
+import java.lang.Integer;
 
 /**
  *
@@ -331,7 +332,7 @@ public class Hotel {
     public void modificarReservacion(Reservacion reservacion, int opc) {
         switch(opc){
             case 1:
-                //Modificar paquete adquirido
+                //Cambiar paquete adquirido
                 break;
             case 2:
                 //Modificar total de dias
@@ -454,10 +455,44 @@ public class Hotel {
 
     /**
      *
-     * @param clavePaquete
+     * @param num
+     * @param opc
      */
-    public void modificarPaquete() {
-
+    public void modificarPaquete(int num, int opc) throws Exception {
+        switch(opc){
+            case 1:
+                //Modificar precio base
+                Paquete paquete;
+                Scanner leer = new Scanner(System.in);
+                paquete = paquetesHotel.get(num);
+                System.out.print("Ingrese el nuevo precio base: ");
+                float precio = leer.nextFloat();
+                paquete.setCostoPaquete(precio);                
+                break;
+            case 2:
+                //Agregar un servicio
+                leer = new Scanner(System.in);
+                paquete = paquetesHotel.get(num);
+                System.out.print("Ingrese el servicio que desea agregar: ");
+                String servicio = leer.nextLine();
+                paquete.agregarServicio(servicio);                
+                break;
+            case 3:
+                //Eliminar un servicio
+                leer = new Scanner(System.in);
+                paquete = paquetesHotel.get(num);
+                System.out.println("---------------");
+                for(int i = 0; i<paquete.getServicios().size(); i++){
+                    System.out.println(i+1 + ".)" + paquete.getServicios().get(i));
+                }
+                System.out.println("---------------");
+                System.out.print("Ingrese el servicio que desea remover: ");
+                int opcion = leer.nextInt();;
+                paquete.getServicios().remove(opcion-1);
+                break;
+            default:
+                System.out.println("Ingrese una opcion valida");
+        }
     }
 
     public void habilitarHabitacion(String hab) {
@@ -511,7 +546,7 @@ public class Hotel {
         for (Map.Entry<Integer, Paquete> paquete : this.paquetesHotel.entrySet()) {
             Integer clave = paquete.getKey();
             Paquete valor = paquete.getValue();
-            System.out.println(Integer.toString(clave) + "  ->  " + valor.toString());
+            System.out.println("  " + Integer.toString(clave) + "  ->  " + valor.toString());
         }
     }
     
@@ -521,7 +556,7 @@ public class Hotel {
     /**
      * 
      * @param fecha
-     * @return Booleano
+     * @return boolean
      */
     public static boolean validarFecha(String fecha) {
         try {
@@ -595,8 +630,8 @@ public class Hotel {
      * @return 
      */
     public static int ingresarDias(){
-        Scanner leer=new Scanner(System.in);
-        boolean flag=true;
+        Scanner leer = new Scanner(System.in);
+        boolean flag = true;
         int dias = 8;
         
         while(dias>7){

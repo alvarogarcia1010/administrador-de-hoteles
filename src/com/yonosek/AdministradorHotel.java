@@ -139,8 +139,16 @@ public class AdministradorHotel {
                             case 2:
                                 /* Modificar paquete */
                                 System.out.println("/* Modificar paquete */");
+                                System.out.print("\n");
+                                menu.opcionesModificarPaquete();
+                                System.out.print("Elija opcion deseada: ");
+                                opcionMod = leer.nextInt();
+                                System.out.print("\n");
                                 
-                                break;
+                                System.out.println("Ingrese el codigo del paquete: ");
+                                int codigo = leer.nextInt();
+                                villaRafinha.modificarPaquete(codigo, opcionMod);
+                                break;                                
                             case 3:
                                 /* Eliminar paquete */
                                 System.out.println("/* Eliminar paquete */");
@@ -150,6 +158,7 @@ public class AdministradorHotel {
                             case 4:
                                 /* Mostrar paquetes */
                                 System.out.println("/* Mostrar paquetes */");
+                                System.out.println("CODIGO      NOMBRE      SERVICIOS       PRECIO");
                                 villaRafinha.mostrarPaquetes();
                                 break;
                             case 5:
@@ -298,7 +307,7 @@ public class AdministradorHotel {
         paquete.setCodigoPaquete(leer.nextInt());
         System.out.print("Ingrese el costo del paquete: ");
         paquete.setCostoPaquete(leer.nextFloat());
-        System.out.print("Cuantos servicios desea ingrsear: ");
+        System.out.print("Cuantos servicios desea ingresar: ");
         int x = leer.nextInt();
         leer.nextLine();
         for(int i=1;i<=x;i++){
