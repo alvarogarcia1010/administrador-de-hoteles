@@ -15,7 +15,7 @@ public class Cliente{
     private String DUI;
     private String nombre;
     private String apellido;
-    private int numTarjeta;
+    private long numTarjeta;
     private int codTarjeta;
     private String PagoCash;
     //private Fecha fechaVencTarjeta;
@@ -35,7 +35,7 @@ public class Cliente{
         return apellido;
     }
 
-    public int getNumTarjeta() {
+    public long getNumTarjeta() {
         return numTarjeta;
     }
 
@@ -62,7 +62,7 @@ public class Cliente{
         this.apellido = apellido;
     }
 
-    public void setNumTarjeta(int numTarjeta) {
+    public void setNumTarjeta(long numTarjeta) {
         this.numTarjeta = numTarjeta;
     }
 
@@ -80,7 +80,7 @@ public class Cliente{
 
     @Override
     public String toString() {
-        return "Cliente{" + "DUI=" + DUI + ", nombre=" + nombre + ", apellido=" + apellido + ", numTarjeta=" + numTarjeta + ", codTarjeta=" + codTarjeta + '}';
+        return nombre + "           " + apellido + "            " + numTarjeta + "            " + codTarjeta;
     }
 
     @Override
