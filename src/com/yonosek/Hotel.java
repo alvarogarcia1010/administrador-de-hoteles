@@ -1,6 +1,9 @@
 package com.yonosek;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
@@ -241,6 +244,8 @@ public class Hotel {
     public void agregarReservacion() {
             Reservacion reservacion = new Reservacion();
             Scanner leer = new Scanner(System.in);
+            
+            //PARA LLENAR CODIGO DE RESERVACION
             try{
                 System.out.print("Ingrese el codigo de reservacion: ");
                 reservacion.setCodigo(leer.nextInt());
@@ -249,6 +254,7 @@ public class Hotel {
                 reservacion.setCodigo(leer.nextInt());
             }
             
+            //PARA LLENAR CLIENTE (Falta probar)
             this.validacionGlobalClientes(reservacion);
             
             System.out.println("Habitaciones disponibles: ");
@@ -264,24 +270,44 @@ public class Hotel {
             }else{
                 System.out.println("No seleccionó ningun paquete.");
             }
-            System.out.println("Ingrese el dia que hará la reservacion formato (dd): ");
-            //reservacion.setDia(leer.algo);
-            System.out.println("Ingrese el mes que hará la reservacion (formato mm): ");
-            //reservacion.setMes(leer.algo);
-            System.out.println("Ingrese el año que hará la reservacion (formato aaaa): ");
-            //reservacion.setAnio(leer.algo);
-            System.out.println("Cuantos dias se quedará? (Lo mas son 7 dias)");
-            int op1 = leer.nextInt();
-            if(op1 <= 7){
-                System.out.println("Usted se quedará: " + op1 + "dias");
-            }else{
-                System.out.println("Le dije que eran 7 dias o menos. Hoy la cagó.");
-            }
-            //validarReservacion
-            //costo x noche = habitacion.getPrecioHabitacion(float);
-            //costo paquete = paqueteAdquirido.getCostoPaquete(float);
-            //costo total = (costo paquete  mas costo noche ) * int total dias;
             
+            //PARA LLENAR COSTO PAQUETE
+            if(reservacion.getPaqueteAdquirido()!= null){
+                reservacion.setCostoPaquete(reservacion.getPaqueteAdquirido().getCostoPaquete());
+            }else{
+                reservacion.setCostoPaquete(0);
+            }
+            
+            //PARA LLENAR FECHAS y DIAS 
+            reservacion.setFechaInicio(ingresarFecha());
+            reservacion.setTotalDias(ingresarDias());
+            reservacion.setFechaFinal(generarFechaFinal(reservacion.getTotalDias(),reservacion.getFechaInicio()));
+            
+            //PARA LLENAR COSTO POR NOCHE
+            reservacion.setCostoNoche(reservacion.getHabitacion().getPrecioHabitacion());
+            
+            //PARA LLENAR COSTO TOTAL
+            reservacion.setCostoTotal((reservacion.getCostoNoche()+reservacion.getCostoPaquete()) * reservacion.getTotalDias());
+            
+            //PARA AGREGAR A LA LISTA
+            boolean flag = false;
+            if (this.reservacionesHotel.isEmpty()) {
+                this.reservacionesHotel.add(reservacion);
+            } else {
+                for (Reservacion r : this.reservacionesHotel) {
+                    if (reservacion.equals(r)) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag) {
+                    this.reservacionesHotel.add(reservacion);
+
+                } else {
+                    System.err.println("La reservacion ya se encuentra registrada");
+                }
+            }
+
         
     }
 
@@ -487,6 +513,142 @@ public class Hotel {
             Paquete valor = paquete.getValue();
             System.out.println(Integer.toString(clave) + "  ->  " + valor.toString());
         }
+    }
+    
+    
+    //MANEJO DE FECHAS
+
+    /**
+     * 
+     * @param fecha
+     * @return Booleano
+     */
+    public static boolean validarFecha(String fecha) {
+        try {
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+            formatoFecha.setLenient(false);
+            formatoFecha.parse(fecha);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
+    
+    /**
+     * 
+     * @param fecha
+     * @return 
+     */
+    public static Calendar convertirFecha(String fecha){
+        Calendar fechaFinal;
+        fechaFinal = Calendar.getInstance();
+        
+        int dia, mes, year;
+        String[] partes = fecha.split("/");
+        
+        dia = Integer.parseInt(partes[0]);
+        mes = Integer.parseInt(partes[1]);
+        year = Integer.parseInt(partes[2]);
+        
+        if(year<=99){
+            year = 2000 + year;
+        }
+        
+        fechaFinal.set(year,(mes-1),dia, 14,0,0);
+        
+        return fechaFinal;
+    }
+    
+    
+    /**
+     * 
+     * @return 
+     */
+    public static Calendar ingresarFecha(){
+        String fecha;
+        Calendar fechaInicial;
+        fechaInicial = Calendar.getInstance();
+
+
+        Scanner leer=new Scanner(System.in);
+        boolean validador, flag=true;
+        
+        System.out.print("Ingrese fecha para reservacion (dd/mm/aaaa): ");
+        fecha=leer.next();
+        while(flag){
+
+            validador = validarFecha(fecha);
+            if(validador){
+                fechaInicial = convertirFecha(fecha);
+                flag=false;
+            }else{
+                System.err.println("La fecha no es valida");
+                System.out.print("Ingrese fecha para reservacion (dd/mm/aaaa): ");
+                fecha=leer.next();
+            }
+        } 
+        return fechaInicial; 
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public static int ingresarDias(){
+        Scanner leer=new Scanner(System.in);
+        boolean flag=true;
+        int dias = 8;
+        
+        while(dias>7){
+            try {
+                System.out.print("Dias que desea reservar habitacion (Max: 7 dias): ");
+                dias = leer.nextInt();
+            }catch (InputMismatchException e) {
+                System.err.println("Por favor, ingrese un numero de dias valido");
+                System.out.print("Dias que desea reservar habitacion (Max: 7 dias): ");
+                dias = leer.nextInt();
+            }
+        } 
+        return dias;
+    }
+    
+    /**
+     * 
+     * @param dias
+     * @param fechaInicial
+     * @return 
+     */
+    public static Calendar generarFechaFinal(int dias, Calendar fechaInicial){  
+        Calendar fechaFinal = Calendar.getInstance();
+        fechaFinal.set(Calendar.YEAR, fechaInicial.get(Calendar.YEAR));
+        fechaFinal.set(Calendar.MONTH, fechaInicial.get(Calendar.MONTH));
+        fechaFinal.set(Calendar.DATE, fechaInicial.get(Calendar.DATE));
+        fechaFinal.set(Calendar.HOUR, (fechaInicial.get(Calendar.HOUR)-1));
+        fechaFinal.set(Calendar.SECOND, 0);
+        fechaFinal.set(Calendar.MINUTE, 0);
+
+        fechaFinal.add(Calendar.DAY_OF_MONTH, dias);
+        
+        return fechaFinal;
+    }
+    
+    public void Hola(){
+//        SimpleDateFormat formatoFechaLarga = new SimpleDateFormat("EEEEEEEEE dd 'de' MMMMM 'de' yyyy HH:mm:ss");
+//        SimpleDateFormat formatoFechaCorta = new SimpleDateFormat("'Fecha:' dd/MM/yyyy 'Hora:' HH:mm:ss");
+//        System.out.println("Calendario");
+//        
+//        fechaInicial = ingresarFecha();
+//        dias = ingresarDias();
+//        fechaFinal = generarFechaFinal(dias,fechaInicial);
+//        
+//        System.out.println("Fecha inicial: " + formatoFechaCorta.format(fechaInicial.getTime()));
+//        System.out.println("Fecha inicial: " + formatoFechaLarga.format(fechaInicial.getTime()) + "\n");
+//        
+//        System.out.println("Total de dias: " + dias + "\n");
+//        
+//        System.out.println("Fecha final: " + formatoFechaCorta.format(fechaFinal.getTime()));
+//        System.out.println("Fecha final: " + formatoFechaLarga.format(fechaFinal.getTime()) + "\n");
+//        
     }
 
 }
