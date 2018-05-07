@@ -72,6 +72,7 @@ public class AdministradorHotel {
                             case 4:
                                 /* Mostrar Clientes */
                                 System.out.println("/* Mostrar Clientes */");
+                                System.out.println("    DUI         NOMBRE          APELLIDO              NUM TARJETA         CODIGO TARJETA");
                                 villaRafinha.mostrarClientes();
                                 break;
                             case 5:
@@ -329,7 +330,7 @@ public class AdministradorHotel {
             System.out.print("Ingrese el apellido del cliente: ");
             cliente.setApellido(leer.nextLine());
             System.out.print("Ingrese el numero de Tarjeta: ");
-            cliente.setNumTarjeta(leer.nextInt());
+            cliente.setNumTarjeta(leer.nextLong());
             try{
                System.out.print("Ingrese el codigo de la Tarjeta: ");
                cliente.setCodTarjeta(leer.nextInt());
