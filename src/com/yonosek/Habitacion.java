@@ -84,7 +84,7 @@ public class Habitacion {
         this.precioHabitacion = precioHabitacion;
     }
     
-        public boolean isEstaHabilitada() {
+    public boolean isEstaHabilitada() {
         return estaHabilitada;
     }
 

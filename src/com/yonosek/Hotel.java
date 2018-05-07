@@ -528,6 +528,8 @@ public class Hotel {
                 int opcion = leer.nextInt();;
                 paquete.getServicios().remove(opcion-1);
                 break;
+            case 4:
+                break;
             default:
                 System.out.println("Ingrese una opcion valida");
         }

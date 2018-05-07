@@ -182,7 +182,9 @@ public class AdministradorHotel {
                                 System.out.print("Elija opcion deseada: ");
                                 opcionMod = leer.nextInt();
                                 System.out.print("\n");
-                                
+                                if(opcionMod == 4){
+                                    break;
+                                }                               
                                 System.out.println("Ingrese el codigo del paquete: ");
                                 int codigo = leer.nextInt();
                                 villaRafinha.modificarPaquete(codigo, opcionMod);
@@ -386,6 +388,5 @@ public class AdministradorHotel {
             }  
         return cliente;
     }
-    
-    
+     
 }
