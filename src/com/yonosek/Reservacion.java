@@ -1,6 +1,7 @@
 package com.yonosek;
 
 import java.util.Date;
+import java.util.Calendar;
 
 public class Reservacion {
     /*RESERVACION*/
@@ -8,17 +9,17 @@ public class Reservacion {
     private Cliente cliente;
     private Habitacion habitacion;
     private Paquete paqueteAdquirido;
-    private double costoPaquete;
-    private Date fechaInicio;
-    private Date fechaFinal;
+    private float costoPaquete;
+    private Calendar fechaInicio;
+    private Calendar fechaFinal;
     private int totalDias;
-    private double costoNoche;
-    private double costoTotal;
+    private float costoNoche;
+    private float costoTotal;
     
     public Reservacion(){   
     }
 
-    public Reservacion(int codigo, Cliente cliente, Habitacion habitacion, Paquete paqueteAdquirido, double costoPaquete, int totalDias, double costoNoche, double costoTotal) {
+    public Reservacion(int codigo, Cliente cliente, Habitacion habitacion, Paquete paqueteAdquirido, float costoPaquete, int totalDias, float costoNoche, float costoTotal) {
         this.codigo = codigo;
         this.cliente = cliente;
         this.habitacion = habitacion;
@@ -65,7 +66,7 @@ public class Reservacion {
         return costoPaquete;
     }
 
-    public void setCostoPaquete(double costoPaquete) {
+    public void setCostoPaquete(float costoPaquete) {
         this.costoPaquete = costoPaquete;
     }
 
@@ -81,7 +82,7 @@ public class Reservacion {
         return costoNoche;
     }
 
-    public void setCostoNoche(double costoNoche) {
+    public void setCostoNoche(float costoNoche) {
         this.costoNoche = costoNoche;
     }
 
@@ -89,7 +90,7 @@ public class Reservacion {
         return costoTotal;
     }
 
-    public void setCostoTotal(double costoTotal) {
+    public void setCostoTotal(float costoTotal) {
         this.costoTotal = costoTotal;
     }
     
