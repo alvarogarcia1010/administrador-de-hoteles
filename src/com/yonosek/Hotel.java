@@ -328,7 +328,6 @@ public class Hotel {
             if("s".equals(op)){
                 this.mostrarPaquetes();
                 System.out.println("Seleccione el paquete que desea: ");
-                reservacion.setPaqueteAdquirido(p.);
             }else{
                System.out.println("No seleccionó ningun paquete.");
                reservacion.setPaqueteAdquirido(null);

@@ -269,8 +269,7 @@ public class AdministradorHotel {
                         switch (opcionSec) {
                             case 1:
                                 /* Agregar Habitacion */
-                                System.out.println("Agregar Habitacion");
-                                //villaRafinha.setHab;
+                                System.out.println("Agregar Habitacion");                                
                                 break;
                                 
                             case 2:
