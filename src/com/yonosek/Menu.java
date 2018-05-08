@@ -99,7 +99,8 @@ public class Menu {
         System.out.println("5. Eliminar Piso");
         System.out.println("6. Modificar precio base de habitacion sencilla");
         System.out.println("7. Modificar precio base de habitacion doble");
-        System.out.println("8. Finalizar Reservacion");
-        System.out.println("9. Atras");
+        System.out.println("8. Actulizar cargo extra(10%) de precio base");
+        System.out.println("9. Finalizar Reservacion");
+        System.out.println("10. Atras");
     }
 }

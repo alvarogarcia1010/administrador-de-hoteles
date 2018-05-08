@@ -86,7 +86,7 @@ public class AdministradorHotel {
 //        villaRafinha.mostrarPaquetes();
         
         villaRafinha.incrementoPrecioBase();
-        villaRafinha.mostrahabitaciones();
+//        villaRafinha.mostrahabitaciones();
         
         Menu menu = Menu.getInstance();
 
@@ -287,6 +287,7 @@ public class AdministradorHotel {
                             case 1:
                                 /* Agregar Habitacion */
                                 System.out.println("Agregar Habitacion");
+                                System.out.println("En Mantenimiento :)");
                                 leer.nextLine();
                                 //villaRafinha.getPisosHotel()
                                 break;
@@ -306,7 +307,7 @@ public class AdministradorHotel {
                             case 4:
                                 /* Agregar Piso */
                                 System.out.println("Agregar Piso");
-                                //villaRafinha.agregarPiso(clavePiso, piso);
+                                System.out.println("En Mantenimiento :)");
                                 break;
                             case 5:
                                 /* Eliminar Piso */
@@ -327,9 +328,13 @@ public class AdministradorHotel {
                                 villaRafinha.setPrecioDoble(leer.nextFloat());
                                 break;
                             case 8:
+                                //Añadir 10% al precio
+                                System.out.println("Actualiazando Precio...");
+                                villaRafinha.incrementoPrecioBase();
+                            case 9:
                                 //Finalizar Reservacion
                                 break;
-                            case 9:                                   
+                            case 10:                                   
                                 break;
                             default:
                                 System.out.println("Por favor ingrese una opcion valida");
