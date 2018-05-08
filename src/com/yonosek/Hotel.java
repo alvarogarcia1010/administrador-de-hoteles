@@ -363,11 +363,21 @@ public class Hotel {
     /**
      *
      * @param reservacion
+     * @param opc
      */
     public void modificarReservacion(Reservacion reservacion, int opc) {
         switch(opc){
             case 1:
                 //Cambiar paquete adquirido
+                System.out.println("-----------------------");
+                mostrarPaquetes();
+                System.out.println("-----------------------");
+                System.out.println("Paquete de la reservacion actual: " + reservacion.getPaqueteAdquirido().getNombre());
+                System.out.print("Ingrese el numero del paquete al que desea cambiarse: ");
+                /*Scanner leer = new Scanner(System.in);
+                int opcion = leer.nextInt();
+                cambioPaquete = */
+                
                 break;
             case 2:
                 //Modificar total de dias
