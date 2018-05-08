@@ -108,7 +108,7 @@ public class Paquete {
     
     @Override
     public String toString() {
-        return "    " + nombre +  AdministradorHotel.formatoMoneda.format(costoPaquete) + "       " + servicios + "       " ;
+        return "     " + nombre + "      " + AdministradorHotel.formatoMoneda.format(costoPaquete) + "      " + servicios ;
     }
     
     
