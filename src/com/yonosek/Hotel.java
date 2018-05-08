@@ -735,6 +735,19 @@ public class Hotel {
         return fechaFinal;
     }
     
+    public void incrementoPrecioBase(){
+        int numPisos = this.pisosHotel.size();
+            for (Map.Entry <String, Piso> piso : this.pisosHotel.entrySet()) {
+                if(piso.getKey().equals(Character.toString((char)(64 + numPisos)))){
+                    this.pisosHotel.get((Character.toString((char)(64 + numPisos)))).setNuevoPrecioTodasHabitaciones();
+                }else if(piso.getKey().equals(Character.toString((char)(63 + numPisos)))){
+                    this.pisosHotel.get((Character.toString((char)(63 + numPisos)))).setNuevoPrecioTodasHabitaciones();
+                }else{
+                    this.pisosHotel.get((Character.toString((char)(63 + numPisos)))).setPrecioTodasHabitaciones();
+                }
+            }
+    }
+    
     public void Hola(){
 //        SimpleDateFormat formatoFechaLarga = new SimpleDateFormat("EEEEEEEEE dd 'de' MMMMM 'de' yyyy HH:mm:ss");
 //        SimpleDateFormat formatoFechaCorta = new SimpleDateFormat("'Fecha:' dd/MM/yyyy 'Hora:' HH:mm:ss");

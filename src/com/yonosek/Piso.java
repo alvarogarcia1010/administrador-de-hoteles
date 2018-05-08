@@ -134,4 +134,20 @@ public class Piso {
         }
         System.out.println("\n");
     }
+    
+    public void setNuevoPrecioTodasHabitaciones(){
+        float nuevoPrecio;
+        for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
+            nuevoPrecio = (habitacion.getValue().getPrecioHabitacion() *1.1f);
+            habitacion.getValue().setPrecioHabitacion(nuevoPrecio);
+        }
+    }
+    
+    public void setPrecioTodasHabitaciones(){
+        float nuevoPrecio;
+        for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
+            nuevoPrecio = (habitacion.getValue().getPrecioHabitacion());
+            habitacion.getValue().setPrecioHabitacion(nuevoPrecio);
+        }
+    }
 }

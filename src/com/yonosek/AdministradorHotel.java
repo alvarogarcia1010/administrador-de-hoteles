@@ -372,7 +372,7 @@ public class AdministradorHotel {
         paquete.setNombre(leer.nextLine());
         System.out.print("Ingrese el codigo del paquete: ");
         paquete.setCodigoPaquete(leer.nextInt());
-        System.out.print("Ingrese el costo del paquete: ");
+        System.out.print("Ingrese el costo del paquete : $");
         paquete.setCostoPaquete(leer.nextFloat());
         System.out.print("Cuantos servicios desea ingresar: ");
         int x = leer.nextInt();
