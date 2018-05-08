@@ -110,7 +110,7 @@ public class Piso {
         for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
             String clave = habitacion.getKey();
             Habitacion valor = habitacion.getValue();
-            System.out.println(clave + "  ->  " + valor.toString());
+            System.out.println(clave + "  ->  " + valor.getPrecioHabitacion());
         }
     }
     
