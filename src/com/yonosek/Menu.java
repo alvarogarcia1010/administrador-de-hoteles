@@ -94,11 +94,12 @@ public class Menu {
         System.out.println("----- Configuraciones -----");
         System.out.println("1. Agregar Habitacion");
         System.out.println("2. Eliminar Habitacion");
-        System.out.println("3. Agregar Piso");
-        System.out.println("4. Eliminar Piso");
-        System.out.println("5. Modificar precio base de habitacion sencilla");
-        System.out.println("6. Modificar precio base de habitacion doble");
-        System.out.println("7. Finalizar Reservacion");
-        System.out.println("8. Atras");
+        System.out.println("3. Mostrar Precio Habitacion");
+        System.out.println("4. Agregar Piso");
+        System.out.println("5. Eliminar Piso");
+        System.out.println("6. Modificar precio base de habitacion sencilla");
+        System.out.println("7. Modificar precio base de habitacion doble");
+        System.out.println("8. Finalizar Reservacion");
+        System.out.println("9. Atras");
     }
 }

@@ -534,7 +534,11 @@ public class Hotel {
        }
     }
     
-    
+    public void mostrahabitaciones(){
+        for (Map.Entry <String, Piso> piso : this.pisosHotel.entrySet()){
+            piso.getValue().mostrarHabitacion();
+        }
+    }
 
     //PARA MANEJAR PAQUETES
     /**

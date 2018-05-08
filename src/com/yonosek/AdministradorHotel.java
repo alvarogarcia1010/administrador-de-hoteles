@@ -85,7 +85,8 @@ public class AdministradorHotel {
         
 //        villaRafinha.mostrarPaquetes();
         
-        
+        villaRafinha.incrementoPrecioBase();
+        villaRafinha.mostrahabitaciones();
         
         Menu menu = Menu.getInstance();
 
@@ -285,42 +286,50 @@ public class AdministradorHotel {
                         switch (opcionSec) {
                             case 1:
                                 /* Agregar Habitacion */
-                                System.out.println("Agregar Habitacion");                                
+                                System.out.println("Agregar Habitacion");
+                                leer.nextLine();
+                                //villaRafinha.getPisosHotel()
                                 break;
                                 
                             case 2:
                                 /* Eliminar Habitacion*/
-                                System.out.println("Eliminar Habitacion");
+                                System.out.println("Ingrese el codigo de la habitacion: ");
+                                leer.nextLine();
                                 //villaRafihna.eliminarHab;
                                 break;
                                 
                             case 3:
+                                /*Mostrar Precio habitacion*/
+                                System.out.println("Precio habitaciones: ");
+                                villaRafinha.mostrahabitaciones();
+                                break;
+                            case 4:
                                 /* Agregar Piso */
                                 System.out.println("Agregar Piso");
                                 //villaRafinha.agregarPiso(clavePiso, piso);
                                 break;
-                            case 4:
+                            case 5:
                                 /* Eliminar Piso */
-                                System.out.println("Eliminar Piso");
-                                //villaRafinha.elimanarPiso;
+                                System.out.println("Ingrese el codigo del piso: ");
+                                villaRafinha.removerPiso(leer.nextLine());
                                 break;
 
-                            case 5:
+                            case 6:
                                 /* Modificar precio base de habitacion sencilla*/
                                 //System.out.println("/* Modificar precio base de habitacion sencilla */");
                                 System.out.println("Ingrese el precio sencillo: ");
                                 villaRafinha.setPrecioSencillo(leer.nextFloat());
                                 break;
-                            case 6:
+                            case 7:
                                 /* Modificar precio de habitacion doble */
                                 //System.out.println("/* Modificar precio base de habitacion doble */");
                                 System.out.println("Ingrese el precio de la habitacion doble: ");
                                 villaRafinha.setPrecioDoble(leer.nextFloat());
                                 break;
-                            case 7:
+                            case 8:
                                 //Finalizar Reservacion
                                 break;
-                            case 8:                                   
+                            case 9:                                   
                                 break;
                             default:
                                 System.out.println("Por favor ingrese una opcion valida");
