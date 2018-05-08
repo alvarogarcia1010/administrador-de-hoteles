@@ -21,7 +21,17 @@ public class AdministradorHotel {
         System.out.println("Hotel Villa Rafinha");
 
         Hotel villaRafinha = new Hotel(1, "VillaRafinha", 100, 150);
-              
+        
+        //Clientes      
+        Cliente cliente1 = new Cliente("09789023-9", "Daniel Alberto", "Alcoleas", "1234567890123456", 990);
+        Cliente cliente2 = new Cliente("67892738-9", "Juan Pablo", "Acosta", "1234542334489234", 356);
+        Cliente cliente3 = new Cliente("45678987-9", "Raul David", "Yanes", "345678966792039", 789);
+        Cliente cliente4 = new Cliente("67898778-9", "Alvaro Francisco", "Garcia", "567898790699", 567);
+        villaRafinha.agregarCliente(cliente1);
+        villaRafinha.agregarCliente(cliente2);
+        villaRafinha.agregarCliente(cliente3);
+        villaRafinha.agregarCliente(cliente4);
+
         //PARA PISOS
         
         //Creando objetos pisos
@@ -183,7 +193,9 @@ public class AdministradorHotel {
                                 System.out.print("Elija opcion deseada: ");
                                 opcionMod = leer.nextInt();
                                 System.out.print("\n");
-                                
+                                if(opcionMod == 4){
+                                    break;
+                                }                               
                                 System.out.println("Ingrese el codigo del paquete: ");
                                 int codigo = leer.nextInt();
                                 villaRafinha.modificarPaquete(codigo, opcionMod);
@@ -219,22 +231,25 @@ public class AdministradorHotel {
                              case 1:
                                 /* Habilitar habitacion */
                                 System.out.println("Ingrese el numero de la habitacion: ");
-                                String k = leer.nextLine();
-                                villaRafinha.habilitarHabitacion(k);
+                                leer.nextLine();
+                                villaRafinha.habilitarHabitacion(leer.nextLine());
                                 break;
                             case 2:
                                 /* Deshabilitar habitacion */
                                 System.out.println("Ingrese el numero de la habitacion: ");
+                                leer.nextLine();
                                 villaRafinha.DeshabilitarHabitacion(leer.nextLine());
                                 break;
                             case 3:
                                 /* Habilitar piso */
                                 System.out.println("Ingrese el codigo del piso: ");
+                                leer.nextLine();
                                 villaRafinha.habilitarPiso(leer.nextLine());
                                 break;
                             case 4:
                                 /* Deshabilitar piso */
                                 System.out.println("Ingrese el codigo del piso: ");
+                                leer.nextLine();
                                 villaRafinha.DeshabilitarPiso(leer.nextLine());
                                 break;
                             case 5:
@@ -377,7 +392,7 @@ public class AdministradorHotel {
             System.out.print("Ingrese el apellido del cliente: ");
             cliente.setApellido(leer.nextLine());
             System.out.print("Ingrese el numero de Tarjeta: ");
-            cliente.setNumTarjeta(leer.nextLong());
+            cliente.setNumTarjeta(leer.nextLine());
             try{
                System.out.print("Ingrese el codigo de la Tarjeta: ");
                cliente.setCodTarjeta(leer.nextInt());
@@ -387,6 +402,5 @@ public class AdministradorHotel {
             }  
         return cliente;
     }
-    
-    
+     
 }

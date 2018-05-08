@@ -44,6 +44,7 @@ public class Menu {
         System.out.println("1. Modificar precio base");
         System.out.println("2. Agregar Servicio");
         System.out.println("3. Eliminar Servicio");
+        System.out.println("4. Atras");
     }
     
     public void opcionesMantenimiento(){
