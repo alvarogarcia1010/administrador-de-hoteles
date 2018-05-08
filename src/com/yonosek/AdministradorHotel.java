@@ -181,7 +181,15 @@ public class AdministradorHotel {
                                 System.out.println("/* Mostrar reservaciones */");
                                 villaRafinha.mostrarReservaciones();
                                 break;
-                            case 5:
+                            case 5:   
+                                /* Finalizar reservación */
+                                System.out.println("/* Finalizar reservacion */");
+                                Reservacion res = villaRafinha.buscarReservacion();
+                                villaRafinha.mostrarUnaReservacion(res);
+                                villaRafinha.removerReservacion(res);
+                                break;
+                                
+                            case 6:
                                 break;
                             default:
                                 System.out.println("Por favor ingrese una opcion valida");

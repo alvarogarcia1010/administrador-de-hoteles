@@ -79,8 +79,9 @@ public class Menu {
         System.out.println("1. Agregar reservacion");
         System.out.println("2. Modificar reservacion");
         System.out.println("3. Eliminar reservacion");
-        System.out.println("4. Mostrar reservaciones por semana");  
-        System.out.println("5. Atras");
+        System.out.println("4. Mostrar reservaciones");
+        System.out.println("5. Finalizar Reservacion");
+        System.out.println("6. Atras");
 
     }
     

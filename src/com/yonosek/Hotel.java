@@ -230,7 +230,7 @@ public class Hotel {
 
     public Cliente buscarCliente() {
         Scanner leer = new Scanner(System.in);
-        System.out.print("Ingrese el DUI del cliente que desea buscar: ");
+        System.out.print("Ingrese el DUI del cliente: ");
         String DUI = leer.nextLine();
         for (Cliente c : this.clientesHotel) {
             if (DUI.equals(c.getDUI())) {
@@ -381,6 +381,8 @@ public class Hotel {
         if (reservacionesHotel.contains(reservacion)) {
             reservacionesHotel.remove(reservacion);
             System.out.println("Reservación eliminada con éxito! :)");
+            reservacion.getHabitacion().setEstaDisponible(false);
+
         } else {
             System.err.println("La reservacion no se encuentra registrada");
         }
@@ -431,30 +433,28 @@ public class Hotel {
         }
         return null;
     }
-    
-   
+
 
     /**
      *
      */
-    
-    
+ 
     public void mostrarReservaciones() {
         for (Reservacion r : this.reservacionesHotel) {
             String[] parts = r.toString().split("-");
             System.out.println("--------------------------------------");
             System.out.println("Reservación. ");
-            System.out.println(" ");
             System.out.println("Código: " + parts[0]);
             System.out.println("Nombre: " + parts[1]);
             System.out.println("Apellido: " + parts[2]);
             System.out.println("Numero Habitación: " + parts[3]);
             System.out.println("Paquete Adquirido: "+ parts[4]);
-            System.out.println("Fecha Inicial: " + parts[5]);
-            System.out.println("Fecha Final: " + parts[6]);
-            System.out.println("Total de dias: "+ parts[7]);
-            System.out.println("Costo por noche: "+ parts[8]);
-            System.out.println("Costo total: "+ parts[9]);
+            System.out.println("Costo Paquete Adquirido: "+ parts[5]);
+            System.out.println("Fecha Inicial: " + parts[6]);
+            System.out.println("Fecha Final: " + parts[7]);
+            System.out.println("Total de dias: "+ parts[8]);
+            System.out.println("Costo por noche: "+ parts[9]);
+            System.out.println("Costo total: "+ parts[10]);
             System.out.println("--------------------------------------");
             
         }
@@ -469,17 +469,17 @@ public class Hotel {
         String[] parts = r.toString().split("-");
             System.out.println("--------------------------------------");
             System.out.println("Reservación: ");
-            System.out.println(" ");
             System.out.println("Código: " + parts[0]);
             System.out.println("Nombre: " + parts[1]);
             System.out.println("Apellido: " + parts[2]);
             System.out.println("Numero Habitación: " + parts[3]);
             System.out.println("Paquete Adquirido: "+ parts[4]);
-            System.out.println("Fecha Inicial: " + parts[5]);
-            System.out.println("Fecha Final: " + parts[6]);
-            System.out.println("Total de dias: "+ parts[7]);
-            System.out.println("Costo por noche: "+ parts[8]);
-            System.out.println("Costo total: "+ parts[9]);
+            System.out.println("Costo Paquete Adquirido: "+ parts[5]);
+            System.out.println("Fecha Inicial: " + parts[6]);
+            System.out.println("Fecha Final: " + parts[7]);
+            System.out.println("Total de dias: "+ parts[8]);
+            System.out.println("Costo por noche: "+ parts[9]);
+            System.out.println("Costo total: "+ parts[10]);
             System.out.println("--------------------------------------");
 
     }
