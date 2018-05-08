@@ -381,6 +381,8 @@ public class Hotel {
         if (reservacionesHotel.contains(reservacion)) {
             reservacionesHotel.remove(reservacion);
             System.out.println("Reservación eliminada con éxito! :)");
+            reservacion.getHabitacion().setEstaDisponible(false);
+
         } else {
             System.err.println("La reservacion no se encuentra registrada");
         }
