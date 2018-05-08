@@ -153,7 +153,7 @@ public class Reservacion {
 
     @Override
     public String toString() {
-        return  codigo + "-" + cliente.getNombre() + " " + cliente.getApellido() + "-" + habitacion.getCodigoHab() + "-" + paqueteAdquirido.getNombre() + "-" + AdministradorHotel.formatoMoneda.format(costoPaquete) + "-" + formatoFechaLarga.format(fechaInicio.getTime()) + "-" + formatoFechaLarga.format(fechaFinal.getTime()) + "-" + totalDias + "-" + AdministradorHotel.formatoMoneda.format(costoNoche) + "-" + AdministradorHotel.formatoMoneda.format(costoTotal);
+        return  codigo + "-" + cliente.getNombre() + "-" + cliente.getApellido() + "-" + habitacion.getCodigoHab() + "-" + paqueteAdquirido.getNombre() + "-" + AdministradorHotel.formatoMoneda.format(costoPaquete) + "-" + formatoFechaLarga.format(fechaInicio.getTime()) + "-" + formatoFechaLarga.format(fechaFinal.getTime()) + "-" + totalDias + "-" + AdministradorHotel.formatoMoneda.format(costoNoche) + "-" + AdministradorHotel.formatoMoneda.format(costoTotal);
     }
     
     

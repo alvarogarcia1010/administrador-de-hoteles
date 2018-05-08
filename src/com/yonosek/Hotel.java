@@ -330,7 +330,7 @@ public class Hotel {
                 this.mostrarPaquetes();
                 System.out.println("Seleccione el paquete que desea: ");
                 opc = leer.nextInt();
-                reservacion.setPaqueteAdquirido(this.paquetesHotel.get(opc-1));
+                reservacion.setPaqueteAdquirido(this.paquetesHotel.get(opc));
             }else{
                System.out.println("No seleccionó ningun paquete.");
                reservacion.setPaqueteAdquirido(null);
@@ -354,6 +354,7 @@ public class Hotel {
             boolean flag = false;
             if (this.reservacionesHotel.isEmpty()) {
                 this.reservacionesHotel.add(reservacion);
+                
             } else {
                 for (Reservacion r : this.reservacionesHotel) {
                     if (reservacion.equals(r)) {
@@ -368,8 +369,8 @@ public class Hotel {
                     System.err.println("La reservacion ya se encuentra registrada");
                 }
             }
-
-        
+            System.out.println("Su reservacion ha sido creada con éxito!");
+            this.mostrarUnaReservacion(reservacion);
     }
 
     /**
@@ -441,15 +442,45 @@ public class Hotel {
     public void mostrarReservaciones() {
         for (Reservacion r : this.reservacionesHotel) {
             String[] parts = r.toString().split("-");
-            System.out.printf("%-5s   ->  %-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s \n",parts[0],parts[1],parts[2],parts[3],parts[4],parts[5],parts[6],parts[7],parts[8],parts[9]);
+            System.out.println("--------------------------------------");
+            System.out.println("Reservación. ");
+            System.out.println(" ");
+            System.out.println("Código: " + parts[0]);
+            System.out.println("Nombre: " + parts[1]);
+            System.out.println("Apellido: " + parts[2]);
+            System.out.println("Numero Habitación: " + parts[3]);
+            System.out.println("Paquete Adquirido: "+ parts[4]);
+            System.out.println("Fecha Inicial: " + parts[5]);
+            System.out.println("Fecha Final: " + parts[6]);
+            System.out.println("Total de dias: "+ parts[7]);
+            System.out.println("Costo por noche: "+ parts[8]);
+            System.out.println("Costo total: "+ parts[9]);
+            System.out.println("--------------------------------------");
+            
         }
 
     }
+    
 
     /**
      *
      */
-    public void mostrarReservacionesSemanales() {
+    public void mostrarUnaReservacion(Reservacion r) {
+        String[] parts = r.toString().split("-");
+            System.out.println("--------------------------------------");
+            System.out.println("Reservación: ");
+            System.out.println(" ");
+            System.out.println("Código: " + parts[0]);
+            System.out.println("Nombre: " + parts[1]);
+            System.out.println("Apellido: " + parts[2]);
+            System.out.println("Numero Habitación: " + parts[3]);
+            System.out.println("Paquete Adquirido: "+ parts[4]);
+            System.out.println("Fecha Inicial: " + parts[5]);
+            System.out.println("Fecha Final: " + parts[6]);
+            System.out.println("Total de dias: "+ parts[7]);
+            System.out.println("Costo por noche: "+ parts[8]);
+            System.out.println("Costo total: "+ parts[9]);
+            System.out.println("--------------------------------------");
 
     }
 
