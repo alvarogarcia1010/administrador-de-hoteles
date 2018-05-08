@@ -317,6 +317,9 @@ public class AdministradorHotel {
                                 villaRafinha.setPrecioDoble(leer.nextFloat());
                                 break;
                             case 7:
+                                //Finalizar Reservacion
+                                break;
+                            case 8:                                   
                                 break;
                             default:
                                 System.out.println("Por favor ingrese una opcion valida");
