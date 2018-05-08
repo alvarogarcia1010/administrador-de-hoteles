@@ -114,6 +114,16 @@ public class Piso {
         }
     }
     
+    public Habitacion buscarHabitacion(String hab){
+        for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
+            if((hab.equals(habitacion.getValue().getCodigoHab()))) {
+                System.out.println("Habitacion encontrada");
+                return habitacion.getValue();
+            }
+        }
+        return null;
+}
+    
     public void mostrarHabitacionDiponibles(){
         for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
             if(habitacion.getValue().isEstaDisponible() && habitacion.getValue().isEstaHabilitada() ){

@@ -69,8 +69,22 @@ public class AdministradorHotel {
                 pisos[i].agregarHabitacion(habitaciones[i][j].getCodigoHab(), habitaciones[i][j]);
             }
         }
-      
-        villaRafinha.mostrarHabitacionesDisponibles();
+        
+        Paquete basico = new Paquete(1,10.00f,"Básico");
+        basico.agregarServicio("Acceso a internet ilimitado");
+        basico.agregarServicio("Acceso a piscina ilimitado");
+        villaRafinha.agregarPaquete(1, basico);
+        
+        Paquete premium = new Paquete(2,150.00f,"Premium");
+        premium.agregarServicio("Acceso a internet ilimitado");
+        premium.agregarServicio("Acceso a piscina ilimitado");
+        premium.agregarServicio("Acceso a bufet de desayuno");
+        premium.agregarServicio("Acceso a minibar ilimitado");
+        premium.agregarServicio("Servicio a la habitacion");
+        villaRafinha.agregarPaquete(2, premium);
+        
+        villaRafinha.mostrarPaquetes();
+        
         
         
         Menu menu = Menu.getInstance();
@@ -120,7 +134,8 @@ public class AdministradorHotel {
                             case 4:
                                 /* Mostrar Clientes */
                                 System.out.println("/* Mostrar Clientes */");
-                                System.out.println("    DUI         NOMBRE          APELLIDO              NUM TARJETA         CODIGO TARJETA");
+                                System.out.printf("%-10s   ->       %-15s%-15s%-20s%-10s \n","DUI","NOMBRE","APELLIDO","NUM TARJETA", "CODIGO TARJETA" );
+
                                 villaRafinha.mostrarClientes();
                                 break;
                             case 5:
@@ -140,6 +155,7 @@ public class AdministradorHotel {
                             case 1:
                                 /* Agregar Reservacion */
                                 System.out.println("/* Agregar Reservacion */");
+                                villaRafinha.agregarReservacion();
                                 break;
                             case 2:
                                 /* Modificar Reservacion */
@@ -268,8 +284,7 @@ public class AdministradorHotel {
                         switch (opcionSec) {
                             case 1:
                                 /* Agregar Habitacion */
-                                System.out.println("Agregar Habitacion");
-                                //villaRafinha.setHab;
+                                System.out.println("Agregar Habitacion");                                
                                 break;
                                 
                             case 2:
