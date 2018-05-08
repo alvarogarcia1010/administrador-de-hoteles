@@ -63,7 +63,10 @@ public class Paquete {
 //            System.out.println(servicio);
 //        });
 //    }
-    
+    /**
+     * Agrega un nuevo servicio
+     * @param servicio 
+     */
     public void agregarServicio(String servicio) {
         boolean flag = false;
         if (servicio != null) {
@@ -89,11 +92,17 @@ public class Paquete {
         }
 
     }
-    
+    /**
+     * Modifica la informacion de un servicio
+     */
     public void modificarServicio(){
         
     }
-    
+    /**
+     * Remueve un servicio 
+     * @param servicio
+     * @throws Exception 
+     */
     public void removerServicio(String servicio) throws Exception{
         if (servicios.contains(servicio)) {
             servicios.remove(servicio);
@@ -102,6 +111,9 @@ public class Paquete {
         }
     }
     
+    /**
+     * Modifica un precio
+     */
     public void modificarPrecio(){
         
     }

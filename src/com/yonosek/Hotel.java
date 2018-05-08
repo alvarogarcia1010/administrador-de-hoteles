@@ -123,7 +123,7 @@ public class Hotel {
 
     //PARA MANEJAR CLIENTES
     /**
-     *
+     * Agregar cliente a la lista
      * @param cliente
      * @throws java.lang.Exception
      */
@@ -153,7 +153,7 @@ public class Hotel {
     }
 
     /**
-     *
+     * Remover cliente de la lista
      * @param cliente
      * @throws java.lang.Exception
      */
@@ -167,7 +167,7 @@ public class Hotel {
     }
 
     /**
-     *
+     * Modifica la informacion del cliente
      * @param cliente
      * @param opc
      */
@@ -219,7 +219,8 @@ public class Hotel {
     }
 
     /**
-     *
+     * Muestra los clientes que han sido agregados
+     * 
      */
     public void mostrarClientes() {
         for (Cliente cliente : this.clientesHotel) {
@@ -227,7 +228,10 @@ public class Hotel {
             System.out.printf("%-5s   ->  %-20s%-10s%-20s%-20s \n",(cliente.getDUI()),parts[0],parts[1],parts[2],parts[3] );
         }
     }
-
+    /**
+     * Busca un cliente en especifico en la lista de clientes
+     * @return 
+     */
     public Cliente buscarCliente() {
         Scanner leer = new Scanner(System.in);
         System.out.print("Ingrese el DUI del cliente: ");
@@ -240,14 +244,18 @@ public class Hotel {
         }
         return null;
     }
-    
+    /**
+     * Valida que un cliente no tenga mas de dos ocurrencias en las reservaciones
+     * @param cont
+     * @return 
+     */
     public boolean validarCliente(int cont){
         return cont <= 1;
     }
 
     //PARA MANEJAR RESERVACIONES
     /**
-     *
+     * Valida que un cliente no tenga mas de dos ocurrencias en las reservaciones
      * @param reservacion
      */
     public void validacionGlobalClientes(Reservacion reservacion){
@@ -276,7 +284,10 @@ public class Hotel {
                 }
             }
     }
-    
+    /**
+     * Busca una Habitacion en la lista de habitaciones
+     * @return 
+     */
     public Habitacion buscarHabitacion(){
     Habitacion habitacion= new Habitacion();
     Scanner leer = new Scanner(System.in);
@@ -291,7 +302,9 @@ public class Hotel {
     }
     return habitacion;
 }
-    
+    /**
+     * Agrega una reservacion 
+     */
     public void agregarReservacion() {
             Reservacion reservacion = new Reservacion();
             Scanner leer = new Scanner(System.in);
@@ -374,7 +387,7 @@ public class Hotel {
     }
 
     /**
-     *
+     * Remueve una reservacion de la lista
      * @param reservacion
      */
     public void removerReservacion(Reservacion reservacion) {
@@ -389,7 +402,7 @@ public class Hotel {
     }
 
     /**
-     *
+     * Modifica la informacion de una reservacion
      * @param reservacion
      * @param opc
      */
@@ -420,7 +433,10 @@ public class Hotel {
                 System.out.println("Ingrese una opcion valida");
         }
     }
-    
+    /**
+     * Busca una reservacion en la lista de reservaciones
+     * @return 
+     */
     public Reservacion buscarReservacion() {
         Scanner leer = new Scanner(System.in);
         System.out.println("Ingrese el codigo de la reservacion que desea buscar: ");
@@ -436,9 +452,9 @@ public class Hotel {
 
 
     /**
-     *
+     *Muestra las reservaciones agregadas
+     * 
      */
- 
     public void mostrarReservaciones() {
         for (Reservacion r : this.reservacionesHotel) {
             String[] parts = r.toString().split("-");
@@ -463,7 +479,8 @@ public class Hotel {
     
 
     /**
-     *
+     *Muestra una reservacion en especifico
+     * 
      */
     public void mostrarUnaReservacion(Reservacion r) {
         String[] parts = r.toString().split("-");
@@ -486,7 +503,7 @@ public class Hotel {
 
     //PARA MANEJAR PISOS
     /**
-     *
+     * Agrega un piso al hotel
      * @param clavePiso
      * @param piso
      * @throws java.lang.Exception
@@ -500,7 +517,7 @@ public class Hotel {
     }
 
     /**
-     *
+     * Remueve un piso
      * @param clavePiso
      * @throws java.lang.Exception
      */
@@ -515,7 +532,7 @@ public class Hotel {
     }
 
     /**
-     * 3
+     * Muestra todos lis pisos y sus habitciones
      */
     public void mostrarPisoYHabitaciones() {
         for (Map.Entry<String, Piso> piso : this.pisosHotel.entrySet()) {
@@ -526,14 +543,17 @@ public class Hotel {
     }
 
     /**
-     *
+     * Muestra todas las habitaciones que estan disponibles
+     * 
      */
     public void mostrarHabitacionesDisponibles() {
        for (Map.Entry <String, Piso> piso : this.pisosHotel.entrySet()) {
            piso.getValue().mostrarHabitacionDiponibles();
        }
     }
-    
+    /**
+     * Muestra solo las habitaciones de todos los pisos
+     */
     public void mostrahabitaciones(){
         for (Map.Entry <String, Piso> piso : this.pisosHotel.entrySet()){
             piso.getValue().mostrarHabitacion();
@@ -542,7 +562,7 @@ public class Hotel {
 
     //PARA MANEJAR PAQUETES
     /**
-     *
+     * Agrega un paquete
      * @param clavePaquete
      * @param paquete
      * @throws java.lang.Exception
@@ -556,7 +576,7 @@ public class Hotel {
     }
 
     /**
-     *
+     * Remueve un paquete
      * @param clavePaquete
      * @throws java.lang.Exception
      */
@@ -571,7 +591,7 @@ public class Hotel {
     }
 
     /**
-     *
+     * Modifiva la informacion de un paquete
      * @param num
      * @param opc
      */
@@ -613,7 +633,10 @@ public class Hotel {
                 System.out.println("Ingrese una opcion valida");
         }
     }
-
+    /**
+     * Revisa si una habitacion esta habilitada y si no lo esta la habilita
+     * @param hab 
+     */
     public void habilitarHabitacion(String hab) {
           String P = hab.substring(0,1).toUpperCase();
             //System.out.println(P + hab); 
@@ -625,7 +648,10 @@ public class Hotel {
             System.out.println("La habitacion ha sido habilitada");
         }
     }
-
+    /**
+     * Revisa si una habitacion esta deshabilitada y si no lo esta la deshabilita
+     * @param hab 
+     */
     public void DeshabilitarHabitacion(String hab) {
         String P = hab.substring(0, 1).toUpperCase();
 
@@ -636,7 +662,10 @@ public class Hotel {
             System.out.println("La habitacion ha sido deshabilitada");
         }
     }
-
+    /**
+     * Revisa si un piso esta habilitado y si no lo esta los habilita
+     * @param piso 
+     */
     public void habilitarPiso(String piso) {
         String p = piso.toUpperCase();
 
@@ -647,7 +676,10 @@ public class Hotel {
             System.out.println("El piso ha sido habilitado");
         }
     }
-
+    /**
+     * Resvis si un piso esta deshabilitado y si no lo esta lo deshabilita
+     * @param piso 
+     */
     public void DeshabilitarPiso(String piso) {
         String p = piso.toUpperCase();
 
@@ -660,7 +692,7 @@ public class Hotel {
     }
 
     /**
-     *
+     * Muestra la informacion de un paquete agregado
      */
     public void mostrarPaquetes() {
         for (Map.Entry<Integer, Paquete> paquete : this.paquetesHotel.entrySet()) {
@@ -674,7 +706,7 @@ public class Hotel {
     //MANEJO DE FECHAS
 
     /**
-     * 
+     * Valid la fecha
      * @param fecha
      * @return boolean
      */
@@ -690,7 +722,7 @@ public class Hotel {
     }
     
     /**
-     * 
+     * Convierte la fecha
      * @param fecha
      * @return 
      */
@@ -716,7 +748,7 @@ public class Hotel {
     
     
     /**
-     * 
+     * Guarda la fecha ingresada
      * @return 
      */
     public static Calendar ingresarFecha(){
@@ -746,7 +778,7 @@ public class Hotel {
     }
     
     /**
-     * 
+     * Guarda los dias ingresados
      * @return 
      */
     public static int ingresarDias(){
@@ -768,7 +800,7 @@ public class Hotel {
     }
     
     /**
-     * 
+     * Muestra la fecha con el formato
      * @param dias
      * @param fechaInicial
      * @return 
@@ -786,7 +818,10 @@ public class Hotel {
         
         return fechaFinal;
     }
-    
+    /**
+     * Revisa si las habitaciones estan en uno de los dos ultimos pisos
+     * y agrega el 10% al precio base
+     */
     public void incrementoPrecioBase(){
         int numPisos = this.pisosHotel.size();
             for (Map.Entry <String, Piso> piso : this.pisosHotel.entrySet()) {
@@ -799,24 +834,4 @@ public class Hotel {
                 }
             }
     }
-    
-    public void Hola(){
-//        SimpleDateFormat formatoFechaLarga = new SimpleDateFormat("EEEEEEEEE dd 'de' MMMMM 'de' yyyy HH:mm:ss");
-//        SimpleDateFormat formatoFechaCorta = new SimpleDateFormat("'Fecha:' dd/MM/yyyy 'Hora:' HH:mm:ss");
-//        System.out.println("Calendario");
-//        
-//        fechaInicial = ingresarFecha();
-//        dias = ingresarDias();
-//        fechaFinal = generarFechaFinal(dias,fechaInicial);
-//        
-//        System.out.println("Fecha inicial: " + formatoFechaCorta.format(fechaInicial.getTime()));
-//        System.out.println("Fecha inicial: " + formatoFechaLarga.format(fechaInicial.getTime()) + "\n");
-//        
-//        System.out.println("Total de dias: " + dias + "\n");
-//        
-//        System.out.println("Fecha final: " + formatoFechaCorta.format(fechaFinal.getTime()));
-//        System.out.println("Fecha final: " + formatoFechaLarga.format(fechaFinal.getTime()) + "\n");
-//        
-    }
-
 }

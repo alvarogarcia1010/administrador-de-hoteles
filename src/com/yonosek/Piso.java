@@ -72,7 +72,7 @@ public class Piso {
 
         //PARA MANEJAR HABITACIONES
     /**
-     *
+     * Agrega una habitacion
      * @param claveHabitacion
      * @param habitacion
      * @throws java.lang.Exception
@@ -86,7 +86,7 @@ public class Piso {
     }
 
     /**
-     *
+     * Remueve una Habitacion
      * @param claveHabitacion
      */
     public void removerHabitacion(String claveHabitacion) {
@@ -99,12 +99,7 @@ public class Piso {
     }
 
     /**
-     *
-     * @param claveHabitacion
-     */
-
-    /**
-     *
+     * Muestra ka informacion de una habitacion 
      */
     public void mostrarHabitacion() {
         for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
@@ -113,7 +108,11 @@ public class Piso {
             System.out.println(clave + "  ->  " + valor.getPrecioHabitacion());
         }
     }
-    
+    /**
+     * Busca una habitacion en especifico
+     * @param hab
+     * @return 
+     */
     public Habitacion buscarHabitacion(String hab){
         for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
             if((hab.equals(habitacion.getValue().getCodigoHab()))) {
@@ -123,7 +122,9 @@ public class Piso {
         }
         return null;
 }
-    
+    /**
+     * Muestra las habitaciones disponible
+     */
     public void mostrarHabitacionDiponibles(){
         for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
             if(habitacion.getValue().isEstaDisponible() && habitacion.getValue().isEstaHabilitada() ){
@@ -134,7 +135,9 @@ public class Piso {
         }
         System.out.println("\n");
     }
-    
+    /**
+     * Incrementa el 10% al precio de una habitacion
+     */
     public void setNuevoPrecioTodasHabitaciones(){
         float nuevoPrecio;
         for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {
@@ -142,7 +145,9 @@ public class Piso {
             habitacion.getValue().setPrecioHabitacion(nuevoPrecio);
         }
     }
-    
+    /**
+     * 
+     */
     public void setPrecioTodasHabitaciones(){
         float nuevoPrecio;
         for (Map.Entry <String, Habitacion> habitacion : this.habitacionesPiso.entrySet()) {

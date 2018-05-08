@@ -19,7 +19,9 @@ public class Menu {
         }
         return menu;
     }
-
+    /**
+     * Menu de opciones principales
+     */
     public void opcionesMenu() {
         System.out.println("----- Menu -----");
         System.out.println("1. Administrar clientes");
@@ -29,7 +31,9 @@ public class Menu {
         System.out.println("5. Configuraciones");
         System.out.println("6. Salir");
     }
-    
+    /**
+     * Menu de opciones de paquete
+     */
     public void opcionesMenuPaquetes(){
         System.out.println("----- Menu Paquetes -----");
         System.out.println("1. Agregar paquete");
@@ -38,7 +42,9 @@ public class Menu {
         System.out.println("4. Mostrar paquetes");
         System.out.println("5. Atras");
     }
-    
+    /**
+     * Menu modificar informacion de paquete
+     */
     public void opcionesModificarPaquete(){
         System.out.println("----- Menu Modificar Paquete -----");
         System.out.println("1. Modificar precio base");
@@ -46,7 +52,9 @@ public class Menu {
         System.out.println("3. Eliminar Servicio");
         System.out.println("4. Atras");
     }
-    
+    /**
+     * Menu de mantenimiento de pisos y habitaciones
+     */
     public void opcionesMantenimiento(){
         System.out.println("----- Mantenimiento -----");
         System.out.println("1. Habilitar habitacion");
@@ -56,7 +64,9 @@ public class Menu {
         System.out.println("5. Atras");
         
     }
-    
+    /**
+     * Menu opciones de cliente
+     */
     public void opcionesMenuClientes(){
         System.out.println("----- Menu Clientes -----");
         System.out.println("1. Registrar cliente");
@@ -65,7 +75,9 @@ public class Menu {
         System.out.println("4. Mostrar clientes");
         System.out.println("5. Atras");
     }
-    
+    /**
+     * Menu modificar informacion de cliente
+     */
     public void opcionesModificarCliente(){
         System.out.println("----- Menu Modificar Clientes -----");
         System.out.println("1. Modificar nombre");
@@ -73,7 +85,9 @@ public class Menu {
         System.out.println("3. Modificar numero de tarjeta");
         System.out.println("4. Modificar codigo de tarjeta");        
     }
-    
+    /**
+     * Menu opciones de reservacione
+     */
     public void opcionesMenuReservaciones(){
         System.out.println("----- Menu Reservaciones-----");
         System.out.println("1. Agregar reservacion");
@@ -84,13 +98,17 @@ public class Menu {
         System.out.println("6. Atras");
 
     }
-    
+    /**
+     * Menu moficar informacion de reservaciones
+     */
     public void opcionesModificarReservacion(){
         System.out.println("----- Menu Modificar Reservacion -----");
         System.out.println("1. Cambiar paquete adquirido");
         System.out.println("2. Modificar total de dias");
     }
-    
+    /**
+     * Menu opciondes de configuraciones
+     */
     public void opcionesMenuServicios(){
         System.out.println("----- Configuraciones -----");
         System.out.println("1. Agregar Habitacion");

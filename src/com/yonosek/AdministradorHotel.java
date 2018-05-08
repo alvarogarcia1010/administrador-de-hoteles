@@ -363,7 +363,10 @@ public class AdministradorHotel {
             }
         }       
     }
-
+    /**
+     * Crea una nueva habitacion
+     * @return 
+     */
     public Habitacion crearHabitacion() {
 
         Habitacion habitacion = new Habitacion();
@@ -382,14 +385,20 @@ public class AdministradorHotel {
 
         return habitacion;
     }
-
+    /**
+     * Crea un nuevo piso
+     * @return 
+     */
     public Piso crearPiso() {
 
         Piso piso = new Piso();
 
         return piso;
     }
-
+    /**
+     * Crea un nuevo paquete
+     * @return 
+     */
     public static Paquete crearPaquete() {
         Paquete paquete = new Paquete();
         Scanner leer = new Scanner(System.in);
@@ -411,7 +420,10 @@ public class AdministradorHotel {
         
         return paquete;
     }
-
+    /**
+     * Crea una nueva reservacion
+     * @return 
+     */
     public Reservacion crearReservacion() {
 
         Reservacion reservacion = new Reservacion();
@@ -420,7 +432,10 @@ public class AdministradorHotel {
     }
     
     
-
+    /**
+     * Crea un nuevo Cliente
+     * @return 
+     */
     public static Cliente crearCliente() {
         Cliente cliente = new Cliente();
         Scanner leer = new Scanner(System.in);

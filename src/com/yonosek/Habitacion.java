@@ -32,8 +32,9 @@ public class Habitacion {
         
     }
     
-    /** Asigna el tipo de la habitacion.
-     *
+    /**
+     * Asigna el tipo de la habitacion
+     * 
      */
     public void asignarTipo(){
         if(this.numHab % 2 == 0){
