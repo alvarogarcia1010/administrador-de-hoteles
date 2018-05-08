@@ -43,8 +43,8 @@ public class AdministradorHotel {
         for(int i=0 ; i<6; i++){
             villaRafinha.agregarPiso(pisos[i].getCodigo(), pisos[i]);
         }
-        System.out.println("Pisos Ingresados");
-        villaRafinha.mostrarPisoYHabitaciones();
+//        System.out.println("Pisos Ingresados");
+//        villaRafinha.mostrarPisoYHabitaciones();
         
         //PARA HABITACIONES
         
@@ -83,7 +83,7 @@ public class AdministradorHotel {
         premium.agregarServicio("Servicio a la habitacion");
         villaRafinha.agregarPaquete(2, premium);
         
-        villaRafinha.mostrarPaquetes();
+//        villaRafinha.mostrarPaquetes();
         
         
         
@@ -176,8 +176,9 @@ public class AdministradorHotel {
                                 villaRafinha.removerReservacion(reservacion);
                                 break;
                             case 4:
-                                /* Mostrar reservaciones por semana */
-                                System.out.println("/* Mostrar reservaciones por semana */");
+                                /* Mostrar reservaciones */
+                                System.out.println("/* Mostrar reservaciones */");
+                                villaRafinha.mostrarReservaciones();
                                 break;
                             case 5:
                                 break;

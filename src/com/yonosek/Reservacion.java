@@ -1,5 +1,6 @@
 package com.yonosek;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.Objects;
@@ -16,6 +17,9 @@ public class Reservacion {
     private int totalDias;
     private float costoNoche;
     private float costoTotal;
+    
+    SimpleDateFormat formatoFechaLarga = new SimpleDateFormat("EEEEEEEEE dd 'de' MMMMM 'de' yyyy HH:mm:ss");
+    SimpleDateFormat formatoFechaCorta = new SimpleDateFormat("'Fecha:' dd/MM/yyyy 'Hora:' HH:mm:ss");
     
     public Reservacion(){   
     }
@@ -149,17 +153,9 @@ public class Reservacion {
 
     @Override
     public String toString() {
-        return "Reservacion{" + "codigo=" + codigo + ", cliente=" + cliente + ", habitacion=" + habitacion + ", paqueteAdquirido=" + paqueteAdquirido + ", costoPaquete=" + costoPaquete + ", fechaInicio=" + fechaInicio + ", fechaFinal=" + fechaFinal + ", totalDias=" + totalDias + ", costoNoche=" + costoNoche + ", costoTotal=" + costoTotal + '}';
+        return  codigo + "-" + cliente.getNombre() + " " + cliente.getApellido() + "-" + habitacion.getCodigoHab() + "-" + paqueteAdquirido.getNombre() + "-" + AdministradorHotel.formatoMoneda.format(costoPaquete) + "-" + formatoFechaLarga.format(fechaInicio.getTime()) + "-" + formatoFechaLarga.format(fechaFinal.getTime()) + "-" + totalDias + "-" + AdministradorHotel.formatoMoneda.format(costoNoche) + "-" + AdministradorHotel.formatoMoneda.format(costoTotal);
     }
     
     
-    
-    public void verReservacionSemana(){
-        
-    }
-    
-    public void validarReservacion(){
-        
-    }
     
 }

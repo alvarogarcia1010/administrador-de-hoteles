@@ -323,11 +323,14 @@ public class Hotel {
 
             //PARA ADQUIRIR PAQUETE
             leer.nextLine();
+            int opc;
             System.out.print("Desea adquirir un paquete? (s/n): ");
             String op = leer.nextLine();
             if("s".equals(op)){
                 this.mostrarPaquetes();
                 System.out.println("Seleccione el paquete que desea: ");
+                opc = leer.nextInt();
+                reservacion.setPaqueteAdquirido(this.paquetesHotel.get(opc-1));
             }else{
                System.out.println("No seleccionó ningun paquete.");
                reservacion.setPaqueteAdquirido(null);
@@ -436,6 +439,10 @@ public class Hotel {
     
     
     public void mostrarReservaciones() {
+        for (Reservacion r : this.reservacionesHotel) {
+            String[] parts = r.toString().split("-");
+            System.out.printf("%-5s   ->  %-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s \n",parts[0],parts[1],parts[2],parts[3],parts[4],parts[5],parts[6],parts[7],parts[8],parts[9]);
+        }
 
     }
 
