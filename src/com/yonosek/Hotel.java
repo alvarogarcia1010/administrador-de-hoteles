@@ -276,6 +276,21 @@ public class Hotel {
             }
     }
     
+    public Habitacion buscarHabitacion(){
+    Habitacion habitacion= new Habitacion();
+    Scanner leer = new Scanner(System.in);
+    System.out.println("Ingrese la habitación que desea buscar: ");
+    String hab = leer.nextLine().toUpperCase();
+    for (Map.Entry <String, Piso> piso : this.pisosHotel.entrySet()) {
+         habitacion = piso.getValue().buscarHabitacion(hab);
+         
+         if(habitacion != null){
+             break;
+         }
+    }
+    return habitacion;
+}
+    
     public void agregarReservacion() {
             Reservacion reservacion = new Reservacion();
             Scanner leer = new Scanner(System.in);
@@ -291,19 +306,31 @@ public class Hotel {
             
             //PARA LLENAR CLIENTE (Falta probar)
             this.validacionGlobalClientes(reservacion);
+
             
+            //PARA LLENAR FECHAS y DIAS 
+            reservacion.setFechaInicio(ingresarFecha());
+            reservacion.setTotalDias(ingresarDias());
+            reservacion.setFechaFinal(generarFechaFinal(reservacion.getTotalDias(),reservacion.getFechaInicio()));
+            
+            
+            //PARA LLENAR HABITACION
             System.out.println("Habitaciones disponibles: ");
-            //habilitarHabitacion();
-            //mostrarHabitaciones();
-            //reservacion.setHabitacion(leer.algo);
-            System.out.println("Desea adquirir un paquete? (s/n)");
+            this.mostrarHabitacionesDisponibles();
+            reservacion.setHabitacion(this.buscarHabitacion());
+            reservacion.getHabitacion().setEstaDisponible(false);
+
+            //PARA ADQUIRIR PAQUETE
+            leer.nextLine();
+            System.out.print("Desea adquirir un paquete? (s/n): ");
             String op = leer.nextLine();
             if("s".equals(op)){
-                mostrarPaquetes();
+                this.mostrarPaquetes();
                 System.out.println("Seleccione el paquete que desea: ");
-                //reservacion.setPaquete(leer.algo);
+                reservacion.setPaqueteAdquirido(p.);
             }else{
-                System.out.println("No seleccionó ningun paquete.");
+               System.out.println("No seleccionó ningun paquete.");
+               reservacion.setPaqueteAdquirido(null);
             }
             
             //PARA LLENAR COSTO PAQUETE
@@ -313,11 +340,7 @@ public class Hotel {
                 reservacion.setCostoPaquete(0);
             }
             
-            //PARA LLENAR FECHAS y DIAS 
-            reservacion.setFechaInicio(ingresarFecha());
-            reservacion.setTotalDias(ingresarDias());
-            reservacion.setFechaFinal(generarFechaFinal(reservacion.getTotalDias(),reservacion.getFechaInicio()));
-            
+
             //PARA LLENAR COSTO POR NOCHE
             reservacion.setCostoNoche(reservacion.getHabitacion().getPrecioHabitacion());
             
@@ -394,6 +417,8 @@ public class Hotel {
         }
         return null;
     }
+    
+   
 
     /**
      *
@@ -460,6 +485,8 @@ public class Hotel {
            piso.getValue().mostrarHabitacionDiponibles();
        }
     }
+    
+    
 
     //PARA MANEJAR PAQUETES
     /**
@@ -490,8 +517,7 @@ public class Hotel {
 
         }
     }
-    public void agregarHabitacion(){
-    }
+
     /**
      *
      * @param num
